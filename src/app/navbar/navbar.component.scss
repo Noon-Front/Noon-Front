@@ -1,0 +1,72 @@
+.navbar {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+.navbar-nav .dropdown-menu {
+  border-radius: 12px;
+  li {
+    width: 180px;
+    padding-left: 20px;
+    &:hover {
+      background-color: rgb(247, 247, 250);
+    }
+    a {
+      color: #404553;
+      &:hover {
+        background-color: rgb(247, 247, 250);
+      }
+      &:active {
+        background-color: white;
+      }
+    }
+  }
+}
+.bg-light {
+  background-color: #feee00 !important;
+}
+
+.input-group > .form-control {
+  font-size: 13px;
+  padding: 10px;
+  @media (max-width: 1800px) {
+    min-width: 700px;
+  }
+  @media (min-width: 1800px) {
+    min-width: 1300px;
+  }
+  @media (max-width: 1200px) {
+    min-width: 400px;
+  }
+  @media (max-width: 1000px) {
+    min-width: 200px;
+  }
+}
+
+.input-group > .form-control,
+.input-group > .form-select {
+  border: none;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  margin-right: 20px;
+  margin-left: 20px;
+  @media (max-width: 400px) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,122 @@
+section {
+  &.navbar2 {
+    border-bottom: 1px solid #0000002e;
+    margin-top: 74px;
+    padding: 1px 40px;
+    nav {
+      display: flex;
+      align-items: center;
+      .all-cate {
+        display: flex;
+        justify-content: space-between;
+        width: 12%;
+        margin-right: 10px;
+        padding-right: 20px;
+        border-right: 1px solid #000;
+        cursor: pointer;
+        a {
+          text-transform: uppercase;
+          font-weight: 700;
+          font-size: 14px;
+          text-decoration: none;
+          color: #3866df;
+        }
+      }
+      .cate {
+        width: 88%;
+        ul {
+          list-style: none;
+          display: flex;
+          padding: 0;
+          margin: 0;
+          li {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 10px 15px;
+            cursor: pointer;
+            &:hover {
+              box-shadow: rgb(0 0 0 / 18%) 0px 2px 4px 0px;
+            }
+            a {
+              text-decoration: none;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+section {
+  &.category-list {
+    padding: 20px 0;
+    display: flex;
+    .brand-list {
+      list-style: none;
+      width: 20%;
+      li {
+        margin-bottom: 13px;
+        a {
+          text-decoration: none;
+          color: rgb(107, 106, 106);
+          font-size: 12px;
+          font-weight: 700;
+          &:hover {
+            color: #3866df;
+          }
+        }
+      }
+    }
+    .brand-logos {
+      display: flex;
+      width: 80%;
+      .right {
+        width: 40%;
+        h2 {
+          margin-bottom: 20px;
+          font-size: 16px;
+          font-weight: 700;
+          margin-left: 10px;
+        }
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #000;
+            width: 190px;
+            height: 135px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+      .left {
+        display: flex;
+        width: 40%;
+        .photo {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid #000;
+          margin: 0 7px;
+          &:first-of-type {
+            width: 490px;
+            height: 400px;
+          }
+          &:last-of-type {
+            width: 245px;
+            height: 400px;
+          }
+        }
+      }
+    }
+  }
+}
