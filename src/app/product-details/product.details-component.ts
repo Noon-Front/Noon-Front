@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-mainImg:any; 
+mainImg:any;
 img1:any;
 img2:any;
 img3:any;
