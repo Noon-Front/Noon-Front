@@ -7,12 +7,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { Navbar2Component } from './navbar2/navbar2.component';
 import { FooterComponent } from './footer/footer.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     Navbar2Component,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
