@@ -7,7 +7,6 @@ footer {
     border-bottom: 1px solid rgb(204, 199, 199);
     .info {
       display: flex;
-
       justify-content: space-between;
       align-items: center;
       @media (max-width: 992px) {
@@ -20,6 +19,13 @@ footer {
       span {
         color: #7e859b;
         font-size: 13px;
+      }
+      div {
+        &:first-of-type {
+          @media (max-width: 992px) {
+            margin-bottom: 30px;
+          }
+        }
       }
       .all-links {
         display: flex;
