@@ -1,0 +1,114 @@
+footer {
+  margin-top: 50px;
+  .reach-us {
+    margin-bottom: 20px;
+    padding: 20px 0;
+    border-top: 1px solid rgb(204, 199, 199);
+    border-bottom: 1px solid rgb(204, 199, 199);
+    .info {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: center;
+      @media (max-width: 992px) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      h5 {
+        font-size: 20px;
+      }
+      span {
+        color: #7e859b;
+        font-size: 13px;
+      }
+      .all-links {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0;
+        @media (max-width: 768px) {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .link {
+          margin: 0 15px;
+          cursor: pointer;
+          @media (max-width: 768px) {
+            margin-bottom: 20px;
+          }
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            &:hover {
+              p,
+              h5 {
+                color: #a6a9b4;
+              }
+            }
+            p {
+              font-size: 10px;
+              margin-bottom: 0;
+              color: #7e859b;
+              text-transform: uppercase;
+              text-align: left;
+              transition: all 0.01s ease-in-out;
+            }
+            h5 {
+              margin-bottom: 0;
+              font-size: 18px;
+              transition: all 0.3s linear;
+            }
+          }
+        }
+        img {
+          width: 24px;
+          height: 24px;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+  h5 {
+    font-size: 14.3px;
+    font-weight: 700;
+    color: #404553;
+  }
+  ul {
+    list-style: none;
+    li {
+      a {
+        text-decoration: none;
+        font-size: 13px;
+        color: #404553;
+        &:hover {
+          color: #3866df;
+        }
+      }
+    }
+  }
+  .links {
+    margin-bottom: 40px;
+    h5 {
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+    img {
+      cursor: pointer;
+      margin: 0 8px;
+    }
+    .app {
+      text-align: center;
+      @media (max-width: 992px) {
+        margin-bottom: 30px;
+      }
+    }
+    .social {
+      text-align: center;
+      img {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+}
