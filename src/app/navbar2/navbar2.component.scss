@@ -1,3 +1,7 @@
+body {
+  overflow-x: hidden;
+}
+
 .container-fluid {
   @media (max-width: 576px) {
     min-width: 320px;
@@ -26,22 +30,12 @@ section {
   z-index: 100;
   &.navbar2 {
     border-bottom: 1px solid #0000002e;
-    margin-top: 74px;
     padding: 1px 40px;
     @media (max-width: 1200px) {
       padding: 1px 30px;
     }
     @media (max-width: 992px) {
       padding: 1px 20px;
-    }
-    @media (max-width: 724px) {
-      margin-top: 113px;
-    }
-    @media (max-width: 576px) {
-      margin-top: 130px;
-    }
-    @media (max-width: 355px) {
-      margin-top: 153px;
     }
     nav {
       .all-cate {
