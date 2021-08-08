@@ -16,6 +16,7 @@ import { List2Component } from './list-of-items/list2/list2.component';
 import { List3Component } from './list-of-items/list3/list3.component';
 import { List4Component } from './list-of-items/list4/list4.component';
 import { List5Component } from './list-of-items/list5/list5.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,11 +33,12 @@ import { List5Component } from './list-of-items/list5/list5.component';
     List2Component,
     List3Component,
     List4Component,
-    List5Component
+    List5Component,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
