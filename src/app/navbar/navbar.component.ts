@@ -24,8 +24,8 @@ export class NavbarComponent implements OnInit {
   }
 
   showSignUp(){
-    this.showLogin = false;
     this.showRegister = true;
+    this.showLogin = false;
     this.ForgetPass = false;
   }
   showSignIn(){
@@ -34,8 +34,8 @@ export class NavbarComponent implements OnInit {
     this.ForgetPass = false;
   }
   showForgetPass(){
+    this.ForgetPass = true;
     this.showLogin = false;
     this.showRegister = false;
-    this.ForgetPass = true;
   }
 }
