@@ -1,8 +1,75 @@
 <div class="row mainDiv">
-  <div class="col-7">
-    <h2>Cart <span>(1 item)</span></h2>
-  </div>
-  <div class="col-4">
-    <h2>Cart <span>(1 item)</span></h2>
-  </div>
+    <div class="col-7">
+        <h5 class="fw-bold">Cart <span>(1 item)</span></h5>
+        <div class="row product">
+            <div class="col-2">
+                <img class="productImg" src="../assets/Images/Product img(1).png" />
+            </div>
+            <div class="col">
+                <h5>Kingston</h5>
+                <h6>CanvasSelected Plus UHS-i Memory card 32GB Black/White/Green</h6>
+                <span> sold by <span style="color: black">noon</span></span>
+                <div class="warranty">
+                    <img class="icon" src="../assets/warranty.svg" /> 1 year warranty
+                </div>
+                <div class="row  ">
+                    <div class="col mt-2">
+                        <button class="btn btn-outline-danger"> <img class="remove" src="../assets/remove.svg">
+                            Remove</button>
+                    </div>
+                    <div class="col pt-1 " style="text-align: right;">
+                        <img src="../assets/express.svg" style="width: 5em" />
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-outline-primary">
+            Contiue shoping
+        </button>
+    </div>
+    <div class="col-4 ms-3 summary">
+        <div class="row border">
+            <h6 class="fw-bold mt-2">Order summary</h6>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Coupon code or Gift card"
+                    aria-label="Recipient's username" aria-describedby="button-addon2" />
+                <button class="btn btn-primary fw-bold" type="button" id="button-addon2" routerLink="">
+                    Apply
+                </button>
+            </div>
+            <span class="fs-6">Subtotal (1 item)</span>
+            <span class="my-3 fs-6">Shipping</span>
+            <hr />
+            <h6 class="fw-bold ">Total <span>(Inclusive of VAT)</span></h6>
+            <div class="row w-100 my-3 warranty">
+                <div class="col-1">
+                    <img class="icon" src="../assets/pay_later.svg" />
+                </div>
+                <div class="col"><span>
+                        Buy now, pay later with select cards. Choose this option during
+                        checkout</span> <br>
+                    <a href="#" class="link-primary">View more details</a>
+
+                </div>
+
+            </div>
+            <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-primary w-75 mx-auto" type="button">Check out</button>
+
+            </div>
+        </div>
+        <div class="row my-3 justify-content-center">
+
+            <div class="col-8  pt-1">
+                <img class="icon me-2" src="../assets/noonVip.svg"> <span class="text-success fw-bold">Earn EGP 134.99 cashback.<span>Add noon VIP to cart</span></span>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <img src="../assets/Images/benefits.png" alt="" />
+        </div>
+    </div>
 </div>
