@@ -18,6 +18,7 @@ import { List4Component } from './list-of-items/list4/list4.component';
 import { List5Component } from './list-of-items/list5/list5.component';
 import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
+import { HomeCategoryComponent } from './home-category/home-category.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     List4Component,
     List5Component,
     HomePageComponent,
+    HomeCategoryComponent,
   ],
   imports: [
     BrowserModule,
