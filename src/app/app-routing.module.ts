@@ -5,6 +5,7 @@ import { ElectronicsPageComponent } from './electronics-page/electronics-page.co
 import { FashionPageComponent } from './fashion-page/fashion-page.component';
 import { HomeCategoryComponent } from './home-category/home-category.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
 import { ProductDetailsComponent } from './product-details/product.details-component';
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'fashion', component: FashionPageComponent },
   { path: 'electronics', component: ElectronicsPageComponent },
   { path: 'homeCategory', component: HomeCategoryComponent },
-  {path: 'cart',component: AddToCartComponent}
+  {path: 'cart',component: AddToCartComponent},
+  {path:'mobiles', component:MobilesPageComponent}
 ];
 
 @NgModule({

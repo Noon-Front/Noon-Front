@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ElectronicsPageComponent } from './electronics-page/electronics-page.component';
 import { SwiperModule } from 'swiper/angular';
+import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SwiperModule } from 'swiper/angular';
     FashionPageComponent,
     HomePageComponent,
     ElectronicsPageComponent,
+    MobilesPageComponent,
   ],
   imports: [
     BrowserModule,
