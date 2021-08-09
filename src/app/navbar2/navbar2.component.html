@@ -1,4 +1,4 @@
-<div class="Categories">
+<div class="Categories" (mouseleave)="hideList()">
   <section class="navbar2">
     <nav>
       <div class="container-fluid d-flex">
@@ -10,22 +10,22 @@
         </div>
         <div class="cate">
           <ul>
-            <li><a href="#">Electronics</a></li>
-            <li><a href="#">Mobiles</a></li>
-            <li><a [routerLink]="['/fashion']">Fashion</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Beauty & Healthy</a></li>
-            <li><a href="#">Baby & Toys</a></li>
-            <li><a href="#">Subermarket</a></li>
+            <li (mouseover)="showList()"><a href="#">Electronics</a></li>
+            <li (mouseover)="showList()"><a href="#">Mobiles</a></li>
+            <li (mouseover)="showList()"><a [routerLink]="['/fashion']">Fashion</a></li>
+            <li (mouseover)="showList()"><a href="#">Home</a></li>
+            <li (mouseover)="showList()"><a href="#">Beauty & Healthy</a></li>
+            <li (mouseover)="showList()"><a href="#">Baby & Toys</a></li>
+            <li (mouseover)="showList()"><a href="#">Subermarket</a></li>
           </ul>
         </div>
       </div>
     </nav>
   </section>
 
+  <!-- [class.d-none]="show" -->
 
-
-  <section [class.d-none]="show" class="category-list">
+  <section *ngIf="show" class="category-list" (mouseleave)="hideList()">
     <div class="container-fluid d-flex">
       <ul class="brand-list">
         <li><a href="#">Electronics</a></li>

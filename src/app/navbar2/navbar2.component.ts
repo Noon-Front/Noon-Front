@@ -7,22 +7,23 @@ import { Component, OnInit, ɵgetDebugNode__POST_R3__ } from '@angular/core';
 })
 export class Navbar2Component implements OnInit {
 
-  show = true;
+  show = false;
 
   constructor() { }
 
   ngOnInit(): void {
-    let Categories = document.querySelector(".Categories");
-    Categories?.addEventListener("mouseenter", () => {
-        if (this.show == true) {
-          this.show = false;
-        }
-      })
-    Categories?.addEventListener("mouseleave", () => {
-      if (this.show == false) {
-        this.show = true;
-      }
-    })
+  }
+
+  showList(){
+    if (this.show == false){
+      this.show = true;
+    }
+  }
+
+  hideList(){
+    if (this.show == true){
+      this.show = false;
+    }
   }
 
 }
