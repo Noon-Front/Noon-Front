@@ -10,18 +10,10 @@ import { ProductDetailsComponent } from './product-details/product.details-compo
 import { CarouselComponent } from './home-page/carousel/carousel.component';
 import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 import { FashionPageComponent } from './fashion-page/fashion-page.component';
-import { ListOfItemsComponent } from './list-of-items/list-of-items.component';
-import { List1Component } from './list-of-items/list1/list1.component';
-import { List2Component } from './list-of-items/list2/list2.component';
-import { List3Component } from './list-of-items/list3/list3.component';
-import { List4Component } from './list-of-items/list4/list4.component';
-import { List5Component } from './list-of-items/list5/list5.component';
 import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ElectronicsPageComponent } from './electronics-page/electronics-page.component';
-import { List6Component } from './list-of-items/list6/list6.component';
-import { List7Component } from './list-of-items/list7/list7.component';
-import { List8Component } from './list-of-items/list8/list8.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -33,22 +25,14 @@ import { List8Component } from './list-of-items/list8/list8.component';
     CarouselComponent,
     AddToCartComponent,
     FashionPageComponent,
-    ListOfItemsComponent,
-    List1Component,
-    List2Component,
-    List3Component,
-    List4Component,
-    List5Component,
     HomePageComponent,
     ElectronicsPageComponent,
-    List6Component,
-    List7Component,
-    List8Component,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
