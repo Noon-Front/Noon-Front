@@ -7,6 +7,7 @@ import { HomeCategoryComponent } from './home-category/home-category.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
 import { ProductDetailsComponent } from './product-details/product.details-component';
+import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'electronics', component: ElectronicsPageComponent },
   { path: 'homeCategory', component: HomeCategoryComponent },
   {path: 'cart',component: AddToCartComponent},
-  {path:'mobiles', component:MobilesPageComponent}
+  {path:'mobiles', component:MobilesPageComponent},
+  {path:'supermarket',component:SupermarketPageComponent}
 ];
 
 @NgModule({

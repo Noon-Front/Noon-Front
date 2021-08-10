@@ -15,6 +15,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ElectronicsPageComponent } from './electronics-page/electronics-page.component';
 import { SwiperModule } from 'swiper/angular';
 import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
+import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
     HomePageComponent,
     ElectronicsPageComponent,
     MobilesPageComponent,
+    SupermarketPageComponent,
   ],
   imports: [
     BrowserModule,
