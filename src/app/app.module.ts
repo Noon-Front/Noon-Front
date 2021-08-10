@@ -17,6 +17,7 @@ import { SwiperModule } from 'swiper/angular';
 import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
 import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
 import { HomeCategoryComponent } from './home-category/home-category.component';
+import { ProductsDisplayComponent } from './products-display/products-display.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HomeCategoryComponent } from './home-category/home-category.component';
     ElectronicsPageComponent,
     MobilesPageComponent,
     SupermarketPageComponent,
-    HomeCategoryComponent
+    HomeCategoryComponent,
+    ProductsDisplayComponent,
   ],
   imports: [
     BrowserModule,
