@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAA;EACN,gBAAgB,EAAE,OAAO;CAC5B;;AACD,AAAA,SAAS,CAAA;EACL,gBAAgB,EAAE,OAAO;CAE5B;;AAHD,AAEI,SAFK,CAEL,MAAM,CAAA;EAAC,YAAY,EAAE,GAAG;CAAG;;AAE/B,AAAA,QAAQ,CAAA;EACJ,gBAAgB,EAAE,OAAO;CAQ5B;;AATD,AAEI,QAFI,CAEJ,YAAY,CAAA;EACR,KAAK,EAAE,GAAG;CACb;;AAJL,AAKI,QALI,CAKJ,YAAY,CAAA;EACR,KAAK,EAAE,GAAG;CACb",
+    "sources": [
+        "mobiles-page.component.scss"
+    ],
+    "names": [],
+    "file": "mobiles-page.component.css"
+}

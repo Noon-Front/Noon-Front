@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAA;EACX,SAAS,EAAC,IAAI;EACd,UAAU,EAAE,IAAI;CACnB",
+    "sources": [
+        "add-new-brand.component.scss"
+    ],
+    "names": [],
+    "file": "add-new-brand.component.css"
+}

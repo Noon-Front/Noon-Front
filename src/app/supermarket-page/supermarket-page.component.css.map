@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAA;EAAC,gBAAgB,EAAE,OAAO;CAAG;;AACzC,AAAA,WAAW,CAAA;EAAC,KAAK,EAAE,GAAG;CAAG;;AACzB,AAAW,UAAD,CAAC,GAAG,CAAA;EAAC,KAAK,EAAE,IAAI;CAAG",
+    "sources": [
+        "supermarket-page.component.scss"
+    ],
+    "names": [],
+    "file": "supermarket-page.component.css"
+}
