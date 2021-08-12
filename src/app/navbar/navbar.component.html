@@ -92,7 +92,7 @@
           <a (click)="showSignUp()">Sign Up</a>
         </div>
         <div class="the-form">
-          <form #loginForm="ngForm">
+          <form #userForm="ngForm" novalidate (ngSubmit)="loginSubmit()">
             <div class="mb-3 email">
               <label for="exampleInputEmail1" class="form-label">Email</label>
               <input type="email" name="email" #email="ngModel" [(ngModel)]="userModel.email" class="form-control"
@@ -116,7 +116,8 @@
             <div class="mb-3 forget-pass">
               <span (click)="showForgetPass()">Forgot your password?</span>
             </div>
-            <button type="submit">Sign In</button>
+            <button type="submit" data-bs-dismiss="modal" aria-label="Close" [disabled]="userForm.invalid">Sign
+              In</button>
           </form>
         </div>
       </div>
@@ -136,7 +137,7 @@
           <a (click)="showSignIn()">Sign In</a>
         </div>
         <div class="the-form">
-          <form>
+          <form #userForm="ngForm" novalidate (ngSubmit)="registerSubmit()">
             <div class="mb-3 user-name">
               <label for="userName" class="form-label">User Name</label>
               <input type="text" name="user-name" #userName="ngModel" [(ngModel)]="userModel.userName"
@@ -165,7 +166,19 @@
                 <small class="text-danger" *ngIf="password.errors?.pattern">Invalid password</small>
               </div>
             </div>
-            <button style="margin-top: 20px;" type="submit">Create An Account</button>
+            <div class="mb-3 pass">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" name="confirmPassword" #confirmPassword="ngModel"
+                [(ngModel)]="userModel.confirmPassword" class="form-control" id="confirmPassword" required
+                [class.is-invalid]="confirmPassword.invalid && confirmPassword.touched">
+              <div *ngIf="confirmPassword.errors && (confirmPassword.invalid && confirmPassword.touched)">
+                <small class="text-danger" *ngIf="confirmPassword.errors?.required">Confirm Password can't be
+                  empty</small>
+                <small class="text-danger" *ngIf="confirmPassword.errors?.pattern"></small>
+              </div>
+            </div>
+            <button style="margin-top: 20px;" type="submit" [disabled]="userForm.invalid">Create An
+              Account</button>
           </form>
         </div>
       </div>

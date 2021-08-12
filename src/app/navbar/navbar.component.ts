@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormServiceService } from '../shared classes and interfaces/form-service.service';
 import { User } from '../shared classes and interfaces/user';
 
 @Component({
@@ -18,7 +19,7 @@ export class NavbarComponent implements OnInit {
 
   accountStatus = false;
 
-  constructor() { }
+  constructor(private _formService:FormServiceService) { }
 
   ngOnInit(): void {
   }
@@ -37,5 +38,25 @@ export class NavbarComponent implements OnInit {
     this.ForgetPass = true;
     this.showLogin = false;
     this.showRegister = false;
+  }
+
+  registerSubmit(){
+    this._formService.addUser(this.userModel).subscribe(
+      response => console.log("succed:", response),
+      error => console.log("error:", error)
+    )
+
+    this.showLogin = true;
+    this.showRegister = false;
+    this.ForgetPass = false;
+  }
+
+  loginSubmit(){
+    this._formService.login(this.userModel).subscribe(
+      response => console.log("succed:", response),
+      error => console.log("error:", error)
+    )
+
+    this.accountStatus = true;
   }
 }

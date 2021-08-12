@@ -18,6 +18,7 @@ import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
 import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
 import { HomeCategoryComponent } from './home-category/home-category.component';
 import { ProductsDisplayComponent } from './products-display/products-display.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ProductsDisplayComponent } from './products-display/products-display.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SwiperModule
+    SwiperModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
