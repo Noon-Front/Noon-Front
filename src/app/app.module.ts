@@ -19,6 +19,15 @@ import { SupermarketPageComponent } from './supermarket-page/supermarket-page.co
 import { HomeCategoryComponent } from './home-category/home-category.component';
 import { ProductsDisplayComponent } from './products-display/products-display.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductsComponent } from './dashboard/products/products.component';
+import { CustomersComponent } from './dashboard/customers/customers.component';
+import { SellersComponent } from './dashboard/sellers/sellers.component';
+import { OrdersComponent } from './dashboard/orders/orders.component';
+import { AddNewCategoryComponent } from './dashboard/add-new-category/add-new-category.component';
+import { AddNewBrandComponent } from './dashboard/add-new-brand/add-new-brand.component';
+import { AddNewSubCategoryComponent } from './dashboard/add-new-sub-category/add-new-sub-category.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +47,23 @@ import { AddProductComponent } from './add-product/add-product.component';
 
     ProductsDisplayComponent,
 
-    AddProductComponent
+    AddProductComponent,
+      DashboardComponent,
+      ProductsComponent,
+      CustomersComponent,
+      SellersComponent,
+      OrdersComponent,
+      AddNewCategoryComponent,
+      AddNewBrandComponent,
+      AddNewSubCategoryComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SwiperModule
+    SwiperModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

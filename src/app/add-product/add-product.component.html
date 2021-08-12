@@ -43,6 +43,19 @@
             <input  multiple #image3 id="image3" type="file" class="  form-control d-none" placeholder="Images" name="imagePath" #imagePath="ngModel" [(ngModel)]="productImage.imagePath" required (change)="handelUpload3($event)">
             <img (click)="image3.click()" class="w-50 m-1 image border shadow" [src]="imageUrl3" >
              </div>
+
+             <!-- select category -->
+             <select class="form-control">
+               <option></option>
+             </select>
+             <!-- select sub-subcategory -->
+             <select class="form-control">
+               <option></option>
+             </select>
+             <!-- select brand -->
+             <select>
+               <option></option>
+             </select>
              <!-- submit button -->
              <button type="submit" [disabled]="addProductForm.valid" class="btn btn-primary">Submit</button>
 

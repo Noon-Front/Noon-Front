@@ -9,6 +9,9 @@ import { User } from '../shared classes and interfaces/user';
 })
 export class NavbarComponent implements OnInit {
 
+  
+
+  constructor(private _formService:FormServiceService) { }
   userModel = new User();
 
   showLogin = true;
@@ -18,8 +21,6 @@ export class NavbarComponent implements OnInit {
   show = true;
 
   accountStatus = false;
-
-  constructor(private _formService:FormServiceService) { }
 
   ngOnInit(): void {
   }

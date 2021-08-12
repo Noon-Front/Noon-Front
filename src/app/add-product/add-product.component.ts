@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BrandService } from '../shared classes and interfaces/brand.service';
 import { Product } from '../shared classes and interfaces/product';
 import { ProductImages } from '../shared classes and interfaces/product-images';
 
@@ -14,13 +15,17 @@ imageUrl1:string="assets/Images/add-image.png"
 imageUrl2:string="assets/Images/add-image.png"
 imageUrl3:string="assets/Images/add-image.png"
 imagePath:any;
-  imageToUpload!: File;
-  constructor() { }
+imageToUpload!: File;
+brands:any;
+  constructor(private _brandService:BrandService) { }
 
   ngOnInit(): void {
-    console.log(this.productImage.imagePath)
-    console.log(this.imagePath)
   }
+  ngAfterViewInit(): void {
+    this._brandService.getAllBrands().subscribe(data =>{ this.brands= data, console.log(data)})
+
+  }
+ 
   handelUpload1(file:any):void{
     this.imageToUpload= file.target.files[0]
     //show the images

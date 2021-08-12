@@ -1,0 +1,24 @@
+.pricekDiv {
+  background-color: #efe8f5;
+}
+
+.brandDiv {
+  background-color: #e9f5f5;
+}
+
+.brandDiv .col-1 {
+  margin-right: 8em;
+}
+
+.pinkDiv {
+  background-color: #f5e9ea;
+}
+
+.pinkDiv .wearDevices {
+  width: 90%;
+}
+
+.pinkDiv .accessories {
+  width: 98%;
+}
+/*# sourceMappingURL=mobiles-page.component.css.map */

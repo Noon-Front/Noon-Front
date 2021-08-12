@@ -1,0 +1,7 @@
+.image {
+  max-width: 150px;
+  max-height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*# sourceMappingURL=add-product.component.css.map */
