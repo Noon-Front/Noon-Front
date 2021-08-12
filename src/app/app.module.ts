@@ -18,7 +18,7 @@ import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
 import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
 import { HomeCategoryComponent } from './home-category/home-category.component';
 import { ProductsDisplayComponent } from './products-display/products-display.component';
-import { HttpClientModule } from '@angular/common/http';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -35,14 +35,17 @@ import { HttpClientModule } from '@angular/common/http';
     MobilesPageComponent,
     SupermarketPageComponent,
     HomeCategoryComponent,
+
     ProductsDisplayComponent,
+
+    AddProductComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SwiperModule,
-    HttpClientModule
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
