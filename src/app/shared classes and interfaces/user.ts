@@ -3,6 +3,6 @@ export class User {
     public userName?: string,
     public email?: string,
     public password?: string,
-    public confirmPassword?:string
+    public confirmPassword?:string,
   ){}
 }

@@ -8,7 +8,6 @@ import { User } from '../shared classes and interfaces/user';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-
   userModel = new User();
 
   showLogin = true;
@@ -19,7 +18,9 @@ export class NavbarComponent implements OnInit {
 
   accountStatus = false;
 
-  constructor(private _formService:FormServiceService) { }
+  constructor(private _formService:FormServiceService) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -40,8 +41,8 @@ export class NavbarComponent implements OnInit {
     this.showRegister = false;
   }
 
-  registerSubmit(){
-    this._formService.addUser(this.userModel).subscribe(
+  registerUser(){
+    this._formService.signUp(this.userModel).subscribe(
       response => console.log("succed:", response),
       error => console.log("error:", error)
     )
@@ -52,11 +53,12 @@ export class NavbarComponent implements OnInit {
   }
 
   loginSubmit(){
-    this._formService.login(this.userModel).subscribe(
-      response => console.log("succed:", response),
-      error => console.log("error:", error)
-    )
-
+    this._formService.signIn(this.userModel);
     this.accountStatus = true;
   }
+
+  logout(){
+    this._formService.doLogout();
+  }
+
 }

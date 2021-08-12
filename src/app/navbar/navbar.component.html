@@ -53,7 +53,7 @@
             <li>
               <hr style="margin: 0.4rem; opacity: .1;">
             </li>
-            <li><a class="dropdown-item" href="#">Sign Out</a></li>
+            <li (click)="logout()"><a class="dropdown-item" href="#">Sign Out</a></li>
           </ul>
         </li>
       </ng-template>
@@ -137,7 +137,7 @@
           <a (click)="showSignIn()">Sign In</a>
         </div>
         <div class="the-form">
-          <form #userForm="ngForm" novalidate (ngSubmit)="registerSubmit()">
+          <form #userForm="ngForm" novalidate (ngSubmit)="registerUser()">
             <div class="mb-3 user-name">
               <label for="userName" class="form-label">User Name</label>
               <input type="text" name="user-name" #userName="ngModel" [(ngModel)]="userModel.userName"

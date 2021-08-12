@@ -8,6 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
 import { ProductDetailsComponent } from './product-details/product.details-component';
 import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
+import { AuthGuard } from './shared classes and interfaces/auth.guard'; //new
 
 const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'fashion', component: FashionPageComponent },
   { path: 'electronics', component: ElectronicsPageComponent },
   { path: 'homeCategory', component: HomeCategoryComponent },
-  {path: 'cart',component: AddToCartComponent},
+  {path: 'cart',component: AddToCartComponent, canActivate:[AuthGuard]},//AuthGuard new
   {path:'mobiles', component:MobilesPageComponent},
   {path:'supermarket',component:SupermarketPageComponent}
 ];
