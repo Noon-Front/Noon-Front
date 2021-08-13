@@ -13,8 +13,8 @@
           <tr *ngFor="let category of allCategory">
             <td>{{category.name}}</td>
             <td>
-                <button class="btn btn-primary mx-1">Edit</button>
-                <button class="btn btn-danger mx-1">Delete</button>
+                <button class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal5"(click)="getById(category.id)">Edit</button>
+                <button class="btn btn-danger mx-1" (click)="delete(category.id)">Delete</button>
             </td>
           </tr>
           
@@ -22,7 +22,7 @@
       </table>
       <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal2">+Add New Category</button>
   
-      <!-- Modal -->
+      <!-- Modal new creation -->
       <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
           <div class="modal-content">
@@ -33,7 +33,7 @@
             <div class="modal-body">
                 <form>
                     <span *ngIf="categoryName.errors?.required || categoryName.touched" class="text-danger">*This field is required</span>
-                  <input type="text" class="form-control my-2" placeholder="Category Name" required #categoryName="ngModel" [(ngModel)]="newCategory.name">
+                  <input type="text" class="form-control my-2" placeholder="Category Name" name="categoryName" required #categoryName="ngModel" [(ngModel)]="newCategory.Name">
            
                 </form>
              
@@ -41,6 +41,30 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="button" class="btn btn-success" (click)="submit()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+
+       <!-- Modal for edit -->
+       <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Category </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                  <input type="text" class="form-control my-2" placeholder="Category new Name" name="modifiedObj" required #modifiedObj="ngModel" [(ngModel)]="modifiedObj.name">
+           
+                </form>
+             
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" (click)="edit()">Save</button>
             </div>
           </div>
         </div>

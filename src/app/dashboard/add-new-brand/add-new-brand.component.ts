@@ -10,14 +10,28 @@ import { BrandService } from 'src/app/shared classes and interfaces/brand.servic
 export class AddNewBrandComponent implements OnInit {
 
   constructor(private _brandService:BrandService) { }
-  newBrand!:Brand;
+  newBrand= new Brand();
   allBrands:any;
+  modifiedObj:any;
 
   ngOnInit(): void {
     this._brandService.getAllBrands().subscribe(data =>{this.allBrands=data , console.log(data)})
   }
   submit(){
-    this._brandService.insertNewBrand(this.newBrand)
+    this._brandService.insertNewBrand(this.newBrand).subscribe(data =>{console.log(data)})
+    this.ngOnInit();
   }
+  deleteBrand(brandId:any){
+    this._brandService.removeBrand(brandId).subscribe(data =>{console.log(data)})
+    this.ngOnInit();
+  }
+  getById(id:any):void{
+    this._brandService.getById(id).subscribe(data =>{this.modifiedObj=data, console.log(data)})
+ }
+ edit(){
+   this._brandService.edit(this.modifiedObj).subscribe(data =>{console.log(data)})
+   this.ngOnInit(); 
+
+ }
 
 }

@@ -11,14 +11,28 @@ export class AddNewSubCategoryComponent implements OnInit {
 
   constructor(private _subCategoryService:SubCategoryService) { }
   allSubCategory:any;
-  newSubCategory!:SubCategory;
+  newSubCategory= new SubCategory();
+  modifiedObj:any;
 
   ngOnInit(): void {
     this._subCategoryService.getAllSubCategory().subscribe(data =>{this.allSubCategory=data, console.log(data)})
-
   }
+ 
   submit(){
     this._subCategoryService.addSubCategory(this.newSubCategory).subscribe(data => { console.log(data)})
+    this.ngOnInit();
   }
+  delete(id:any){
+    this._subCategoryService.removeSubCategory(id).subscribe(data =>{console.log(data)})
+    this.ngOnInit();
+  }
+  getById(id:any):void{
+    this._subCategoryService.getById(id).subscribe(data =>{this.modifiedObj=data, console.log(data)})
+ }
+ edit(){
+   this._subCategoryService.edit(this.modifiedObj).subscribe(data =>{console.log(data)})
+   this.ngOnInit(); 
+
+ }
 
 }

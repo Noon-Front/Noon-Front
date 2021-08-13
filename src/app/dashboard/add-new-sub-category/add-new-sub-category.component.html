@@ -11,16 +11,16 @@
         </thead>
         <tbody>
           <tr *ngFor="let subCat of allSubCategory">
-            <td>{{subCat.name}}</td>
+            <td>{{subCat.subcatName}}</td>
             <td>
-                <button class="btn btn-primary mx-1">Edit</button>
-                <button class="btn btn-danger mx-1">Delete</button>
+                <button class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal6">Edit</button>
+                <button class="btn btn-danger mx-1"(click)="delete(subCat.id)">Delete</button>
             </td>
           </tr>
           
         </tbody>
       </table>
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal3">+Add New sub-Category</button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal4">+Add New sub-Category</button>
   
       <!-- Modal -->
       <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -32,8 +32,8 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <span *ngIf="SubcategoryName.errors?.required || SubcategoryName.touched" class="text-danger">*This field is required</span>
-                  <input type="text" class="form-control my-2" placeholder="Sub-Category Name" required #SubcategoryName="ngModel" [(ngModel)]="newSubCategory.subcatName">
+                    <span *ngIf="SubcatName.errors?.required || SubcatName.touched" class="text-danger">*This field is required</span>
+                  <input type="text" class="form-control my-2" placeholder="Sub-Category Name" required name="SubcatName" #SubcatName="ngModel" [(ngModel)]="newSubCategory.subcatName">
            
                 </form>
              
@@ -45,4 +45,27 @@
           </div>
         </div>
       </div> 
+
+       <!-- Modal for edit -->
+    <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit sub-Category </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form>
+                <input type="text" class="form-control my-2" placeholder="Category new Name" name="modifiedObj" required #modifiedObj="ngModel" [(ngModel)]="modifiedObj.name">
+         
+              </form>
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" (click)="edit()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div> 
 </section>

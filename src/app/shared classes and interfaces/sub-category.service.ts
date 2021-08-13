@@ -7,7 +7,7 @@ import { SubCategory } from './sub-category';
   providedIn: 'root'
 })
 export class SubCategoryService {
-  baseUrl:string="https://localhost:44326/api/subCategory";
+  baseUrl="https://localhost:44326/api/SubCategory";
 
   constructor(private http:HttpClient) { }
 
@@ -23,5 +23,17 @@ export class SubCategoryService {
 
   getAllSubCategory():Observable<SubCategory[]>{
     return this.http.get<SubCategory[]>(this.baseUrl)
+  }
+  removeSubCategory(id:string):Observable<SubCategory>{
+    return this.http.delete(`${this.baseUrl}?id=${id}`)
+  }
+  edit(subCategory:SubCategory):Observable<SubCategory>{
+    const headers={ 'content-type': 'application/json'}
+    const body=JSON.stringify(subCategory);
+    console.log(body)
+    return this.http.put(this.baseUrl,body,{'headers':headers})
+  }
+  getById(id:string):Observable<SubCategory>{
+    return this.http.get(`${this.baseUrl}/${id}`)
   }
 }
