@@ -57,9 +57,13 @@ export class FormServiceService {
     if (error.error instanceof ErrorEvent) {
       // client-side error
       msg = error.error.message;
-    } else {
+    }else if(error.status == 500){
+      msg = 'Email or UserName is exist';
+    }else if(error.status == 400){
+      msg = 'Password must be like as confirm paswword';
+    }else {
       // server-side error
-      msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      //this.errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}\nError`;
     }
     return throwError(msg);
   }

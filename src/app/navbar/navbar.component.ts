@@ -9,9 +9,11 @@ import { User } from '../shared classes and interfaces/user';
 })
 export class NavbarComponent implements OnInit {
 
-  
+  errorMessage?:string;
+
 
   constructor(private _formService:FormServiceService) { }
+
   userModel = new User();
 
   showLogin = true;
@@ -41,23 +43,26 @@ export class NavbarComponent implements OnInit {
     this.showRegister = false;
   }
 
-  registerSubmit(){
-    this._formService.addUser(this.userModel).subscribe(
+  registerUser(){
+    this._formService.signUp(this.userModel).subscribe(
       response => console.log("succed:", response),
-      error => console.log("error:", error)
+      error => console.log(this.errorMessage = error)
     )
+    console.log(this.errorMessage)
 
     this.showLogin = true;
     this.showRegister = false;
     this.ForgetPass = false;
   }
 
-  loginSubmit(){
-    this._formService.login(this.userModel).subscribe(
-      response => console.log("succed:", response),
-      error => console.log("error:", error)
-    )
-
+  loginUser(){
+    this._formService.signIn(this.userModel);
     this.accountStatus = true;
   }
+
+  logout() {
+    this._formService.doLogout();
+  }
+
+
 }

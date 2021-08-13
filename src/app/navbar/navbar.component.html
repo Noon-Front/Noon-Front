@@ -92,7 +92,7 @@
           <a (click)="showSignUp()">Sign Up</a>
         </div>
         <div class="the-form">
-          <form #userForm="ngForm" novalidate (ngSubmit)="loginSubmit()">
+          <form #userForm="ngForm" novalidate (ngSubmit)="loginUser()">
             <div class="mb-3 email">
               <label for="exampleInputEmail1" class="form-label">Email</label>
               <input type="email" name="email" #email="ngModel" [(ngModel)]="userModel.email" class="form-control"
