@@ -92,31 +92,32 @@
           <a (click)="showSignUp()">Sign Up</a>
         </div>
         <div class="the-form">
-          <form #userForm="ngForm" novalidate (ngSubmit)="loginUser()">
-            <div class="mb-3 email">
+          <form #userForm="ngForm" novalidate (ngSubmit)="loginUser()" [formGroup]="signupForm">
+            <div class="email">
               <label for="exampleInputEmail1" class="form-label">Email</label>
-              <input type="email" name="email" #email="ngModel" [(ngModel)]="userModel.email" class="form-control"
-                id="exampleInputEmail1" aria-describedby="emailHelp" required
-                [class.is-invalid]="email.invalid && email.touched"
-                pattern="(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b">
-              <div *ngIf="email.errors && (email.invalid && email.touched)">
-                <small class="text-danger" *ngIf="email.errors.required">Email can't be empty</small>
-                <small class="text-danger" *ngIf="email.errors.pattern">Invalid email</small>
+              <input type="email" formControlName="email" name="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" required
+                pattern="(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required" style="font-size: 11px;">Email can't be empty</div>
+                <div *ngIf="f.email.errors.pattern" style="font-size: 11px;">Invalid email</div>
               </div>
             </div>
+
             <div class="mb-3 pass">
               <label for="Password" class="form-label">Password</label>
-              <input type="password" name="password" #password="ngModel" [(ngModel)]="userModel.password"
-                class="form-control" id="Password" required [class.is-invalid]="password.invalid && password.touched">
-              <div *ngIf="password.errors && (password.invalid && password.touched)">
-                <small class="text-danger" *ngIf="password.errors?.required">Password can't be empty</small>
-                <small class="text-danger" *ngIf="password.errors?.pattern">Invalid password</small>
+              <input type="password" formControlName="password" name="password" class="form-control" id="Password"
+                required [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required" style="font-size: 11px;">password can't be empty</div>
               </div>
             </div>
-            <div class="mb-3 forget-pass">
+
+            <div class="forget-pass">
               <span (click)="showForgetPass()">Forgot your password?</span>
             </div>
-            <button type="submit" data-bs-dismiss="modal" aria-label="Close" [disabled]="userForm.invalid">Sign
+            <button type="submit" data-bs-dismiss="modal" aria-label="Close">Sign
               In</button>
           </form>
         </div>
@@ -137,48 +138,49 @@
           <a (click)="showSignIn()">Sign In</a>
         </div>
         <div class="the-form">
-          <form #userForm="ngForm" novalidate (ngSubmit)="registerUser()">
-            <div class="mb-3 user-name">
+          <form #userForm="ngForm" novalidate (ngSubmit)="registerUser()" [formGroup]="signupForm">
+            <div class="user-name">
               <label for="userName" class="form-label">User Name</label>
-              <input type="text" name="user-name" #userName="ngModel" [(ngModel)]="userModel.userName"
-                class="form-control" id="userName" required [class.is-invalid]="userName.invalid && userName.touched">
-              <div *ngIf="userName.errors && userName.touched">
-                <small class="text-danger" *ngIf="userName.errors.required">User name can't be empty</small>
+              <input type="text" formControlName="userName" name="user-name" class="form-control" id="userName" required
+                [ngClass]="{ 'is-invalid': submitted && f.userName.errors }">
+              <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                <div *ngIf="f.userName.errors.required" style="font-size: 11px;">User name can't be empty</div>
               </div>
             </div>
-            <div class="mb-3 email">
+
+            <div class="email">
               <label for="exampleInputEmail1" class="form-label">Email</label>
-              <input type="email" name="email" #email="ngModel" [(ngModel)]="userModel.email" class="form-control"
-                id="exampleInputEmail1" aria-describedby="emailHelp" required
-                [class.is-invalid]="email.invalid && email.touched"
-                pattern="(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b">
-              <div *ngIf="email.errors && (email.invalid && email.touched)">
-                <small class="text-danger" *ngIf="email.errors.required">Email can't be empty</small>
-                <small class="text-danger" *ngIf="email.errors.pattern">Invalid email</small>
+              <input type="email" formControlName="email" name="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp" required
+                pattern="(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required" style="font-size: 11px;">Email can't be empty</div>
+                <div *ngIf="f.email.errors.pattern" style="font-size: 11px;">Invalid email</div>
               </div>
+              <!-- <div *ngIf="emailExist" style="font-size: 11px;" class="invalid-feedback">Email aready exist</div> -->
             </div>
-            <div class="mb-3 pass">
+
+            <div class="pass">
               <label for="Password" class="form-label">Password</label>
-              <input type="password" name="password" #password="ngModel" [(ngModel)]="userModel.password"
-                class="form-control" id="Password" required [class.is-invalid]="password.invalid && password.touched">
-              <div *ngIf="password.errors && (password.invalid && password.touched)">
-                <small class="text-danger" *ngIf="password.errors?.required">Password can't be empty</small>
-                <small class="text-danger" *ngIf="password.errors?.pattern">Invalid password</small>
+              <input type="password" formControlName="password" name="password" class="form-control" id="Password"
+                required [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required" style="font-size: 11px;">password can't be empty</div>
               </div>
             </div>
-            <div class="mb-3 pass">
+
+            <div class="pass">
               <label for="confirmPassword" class="form-label">Confirm Password</label>
-              <input type="password" name="confirmPassword" #confirmPassword="ngModel"
-                [(ngModel)]="userModel.confirmPassword" class="form-control" id="confirmPassword" required
-                [class.is-invalid]="confirmPassword.invalid && confirmPassword.touched">
-              <div *ngIf="confirmPassword.errors && (confirmPassword.invalid && confirmPassword.touched)">
-                <small class="text-danger" *ngIf="confirmPassword.errors?.required">Confirm Password can't be
-                  empty</small>
-                <small class="text-danger" *ngIf="confirmPassword.errors?.pattern"></small>
+              <input type="password" formControlName="confirmPassword" name="confirmPassword" class="form-control"
+                id="confirmPassword" required [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+              <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required" style="font-size: 11px;">Confirm Password can't be empty
+                </div>
+                <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
               </div>
             </div>
-            <button style="margin-top: 20px;" type="submit" [disabled]="userForm.invalid">Create An
-              Account</button>
+            <button style="margin-top: 20px;" type="submit">Create An Account</button>
           </form>
         </div>
       </div>
@@ -202,16 +204,10 @@
         </div>
         <div class="the-form">
           <form>
-            <div class="mb-3 email">
+            <div class="email">
               <label for="exampleInputEmail1" class="form-label">Email</label>
-              <input type="email" name="email" #email="ngModel" [(ngModel)]="userModel.email" class="form-control"
-                id="exampleInputEmail1" aria-describedby="emailHelp" required
-                [class.is-invalid]="email.invalid && email.touched"
-                pattern="(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b">
-              <div *ngIf="email.errors && (email.invalid && email.touched)">
-                <small class="text-danger" *ngIf="email.errors.required">Email can't be empty</small>
-                <small class="text-danger" *ngIf="email.errors.pattern">Invalid email</small>
-              </div>
+              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                required>
             </div>
             <button style="margin-top: 20px;" type="submit">Submit Email</button>
           </form>

@@ -12,6 +12,7 @@ export class FormServiceService {
 
   _url:string = "https://localhost:44326/api/Authentication";
   headers = new HttpHeaders().set('content-type','application/json');
+  msg?: string = "now";
 
 
   constructor(private _http:HttpClient, public router:Router) { }
@@ -52,19 +53,7 @@ export class FormServiceService {
 
 
   // Error
-  handleError(error: HttpErrorResponse) {
-    let msg = '';
-    if (error.error instanceof ErrorEvent) {
-      // client-side error
-      msg = error.error.message;
-    }else if(error.status == 500){
-      msg = 'Email or UserName is exist';
-    }else if(error.status == 400){
-      msg = 'Password must be like as confirm paswword';
-    }else {
-      // server-side error
-      //this.errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}\nError`;
-    }
-    return throwError(msg);
+  handleError() {
+    return throwError("Email or UserName is exist");
   }
 }
