@@ -22,5 +22,19 @@ export class BrandService {
     return this.http.post(this.baseUrl,body,{'headers':headers})
   }
 
+  removeBrand(id: string):Observable<Brand>{
+    return this.http.delete(`${this.baseUrl}?id=${id}`)
+  }
+  edit(brand:Brand):Observable<Brand>{
+    const headers={ 'content-type': 'application/json'}
+    const body=JSON.stringify(brand);
+    console.log(body)
+    return this.http.put(this.baseUrl,body,{'headers':headers})
+  }
+  getById(id:string):Observable<Brand>{
+    return this.http.get(`${this.baseUrl}/${id}`)
+  }
+
+
 
 }

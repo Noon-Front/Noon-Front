@@ -13,13 +13,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let brand of allBrands">
+          <tr *ngFor="let brand of allBrands" [attr.id]="brand.id">
             <td>{{brand.id}}</td>
             <td>{{brand.name}}</td>
             <td><img class="brand-logo-img" src="{{brand.logoPath}}"></td>
             <td>
-                <button class="btn btn-primary mx-1">Edit</button>
-                <button class="btn btn-danger mx-1">Delete</button>
+                <button class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#exampleModal3">Edit</button>
+                <button class="btn btn-danger mx-1" (click)="deleteBrand(brand.id)">Delete</button>
             </td>
           </tr>
           
@@ -37,9 +37,9 @@
         </div>
         <div class="modal-body">
             <form>
-                <span *ngIf="brandName.errors?.required || brandName.touched" class="text-danger">*This field is required</span>
-            <input type="text" class="form-control my-2" placeholder="Brand name" required #brandName="ngModel" [(ngModel)]="newBrand.name">
-            <input type="file" class="form-control my-2" placeholder="Brand Logo" >
+                <span *ngIf="name.errors?.required || name.touched" class="text-danger">*This field is required</span>
+            <input type="text" class="form-control my-2" placeholder="Brand name" required name="name" #name="ngModel" [(ngModel)]="newBrand.name">
+            <!-- <input type="file" class="form-control my-2" placeholder="Brand Logo" > -->
        
             </form>
          
@@ -51,6 +51,30 @@
       </div>
     </div>
   </div> 
+    <!-- Modal for edit -->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Brand </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form>
+                <input type="text" class="form-control my-2" placeholder="Category new Name" name="modifiedObj" required #modifiedObj="ngModel" [(ngModel)]="modifiedObj.name">
+         
+              </form>
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" (click)="edit()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+  
+
 
 
    
