@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormServiceService } from '../shared classes and interfaces/form-service.service';
 import { MustMatch } from '../shared classes and interfaces/mustMatch';
-//import { User } from '../shared classes and interfaces/user';
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +11,6 @@ import { MustMatch } from '../shared classes and interfaces/mustMatch';
 export class NavbarComponent implements OnInit {
   signupForm:FormGroup;
   submitted:boolean = false;
-  emailExist:boolean = false;
-  messageValidate = '';
 
   constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder) {
     this.signupForm = this._formBuilder.group({
@@ -34,6 +31,9 @@ export class NavbarComponent implements OnInit {
   accountStatus = false;
 
   ngOnInit(): void {
+    if(performance.navigation.type == 1){
+      localStorage.clear()
+    }
   }
 
   showSignUp(){
@@ -55,7 +55,7 @@ export class NavbarComponent implements OnInit {
   registerUser(){
     this._formService.signUp(this.signupForm.value).subscribe(
       response => console.log("Succed:", response),
-      error => {alert("Your user name or email not exist's\nPlease return register")},
+      error => {alert("Your user name or email is taken\nPlease return register and change it")},
     )
 
     this.submitted = true;
@@ -75,17 +75,28 @@ export class NavbarComponent implements OnInit {
 
   loginUser(){
     this._formService.signIn(this.signupForm.value);
-    this.accountStatus = true;
-
     this.submitted = true;
-    if (this.signupForm.invalid){
-      return console.log("invalid");
-    }
-    console.log("Login Success")
-
+    this.check();
   }
 
   logout() {
     this._formService.doLogout();
+  }
+
+
+  check(){
+     setTimeout(() => {
+      if(localStorage.getItem("access_token")){
+        console.log("localStorage full");
+        this.accountStatus = true;
+        document.querySelector(".info")?.classList.add("d-none");
+        document.querySelector(".modal-backdrop")?.classList.remove("modal-backdrop","show");
+        document.querySelector(".modal")?.classList.add("d-none");
+      } else {
+        console.log("localStorage empty");
+        this.submitted = false;
+        alert("invalid email or password");
+      }
+     }, 500)
   }
 }

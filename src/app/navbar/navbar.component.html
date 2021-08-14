@@ -72,7 +72,7 @@
 <!-- Navbar -->
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered justify-content-center">
     <div class="modal-content" style="width: 81%; border: none; border-radius: 8px;">
@@ -117,15 +117,14 @@
             <div class="forget-pass">
               <span (click)="showForgetPass()">Forgot your password?</span>
             </div>
-            <button type="submit" data-bs-dismiss="modal" aria-label="Close">Sign
-              In</button>
+            <button type="submit">Sign In</button>
           </form>
         </div>
       </div>
       <!-- End Login -->
 
       <!-- Start Register -->
-      <div class="info" *ngIf="showRegister">
+      <div class=" info" *ngIf="showRegister">
         <div class="x-icon text-end">
           <img width="15" height="15" src="assets/Images/x-mark.png" alt="close window" data-bs-dismiss="modal"
             aria-label="Close">
@@ -175,7 +174,8 @@
               <input type="password" formControlName="confirmPassword" name="confirmPassword" class="form-control"
                 id="confirmPassword" required [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
               <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                <div *ngIf="f.confirmPassword.errors.required" style="font-size: 11px;">Confirm Password can't be empty
+                <div *ngIf="f.confirmPassword.errors.required" style="font-size: 11px;">Confirm Password can't be
+                  empty
                 </div>
                 <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
               </div>

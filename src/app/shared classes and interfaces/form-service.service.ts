@@ -30,7 +30,7 @@ export class FormServiceService {
     //console.log(body);
     return this._http.post(api, body, {"headers":this.headers}).subscribe((res:any) => {
       localStorage.setItem("access_token", res.token);
-      //this.router.navigate(['/cart']);
+      //this.router.navigate(['/home']);
       console.log(res);
     })
   }
