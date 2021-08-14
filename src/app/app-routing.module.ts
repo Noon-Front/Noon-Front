@@ -10,6 +10,8 @@ import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
 import { ProductDetailsComponent } from './product-details/product.details-component';
 import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
 import { AuthGuard } from './shared classes and interfaces/auth.guard'; //new
+import { AuthAdminGuard } from './shared classes and interfaces/auth-admin.guard';
+import { AddProductComponent } from './add-product/add-product.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
@@ -21,7 +23,8 @@ const routes: Routes = [
   {path: 'cart',component: AddToCartComponent, canActivate:[AuthGuard]},//AuthGuard new
   {path:'mobiles', component:MobilesPageComponent},
   {path:'supermarket',component:SupermarketPageComponent},
-  {path:'dashboard' , component:DashboardComponent}
+  {path:'dashboard' , component:DashboardComponent, canActivate:[AuthAdminGuard]},
+  {path: "addProduct", component:AddProductComponent, canActivate:[AuthAdminGuard]}
 ];
 
 @NgModule({

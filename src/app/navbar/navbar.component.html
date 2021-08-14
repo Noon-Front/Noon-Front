@@ -22,57 +22,117 @@
 
       </li>
       <ng-template #disEnabled>
-        <li class="nav-item me-3 me-lg-0">
+        <!-- <li class="nav-item me-3 me-lg-0">
           <a class="nav-link d-flex align-items-center" style="cursor: pointer;" data-bs-toggle="modal"
             data-bs-target="#staticBackdrop">
             <a class="fw-bold me-1 text-decoration-none" style="color: #404553;">Login</a>
             <img width="15" height="15" src="assets/Images/user.png" alt="User Icon">
           </a>
-        </li>
-      </ng-template>
-
-      <ng-template #enabled>
+        </li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle d-flex align-items-center fw-bold" style="color: #404553;" href="#"
             id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            My Account
+            Sign In
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <li class="d-flex">
-              <img src="https://z.nooncdn.com/s/app/com/noon/icons/orders_menu_icon_v3.svg" alt="Orders">
-              <a class="dropdown-item" href="#">Orders</a>
-            </li>
-            <li class="d-flex">
-              <img src="https://z.nooncdn.com/s/app/com/noon/icons/addresses_menu_icon_v3.svg" alt="Addresses">
-              <a class="dropdown-item" href="#">Addresses</a>
-            </li>
-            <li class="d-flex">
+            <li class="d-flex" data-bs-toggle="modal" data-bs-target="#staticBackdropOne">
               <img src="https://z.nooncdn.com/s/app/com/noon/icons/profile_menu_icon_v3.svg" alt="Profile">
-              <a class="dropdown-item" href="#">Profil</a>
+              <a class="dropdown-item">User</a>
             </li>
-            <li>
-              <hr style="margin: 0.4rem; opacity: .1;">
+            <li class="d-flex" data-bs-toggle="modal" data-bs-target="#staticBackdropTwo">
+              <img src="https://z.nooncdn.com/s/app/com/noon/icons/profile_menu_icon_v3.svg" alt="Profile">
+              <a class="dropdown-item">Admin</a>
             </li>
-            <li (click)="logout()"><a class="dropdown-item" href="#">Sign Out</a></li>
           </ul>
         </li>
       </ng-template>
 
-      <!-- Cart -->
-      <li class="nav-item me-3 me-lg-0">
-        <a class="nav-link" [routerLink]="['/cart']">
-          <span class="me-2 fw-bold" style="color: #404553;">Cart</span>
-          <span><img src="assets/iconmonstr-shopping-cart-5.svg" alt=""></span>
-          <span class="badge rounded-pill badge-notification bg-danger d-none">1</span>
-        </a>
+      <ng-template #enabled>
+        <li *ngIf="userStatus; then user; else admin">
+
+        </li>
+        <ng-template #user>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center fw-bold" style="color: #404553;"
+              id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              My Account
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li class="d-flex" data-bs-toggle="modal" data-bs-target="#staticBackdropOne">
+                <img src="https://z.nooncdn.com/s/app/com/noon/icons/orders_menu_icon_v3.svg" alt="Profile">
+                <a class="dropdown-item">Orders</a>
+              </li>
+              <li class="d-flex" data-bs-toggle="modal" data-bs-target="#staticBackdropTwo">
+                <img src="https://z.nooncdn.com/s/app/com/noon/icons/addresses_menu_icon_v3.svg" alt="Profile">
+                <a class="dropdown-item">Addresses</a>
+              </li>
+              <li class="d-flex" data-bs-toggle="modal" data-bs-target="#staticBackdropTwo">
+                <img src="https://z.nooncdn.com/s/app/com/noon/icons/profile_menu_icon_v3.svg" alt="Profile">
+                <a class="dropdown-item">Profile</a>
+              </li>
+              <li>
+                <hr style="margin: 0.4rem; opacity: .1;">
+              </li>
+              <li (click)="logout()"><a class="dropdown-item" href="#">Sign Out</a></li>
+            </ul>
+          </li>
+        </ng-template>
+        <ng-template #admin>
+          <!-- <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link d-flex align-items-center" [routerLink]="['/dashboard']">
+              <span class="me-1 fw-bold" style="color: #404553;">Dashboard</span>
+              <span><img width="25px" height="25px" src="assets/Images/dashboard.png" alt=""></span>
+              <span class="badge rounded-pill badge-notification bg-danger d-none">1</span>
+            </a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center fw-bold" style="color: #404553;"
+              id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Options
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li class="d-flex align-items-center" [routerLink]="['/dashboard']">
+                <img width="25px" height="25px" src="assets/Images/dashboard.png" alt="">
+                <a class="dropdown-item">Dashboard</a>
+              </li>
+              <li class="d-flex align-items-center" [routerLink]="['/addProduct']">
+                <img width="25px" height="25px" src="assets/Images/product.png" alt="">
+                <a class="dropdown-item">Add Product</a>
+              </li>
+              <li class="d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#staticBackdropThree">
+                <img width="25px" height="25px" src="assets/Images/admin.png" alt="">
+                <a class="dropdown-item">Add new admin</a>
+              </li>
+            </ul>
+          </li>
+        </ng-template>
+      </ng-template>
+
+      <!-- Cart or signout -->
+      <li *ngIf="cartShow; then cart; else signout">
+
       </li>
+      <ng-template #cart>
+        <li class="nav-item me-3 me-lg-0">
+          <a class="nav-link" [routerLink]="['/cart']">
+            <span class="me-2 fw-bold" style="color: #404553;">Cart</span>
+            <span><img src="assets/iconmonstr-shopping-cart-5.svg" alt=""></span>
+            <span class="badge rounded-pill badge-notification bg-danger d-none">1</span>
+          </a>
+        </li>
+      </ng-template>
+      <ng-template #signout>
+        <li (click)="logout()" class="nav-item me-3 me-lg-0">
+          <a class="nav-link fw-bold" style="color: #404553" href="#">Sign Out</a>
+        </li>
+      </ng-template>
     </ul>
   </div>
 </nav>
 <!-- Navbar -->
 
-<!-- Modal -->
-<div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<!------------------------------------------- Start User SignIn and SignUp ------------------------------------------------------>
+<div class="modal" id="staticBackdropOne" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
   aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered justify-content-center">
     <div class="modal-content" style="width: 81%; border: none; border-radius: 8px;">
@@ -109,8 +169,10 @@
               <label for="Password" class="form-label">Password</label>
               <input type="password" formControlName="password" name="password" class="form-control" id="Password"
                 required [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
-              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback"
+                pattern="(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$">
                 <div *ngIf="f.password.errors.required" style="font-size: 11px;">password can't be empty</div>
+                <div *ngIf="f.password.errors.pattern" style="font-size: 11px;">Invalid password</div>
               </div>
             </div>
 
@@ -163,9 +225,11 @@
             <div class="pass">
               <label for="Password" class="form-label">Password</label>
               <input type="password" formControlName="password" name="password" class="form-control" id="Password"
-                required [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                required [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                pattern="(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$">
               <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                 <div *ngIf="f.password.errors.required" style="font-size: 11px;">password can't be empty</div>
+                <div *ngIf="f.password.errors.pattern" style="font-size: 11px;">Invalid password</div>
               </div>
             </div>
 
@@ -218,3 +282,135 @@
     </div>
   </div>
 </div>
+<!------------------------------------------- End User SignIn and SignUp ------------------------------------------------------>
+
+
+
+<!------------------------------------------- Start Admin SignIn ---------------------------------------------------->
+<div class="modal" id="staticBackdropTwo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered justify-content-center">
+    <div class="modal-content" style="width: 81%; border: none; border-radius: 8px;">
+
+      <!-- Start Login -->
+      <div class="info2">
+        <div class="x-icon text-end">
+          <img width="15" height="15" src="assets/Images/x-mark.png" alt="close window" data-bs-dismiss="modal"
+            aria-label="Close">
+        </div>
+
+        <div class="quiz mb-4">
+          <h2>Welcome back!</h2>
+          <h2>Sign in to your account</h2>
+        </div>
+
+        <div class="the-form">
+          <form #userForm="ngForm" novalidate (ngSubmit)="loginAdmin()" [formGroup]="signupForm">
+            <div class="email">
+              <label for="inputAdminEmail" class="form-label">Email</label>
+              <input type="email" formControlName="email" name="email" class="form-control" id="inputAdminEmail"
+                aria-describedby="emailHelp" required
+                pattern="(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required" style="font-size: 11px;">Email can't be empty</div>
+                <div *ngIf="f.email.errors.pattern" style="font-size: 11px;">Invalid email</div>
+              </div>
+            </div>
+
+            <div class="mb-3 pass">
+              <label for="adminPassword" class="form-label">Password</label>
+              <input type="password" formControlName="password" name="password" class="form-control" id="adminPassword"
+                required [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                pattern="(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required" style="font-size: 11px;">password can't be empty</div>
+                <div *ngIf="f.password.errors.pattern" style="font-size: 11px;">Invalid password</div>
+              </div>
+            </div>
+
+            <button type="submit" style="border-top: 0;">Sign In</button>
+          </form>
+        </div>
+      </div>
+      <!-- End Login -->
+    </div>
+  </div>
+</div>
+<!------------------------------------------- End Admin SignIn ------------------------------------------------------>
+
+
+
+
+
+
+<!------------------------------------------- Start Admin SignUp ------------------------------------------------------>
+<div class="modal" id="staticBackdropThree" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered justify-content-center">
+    <div class="modal-content" style="width: 81%; border: none; border-radius: 8px;">
+
+      <!-- Start Register -->
+      <div class=" info">
+        <div class="x-icon text-end">
+          <img width="15" height="15" src="assets/Images/x-mark.png" alt="close window" data-bs-dismiss="modal"
+            aria-label="Close">
+        </div>
+        <div class="quiz">
+          <h2>Add New Admin</h2>
+        </div>
+        <div class="the-form">
+          <form #userForm="ngForm" novalidate (ngSubmit)="registerAdmin()" [formGroup]="signupForm">
+            <div class="user-name">
+              <label for="adminUserName" class="form-label">User Name</label>
+              <input type="text" formControlName="userName" name="user-name" class="form-control" id="adminUserName"
+                required [ngClass]="{ 'is-invalid': submitted && f.userName.errors }">
+              <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                <div *ngIf="f.userName.errors.required" style="font-size: 11px;">User name can't be empty</div>
+              </div>
+            </div>
+
+            <div class="email">
+              <label for="adminInputEmail" class="form-label">Email</label>
+              <input type="email" formControlName="email" name="email" class="form-control" id="adminInputEmail"
+                aria-describedby="emailHelp" required
+                pattern="(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required" style="font-size: 11px;">Email can't be empty</div>
+                <div *ngIf="f.email.errors.pattern" style="font-size: 11px;">Invalid email</div>
+              </div>
+            </div>
+
+            <div class="pass">
+              <label for="adminPassword2" class="form-label">Password</label>
+              <input type="password" formControlName="password" name="password" class="form-control" id="adminPassword2"
+                required [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                pattern="(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required" style="font-size: 11px;">password can't be empty</div>
+                <div *ngIf="f.password.errors.pattern" style="font-size: 11px;">Invalid password</div>
+              </div>
+            </div>
+
+            <div class="pass">
+              <label for="adminConfirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" formControlName="confirmPassword" name="confirmPassword" class="form-control"
+                id="adminConfirmPassword" required [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }">
+              <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required" style="font-size: 11px;">Confirm Password can't be
+                  empty
+                </div>
+                <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+              </div>
+            </div>
+            <button style="margin-top: 20px;" type="submit" data-bs-dismiss="modal" aria-label="Close">Sign Up</button>
+          </form>
+        </div>
+      </div>
+      <!-- End Register -->
+
+    </div>
+  </div>
+</div>
+<!------------------------------------------- End Admin SignUp ------------------------------------------------------>

@@ -9,9 +9,11 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
         const authToken = this.formService.getToken();
+        const authAdminToken = this.formService.getToken();
         req = req.clone({
             setHeaders: {
-                Authorization: "Bearer " + authToken
+              Authorization: "Bearer " + authToken,
+              AuthorizationAdmin: "Bearer " + authAdminToken
             }
         });
         return next.handle(req);
