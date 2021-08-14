@@ -33,8 +33,9 @@
         <input id="stock" type="number" class="form-control " placeholder="Stocks number" name="stock" #stock="ngModel" [(ngModel)]="product.stock" required>
          </div>
          <!-- image -->
+         <h6>Images</h6>
          <div class="my-3 d-flex">
-            <label  >Images</label><br>
+            
              <span *ngIf="imagePath.errors?.required && imagePath.touched" class="text-danger"> This feild is required</span>
             <input  multiple #image1 id="image1" type="file" class=" image form-control d-none" placeholder="Images" name="imagePath" #imagePath="ngModel" [(ngModel)]="productImage.imagePath" required (change)="handelUpload1($event)">
             <img (click)="image1.click()" class="w-50 m-1 border image shadow" [src]="imageUrl1" >
@@ -45,19 +46,22 @@
              </div>
 
              <!-- select category -->
-             <select class="form-control">
-               <option></option>
+             <label>Category</label>
+             <select class="form-control my-2" name="category"  #category="ngModel" [(ngModel)]="product.categoryId"  >
+               <option *ngFor="let category of categories" [ngValue]="category.id" >{{category.name}}</option>
              </select>
              <!-- select sub-subcategory -->
-             <select class="form-control">
-               <option></option>
-             </select>
+             <!-- <label>Sub-category</label>
+             <select class="form-control my-2" name="subCategory" #subCategory="ngModel" [(ngModel)]="product.subCategory" >
+               <option *ngFor="let subCategory of subCategories" [ngValue]='subCategory.id'>{{subCategory.subcatName}}</option>
+             </select> -->
              <!-- select brand -->
-             <select>
-               <option></option>
-             </select>
+             <!-- <label>Brand</label>
+             <select class="form-control my-2" name="brand" #brand="ngModel" [(ngModel)]="product.brand">
+               <option *ngFor="let brand of brands"[ngValue]="brand.id">{{brand.name}}</option>
+             </select> -->
              <!-- submit button -->
-             <button type="submit" [disabled]="addProductForm.valid" class="btn btn-primary">Submit</button>
+             <button type="submit" [disabled]="addProductForm.valid" class="btn btn-success" (click)="submit()">+add new Product</button>
 
 
 </form>

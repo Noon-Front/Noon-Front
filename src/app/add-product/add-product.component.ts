@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BrandService } from '../shared classes and interfaces/brand.service';
+import { Category } from '../shared classes and interfaces/category';
+import { CategoryService } from '../shared classes and interfaces/category.service';
 import { Product } from '../shared classes and interfaces/product';
 import { ProductImages } from '../shared classes and interfaces/product-images';
+import { ProductService } from '../shared classes and interfaces/product.service';
+import { SubCategoryService } from '../shared classes and interfaces/sub-category.service';
 
 @Component({
   selector: 'app-add-product',
@@ -10,21 +14,25 @@ import { ProductImages } from '../shared classes and interfaces/product-images';
 })
 export class AddProductComponent implements OnInit {
 product= new Product();
+category = new Category();
 productImage= new ProductImages();
 imageUrl1:string="assets/Images/add-image.png"
 imageUrl2:string="assets/Images/add-image.png"
 imageUrl3:string="assets/Images/add-image.png"
 imagePath:any;
 imageToUpload!: File;
+  constructor( private _productService:ProductService ,private _brandService:BrandService, private _categoryService:CategoryService, private _subCategoryService:SubCategoryService) { }
+categories:any;
+subCategories:any;
 brands:any;
-  constructor(private _brandService:BrandService) { }
+
 
   ngOnInit(): void {
-  }
-  ngAfterViewInit(): void {
     this._brandService.getAllBrands().subscribe(data =>{ this.brands= data, console.log(data)})
-
+    this._subCategoryService.getAllSubCategory().subscribe(data => {this.subCategories=data, console.log(data)})
+    this._categoryService.getAllCategories().subscribe(data => {this.categories=data, console.log(data)})
   }
+ 
  
   handelUpload1(file:any):void{
     this.imageToUpload= file.target.files[0]
@@ -53,6 +61,12 @@ brands:any;
     }
     reader.readAsDataURL(this.imageToUpload);
   }
+  getCategory(id:string){
+    this._categoryService.getById(id).subscribe(data => {this.category=data, console.log(data)})
+  }
   
-
+submit(){
+  console.log(this.product)
+  this._productService.addProduct(this.product).subscribe(data => {console.log(data)})
+}
 }
