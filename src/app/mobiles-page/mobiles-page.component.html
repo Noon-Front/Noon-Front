@@ -5,13 +5,13 @@
     <div class="row my-4">
         <h5>New arrivals</h5>
         <swiper>
-            <ng-template swiperSlide class="row">
-                <div *ngFor="let mobile of allMobiles" class="item bg-white py-3 mx-2 my-2 ">
+            <ng-template swiperSlide *ngFor="let mobile of allMobiles" class="w-25 bg-white py-3 mx-5 my-2" >
+                <div  class=" ">
                     <!-- like button -->
                     <div class="d-flex justify-content-end align-items">
                         <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
                     </div>
-                    <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
+                    <img class="img-responsive w-100 " src="./assets/Images/Product img(1).png">
                     <div class="lg-font fw-bold">{{mobile.name}}</div>
                     <span class="mid-font">{{mobile.price| currency:"EGP":"symbol"}}</span>
                     <!-- express and rating  -->
@@ -23,6 +23,7 @@
             </ng-template>
         </swiper>
     </div>
+  
 
     <app-price-div></app-price-div>
 

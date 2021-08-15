@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~swiper/swiper-bundle';
 * {
   box-sizing: border-box;
 }
@@ -10,7 +11,7 @@ body {
   font-size: 12px;
   }
   .item{
-      width:15%;
+      width:8em;
   }
   .img{
       width:fit-content;
