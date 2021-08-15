@@ -33,6 +33,9 @@ import { CaruselDivComponent } from './mobiles-page/carusel-div/carusel-div.comp
 import { PriceDivComponent } from './mobiles-page/price-div/price-div.component';
 import { BrandDivComponent } from './mobiles-page/brand-div/brand-div.component';
 import { AdsDivComponent } from './mobiles-page/ads-div/ads-div.component';
+import { ECaruselDivComponent } from './electronics-page/e-carusel-div/e-carusel-div.component';
+import { TvLaptopDivComponent } from './electronics-page/tv-laptop-div/tv-laptop-div.component';
+import { AudioVideoCameraDivComponent } from './electronics-page/audio-video-camera-div/audio-video-camera-div.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,9 @@ import { AdsDivComponent } from './mobiles-page/ads-div/ads-div.component';
     PriceDivComponent,
     BrandDivComponent,
     AdsDivComponent,
+    ECaruselDivComponent,
+    TvLaptopDivComponent,
+    AudioVideoCameraDivComponent,
 
   ],
   imports: [

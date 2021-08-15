@@ -1,171 +1,54 @@
 <!-- caroussel part -->
+<app-e-carusel-div></app-e-carusel-div>
+
 <div class="container">
-<div class="container">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/Images/en_banner-01 (2).gif" class="d-block w-100" alt="...">
+
+  <h4 class="d-flex my-2 fw-bold">Top deals</h4>
+  <swiper>
+    <ng-template swiperSlide *ngFor="let device of allElectronics" class="bg-white py-3 my-2  mx-1 item">
+      <div class=" px-3">
+        <!-- like button -->
+        <div class="d-flex justify-content-end align-items">
+          <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
         </div>
-        <div class="carousel-item">
-          <img src="assets/Images/en_banner-01 (5)el.png" class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
- <h4 class="d-flex my-2 fw-bold">Top deals</h4>
-  
- <swiper >
-    <ng-template swiperSlide >
-        <div class="item bg-white py-3 my-2 ">
-            <!-- like button -->
-            <div class="d-flex justify-content-end align-items">
-              <button  class="bg-light sml-like mt-2 px-1 "><i  class="bi bi-suit-heart"></i></button>
-            </div>
-            <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
-            <div class="sml-font">CanvasSelect Plus UHS-I SDHC Memory Card 32GB </div>
-            <div>EGP <span class="fw-bold">125.00</span></div>
+        <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
+        <div class="lg-font fw-bold ">{{device.name}}</div>
+        <span class="mid-font ">{{device.price| currency:"EGP":"symbol"}}</span>
         <!-- express and rating  -->
         <div class="d-flex justify-content-between align-items-center">
-            <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-        <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i> (14)</span>
+          <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
+          <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i> (14)</span>
         </div>
-        </div>
+      </div>
     </ng-template>
-
   </swiper>
-  <h4 class="d-flex my-2 fw-bold">Televisions</h4>
-  <!-- television section -->
-  <section class="row">
-      <img class="img-responsive w-100" src="assets/Images/en_cat-01-tv.png"> 
-      <div class="col-4">
-          <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-02-tv.png">
-      </div>
-      <div class="col-4">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-03-tv.png">
-    </div>
-    <div class="col-4">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-04-tv.png">
-    </div>
 
-  </section>
-  <!-- laptop section -->
-  <h4 class="d-flex my-3 fw-bold">Laptops</h4>
-  <section class="row">
-    <div class="col-4">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-05-lap.png">
-    </div>
-    <div class="col-4">
-      <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-06-lap.png">
-  </div>
-  <div class="col-4">
-      <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-07-lap.png">
-  </div>
+   <!-- television and laptop section -->
+  <app-tv-laptop-div></app-tv-laptop-div>
 
-  </section>
-  <section class="row">
-      <div class="col-4 col-md-2">
-          <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-08-lap.png">
-      </div>
-      <div class="col-4 col-md-2">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-09.png">
-    </div>
-    <div class="col-4 col-md-2">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-10-lap.png">
-    </div>
-    <div class="col-4 col-md-2">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-11.png">
-    </div>
-    <div class="col-4 col-md-2">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-12-lap.png">
-    </div>
-    <div class="col-4 col-md-2">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-13-lap.png">
-    </div>
-  </section>
   <!-- new arrivals -->
   <h4 class="d-flex my-3 fw-bold">New Arrivals</h4>
-  
-  <swiper >
-    <ng-template swiperSlide >
-        <div class="item bg-white py-3 my-2 ">
-            <!-- like button -->
-            <div class="d-flex justify-content-end align-items">
-              <button  class="bg-light sml-like mt-2 px-1 "><i  class="bi bi-suit-heart"></i></button>
-            </div>
-            <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
-            <div class="sml-font">CanvasSelect Plus UHS-I SDHC Memory Card 32GB </div>
-            <div>EGP <span class="fw-bold">125.00</span></div>
+  <swiper>
+    <ng-template swiperSlide *ngFor="let device of allElectronics" class="bg-white py-3 my-2  mx-1 item">
+      <div class=" px-3">
+        <!-- like button -->
+        <div class="d-flex justify-content-end align-items">
+          <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
+        </div>
+        <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
+        <div class="lg-font fw-bold ">{{device.name}}</div>
+        <span class="mid-font ">{{device.price| currency:"EGP":"symbol"}}</span>
         <!-- express and rating  -->
         <div class="d-flex justify-content-between align-items-center">
-            <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-        <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i> (14)</span>
+          <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
+          <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i> (14)</span>
         </div>
-        </div>
+      </div>
     </ng-template>
-
   </swiper>
-  <!-- audio section -->
-  <h4 class="d-flex my-3 fw-bold">Audio</h4>
-  <section class="row">
-      <div class="col-4">
-          <img class="img-responsive w-100" src="assets/Images/en_cat-14-audio.png">
-      </div>
-      <div class="col-4">
-        <img class="img-responsive w-100" src="assets/Images/en_cat-15-audio.png">
-    </div>
-    <div class="col-4">
-        <img class="img-responsive w-100" src="assets/Images/en_cat-16-audio.png">
-    </div>
 
-  </section>
-  <!-- videogames section -->
-  <h4 class="d-flex my-3 fw-bold">Video games</h4>
-  <section class="row">
-      <div class="col-6 col-md-3">
-          <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-17-games.png">
-      </div>
-      <div class="col-6 col-md-3">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-18-games.png">
-    </div>
-    <div class="col-6 col-md-3">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-19-games.png">
-    </div>
-    <div class="col-6 col-md-3">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-20.png">
-    </div>
-  </section>
-  <!-- cameras section -->
-  <h4 class="d-flex my-3 fw-bold">Cameras</h4>
-  <section class="row">
-      <div class="col-4 col-md-2">
-          <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-21-camera.png">
-      </div>
-      <div class="col-4 col-md-2">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-22-camera.png">
-    </div>
-    <div class="col-4 col-md-2">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-23-camera.png">
-    </div>
-    <div class="col-4 col-md-2">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-24-camera.png">
-    </div>
-    <div class="col-4 col-md-2">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-25-camera.png">
-    </div>
-    <div class="col-4 col-md-2">
-        <img class="img-responsive my-2 w-100" src="assets/Images/en_cat-26-camera.png">
-    </div>
-
-  </section>
-
+  <!-- audio and camera and videogames section -->
+  <app-audio-video-camera-div></app-audio-video-camera-div>
 
 
 </div>

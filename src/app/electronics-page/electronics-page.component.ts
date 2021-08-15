@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../shared classes and interfaces/product.service';
 
 @Component({
   selector: 'app-electronics-page',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ElectronicsPageComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _productService : ProductService) { }
+  allElectronics:any;
   ngOnInit(): void {
+    this._productService.getByCategory("1").subscribe(data => {this.allElectronics = data,console.log(data)});
   }
 
 }
