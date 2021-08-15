@@ -16,7 +16,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
   {path:"home", component:HomePageComponent},
-  { path: 'product-details', component: ProductDetailsComponent },
+  { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'fashion', component: FashionPageComponent },
   { path: 'electronics', component: ElectronicsPageComponent },
   { path: 'homeCategory', component: HomeCategoryComponent },

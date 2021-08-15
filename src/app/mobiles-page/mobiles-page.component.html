@@ -6,7 +6,7 @@
         <h5>New arrivals</h5>
         <swiper>
             <ng-template swiperSlide *ngFor="let mobile of allMobiles" class="bg-white py-3 my-2  mx-1 item" >
-                <div  class=" px-3">
+                <div  class=" px-3" (click)="onClick(mobile)">
                     <!-- like button -->
                     <div class="d-flex justify-content-end align-items">
                         <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
