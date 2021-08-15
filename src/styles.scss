@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~swiper/swiper-bundle';
+@import "~swiper/swiper-bundle";
 * {
   box-sizing: border-box;
 }
@@ -7,52 +7,50 @@ body {
   font-family: Helvetica, Arial, sans-serif;
   overflow-x: hidden;
 }
-.sml-font{
+.sml-font {
   font-size: 12px;
-  }
-  .item{
-      width:8em;
-  }
-  .img{
-      width:fit-content;
-      height: fit-content;
-      border: 2px solid;
-      border-color: gray;
-      border-radius:4px;
-  }
-  .medium-font{
+}
+.item {
+  width: 15em !important; 
+}
+.img {
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid;
+  border-color: gray;
+  border-radius: 4px;
+}
+.medium-font {
   font-size: 13px;
+}
+.buyNowSection {
+  background-color: #fcfbf5;
+}
+.deliverSection {
+  background-color: #f5f7fe;
+}
+.express {
+  background-color: #feee00;
+  color: #494d4f;
+  border-radius: 20px 0 20px 20px;
+}
+.like {
+  border: 0px;
+  padding: 12px;
+  border-radius: 50%;
+  background-image: radial-gradient(white, #aab8c2);
+  color: #494d4f;
+  transition: all;
+  transition-duration: 500ms;
+  &:focus {
+    color: #e2264d;
+    background-image: radial-gradient(#aab8c2, #aab8c2);
   }
-  .buyNowSection{
-      background-color:#fcfbf5;
-  }
-  .deliverSection{
-      background-color:#f5f7fe;
-  }
-  .express{
-      background-color:#feee00;
-      color: #494d4f;
-      border-radius: 20px 0 20px 20px;
-  }
-  .like{
-      border: 0px;
-      padding: 12px;
-      border-radius: 50%;
-      background-image: radial-gradient(white,#aab8c2)  ;
-      color: #494d4f;
-      transition: all;
-      transition-duration:500ms;
-      &:focus{
-          color:#e2264d;
-          background-image: radial-gradient(#aab8c2,#aab8c2)
-      }
-  }
-  .stars{
-      
-      color:#f2994a;
-  }
-  .sml-like{
-      border: 0px;
-      border-radius: 50%;
-  }
-  
+}
+.stars {
+  color: #f2994a;
+}
+.sml-like {
+  border: 0px;
+  border-radius: 50%;
+}
