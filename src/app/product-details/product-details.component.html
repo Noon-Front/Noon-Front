@@ -9,50 +9,37 @@
     <i class="bi bi-chevron-right sml-font"></i>
     <span class="mx-2 sml-font">Memory Cards</span>
   </div>
+
   <!-- product main body -->
-  <main class="row d-flex justify-content-center align-self-center mt-3">
+  <main class="row d-flex justify-content-center align-self-center mt-3 ">
     <!-- all pictures -->
     <div class="col-1 d-none d-md-block">
-      <a (click)="setImg('img1')" class=" d-flex my-1" href="#">
+      <a (click)="setImg('img1')" class=" d-flex my-1">
         <img id="img1" [style]="autoSelected" src="../assets/Images/Product img(1).png"
           class="img-responsive w-100  img">
       </a>
-      <a (click)="setImg('img2')" class=" d-flex my-1" href="#">
+      <a (click)="setImg('img2')" class=" d-flex my-1">
         <img id="img2" src="../assets/Images/Product img(2).png" class="img-responsive w-100  img">
       </a>
-      <a (click)="setImg('img3')" class=" d-flex my-1" href="#">
+      <a (click)="setImg('img3')" class=" d-flex my-1">
         <img id="img3" src="../assets/Images/Product img(3).png" class="img-responsive w-100  img">
       </a>
     </div>
-    <!-- product main body -->
-    <main class="row d-flex justify-content-center align-self-center mt-3 ">
-        <!-- all pictures -->
-        <div class="col-1 d-none d-md-block">
-            <a (click)="setImg('img1')"  class=" d-flex my-1" >
-                <img id="img1" [style]="autoSelected"  src="../assets/Images/Product img(1).png" class="img-responsive w-100  img">
-            </a>
-            <a (click)="setImg('img2')" class=" d-flex my-1" >
-                <img id="img2"  src="../assets/Images/Product img(2).png" class="img-responsive w-100  img">
-            </a>
-            <a (click)="setImg('img3')" class=" d-flex my-1" >
-                <img id="img3"  src="../assets/Images/Product img(3).png" class="img-responsive w-100  img">
-            </a>
-        </div>
-        <!-- picture in view  -->
-        <div class="col-3 d-none d-md-block ">
-            <img id="mainImg" src="../assets/Images/Product img(1).png"class="img-responsive w-100  " >
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      <!-- </div> -->
+    <!-- picture in view  -->
+    <div class="col-3 d-none d-md-block ">
+      <img id="mainImg" src="../assets/Images/Product img(1).png" class="img-responsive w-100  ">
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    <!-- </div> -->
 
     <!-- </div> -->
     <!-- product name -->
@@ -92,45 +79,9 @@
             <span class=" d-flex mx-1 text-muted fw-bolder "><i class="bi bi-question-circle "></i></span>
           </span>
         </div>
-        <!-- product name -->
-        <div class="col-9 col-md-4 ">
-            <h5 class="text-muted">Kingston</h5>
-            <h3>CanvasSelected Plus UHS-i Memory card 32GB Black/White/Green</h3>
-            <h6 class="text-muted">Model Number</h6>
-            <span>Now:</span>
-            <span class="fs-5 fw-bold"> EPG 133.00</span>
-            <span class="text-muted"> (Inclusive of VAT)</span><br>
-            <span class="fw-bold medium-font">Earn 1%</span>
-            <span class="medium-font"> cashback.</span>
-            <span class="medium-font"><a href="#">Get noon VIP</a></span>
-            <!-- buy now section -->
-            <div class="w-100 p-2 mt-2 buyNowSection d-flex justify-content-between align-items-center medium-font detail">
-                <i class="bi bi-bank fs-5 "></i> 
-                <span class="d-flex mx-2 " >Buy now, pay in montholy installments later with select cards.</span>
-                <a  href="#">View more details</a>
-            </div>
-            <!-- deliver section  -->
-            <div class="deliverSection my-3">
-                <!-- deliver header -->
-                <div class="d-flex justify-content-between p-2 border-bottom">
-                    <span>Deliver to <span class="fw-bold">Cairo</span></span>
-                    <span><i class="bi bi-chevron-right"></i></span>
-                </div>
-                <!-- delivery time and date -->
-               <div class="d-flex p-2 justify-content-between align-items-center">
-                   <!-- the left side elemnts  -->
-                   <span >
-                   <span>Order in<span> 3 hrs 0mins</span> </span><br>
-                   <span>Delieverd by <span class="text-success"> Tomorrow, Aug 7</span></span>
-                   </span>
-                   <!-- the right side elements  -->
-                   <span class="d-flex">
-                       <span class=" d-flex px-2 fst-italic fw-bold express">express</span>
-                       <span class=" d-flex mx-1 text-muted fw-bolder "><i class="bi bi-question-circle "></i></span> 
-                   </span>
-                </div>
 
-            </div>
+
+
 
       </div>
 
@@ -214,100 +165,104 @@
 
     </div>
 
-  <!-- </main> -->
-  <!-- overview section -->
-  <section class="row mt-4 mx-5 my-3">
-    <!-- header -->
-    <div class="border-bottom d-flex mb-3">
-      <h5 class="fw-bold text-primary">OVERVIEW</h5>
-    </div>
-    <!-- highlishts -->
-    <div>
-      <h6 class="fw-bold">Highlight</h6>
-      <ul class="sml-font">
-        <li>Faster speeds Class 10 UHS-I speeds up to 100MB/s.</li>
-        <li>Capture in full HD & 4K UHD video (1080P) — the advanced UHS-I interface makes the card ideal for
-          cinema-quality full HD (1080P).</li>
-        <li>Multiple capacities Up to 512GB to store all your memorable photos and videos.</li>
-        <li>Durable for your peace of mind, The card has been extensively tested and proven to be waterproof,
-          temperature proof, shock and vibration proof and X-Ray proof. ***</li>
-      </ul>
-    </div>
-    <!-- small overview -->
-    <div>
-      <h6 class="fw-bold">Overview</h6>
-      <p class="sml-font">
-        Kingston’s Canvas Select Plus SD card is designed with exceptional performance, speed, and durability for heavy
-        workloads such as transferring and developing high-resolution photos or capturing and editing full HD videos. It
-        can reach Class 10 UHS-I speeds up to 100MB/s* for easy storage and quick transfers along with an advanced UHS-I
-        interface that can record cinematic Full HD and 4K Ultra HD videos. The Canvas Select Plus SD card is built to
-        perform in the harshest environments and conditions so you can take it anywhere knowing your files, photos, and
-        videos are protected. Available in multiple capacities up to 512GB2 and with a lifetime .
-      </p>
-    </div>
-    <!-- spectifications -->
-    <div>
-      <h6 class="fw-bold">Specifications</h6>
-    </div>
-    <!-- two tables -->
-    <div class="d-flex row">
-      <table class="col-11 col-md-5 mx-2">
-        <tr class="bg-light">
-          <td>Color Name</td>
-          <td>Black/White/Green</td>
-        </tr>
-        <tr>
-          <td>Connection Type</td>
-          <td>SIM Card</td>
-        </tr>
-        <tr class="bg-light">
-          <td>Grade</td>
-          <td>New</td>
-        </tr>
-        <tr>
-          <td>Model Name</td>
-          <td>CanvasSelect Plus</td>
-        </tr>
-      </table>
-      <table class="col-11 col-md-5 mx-2">
-        <tr class="bg-light">
-          <td>Model Number</td>
-          <td>SDS2/32GB</td>
-        </tr>
-        <tr>
-          <td>Item Qty</td>
-          <td>1</td>
-        </tr>
-        <tr class="bg-light">
-          <td>Size</td>
-          <td>32 GB</td>
-        </tr>
-        <tr>
-          <td>What's In The Box</td>
-          <td>Memory Card</td>
-        </tr>
-      </table>
-    </div>
-
-  </section>
-  <!-- customer also views  -->
-  <swiper>
-    <ng-template swiperSlide>
-      <div class="item bg-white py-3 my-2 ">
-        <!-- like button -->
-        <div class="d-flex justify-content-end align-items">
-          <button class="bg-light sml-like mt-2 px-1 "><i #item1 (click)="addToWish(item1)"
-              class="bi bi-suit-heart"></i></button>
-        </div>
-        <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
-        <div class="sml-font">CanvasSelect Plus UHS-I SDHC Memory Card 32GB </div>
-        <div>EGP <span class="fw-bold">125.00</span></div>
-        <!-- express and rating  -->
-        <div class="d-flex justify-content-between align-items-center">
-          <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-          <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i> (14)</span>
-        </div>
+    <!-- </main> -->
+    <!-- overview section -->
+    <section class="row mt-4 mx-5 my-3">
+      <!-- header -->
+      <div class="border-bottom d-flex mb-3">
+        <h5 class="fw-bold text-primary">OVERVIEW</h5>
       </div>
-    </ng-template>
-  </swiper>
-<!-- </section> -->
+      <!-- highlishts -->
+      <div>
+        <h6 class="fw-bold">Highlight</h6>
+        <ul class="sml-font">
+          <li>Faster speeds Class 10 UHS-I speeds up to 100MB/s.</li>
+          <li>Capture in full HD & 4K UHD video (1080P) — the advanced UHS-I interface makes the card ideal for
+            cinema-quality full HD (1080P).</li>
+          <li>Multiple capacities Up to 512GB to store all your memorable photos and videos.</li>
+          <li>Durable for your peace of mind, The card has been extensively tested and proven to be waterproof,
+            temperature proof, shock and vibration proof and X-Ray proof. ***</li>
+        </ul>
+      </div>
+      <!-- small overview -->
+      <div>
+        <h6 class="fw-bold">Overview</h6>
+        <p class="sml-font">
+          Kingston’s Canvas Select Plus SD card is designed with exceptional performance, speed, and durability for
+          heavy
+          workloads such as transferring and developing high-resolution photos or capturing and editing full HD videos.
+          It
+          can reach Class 10 UHS-I speeds up to 100MB/s* for easy storage and quick transfers along with an advanced
+          UHS-I
+          interface that can record cinematic Full HD and 4K Ultra HD videos. The Canvas Select Plus SD card is built to
+          perform in the harshest environments and conditions so you can take it anywhere knowing your files, photos,
+          and
+          videos are protected. Available in multiple capacities up to 512GB2 and with a lifetime .
+        </p>
+      </div>
+      <!-- spectifications -->
+      <div>
+        <h6 class="fw-bold">Specifications</h6>
+      </div>
+      <!-- two tables -->
+      <div class="d-flex row">
+        <table class="col-11 col-md-5 mx-2">
+          <tr class="bg-light">
+            <td>Color Name</td>
+            <td>Black/White/Green</td>
+          </tr>
+          <tr>
+            <td>Connection Type</td>
+            <td>SIM Card</td>
+          </tr>
+          <tr class="bg-light">
+            <td>Grade</td>
+            <td>New</td>
+          </tr>
+          <tr>
+            <td>Model Name</td>
+            <td>CanvasSelect Plus</td>
+          </tr>
+        </table>
+        <table class="col-11 col-md-5 mx-2">
+          <tr class="bg-light">
+            <td>Model Number</td>
+            <td>SDS2/32GB</td>
+          </tr>
+          <tr>
+            <td>Item Qty</td>
+            <td>1</td>
+          </tr>
+          <tr class="bg-light">
+            <td>Size</td>
+            <td>32 GB</td>
+          </tr>
+          <tr>
+            <td>What's In The Box</td>
+            <td>Memory Card</td>
+          </tr>
+        </table>
+      </div>
+
+    </section>
+    <!-- customer also views  -->
+    <swiper>
+      <ng-template swiperSlide>
+        <div class="item bg-white py-3 my-2 ">
+          <!-- like button -->
+          <div class="d-flex justify-content-end align-items">
+            <button class="bg-light sml-like mt-2 px-1 "><i #item1 (click)="addToWish(item1)"
+                class="bi bi-suit-heart"></i></button>
+          </div>
+          <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
+          <div class="sml-font">CanvasSelect Plus UHS-I SDHC Memory Card 32GB </div>
+          <div>EGP <span class="fw-bold">125.00</span></div>
+          <!-- express and rating  -->
+          <div class="d-flex justify-content-between align-items-center">
+            <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
+            <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i> (14)</span>
+          </div>
+        </div>
+      </ng-template>
+    </swiper>
+    <!-- </section> -->
