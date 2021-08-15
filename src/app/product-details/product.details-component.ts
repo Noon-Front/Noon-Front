@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../shared classes and interfaces/product.service';
 
 @Component({
   selector: 'app-product-details',
@@ -15,9 +17,10 @@ blue:string="border-color:blue;"
 gray:string="border-color:gray;"
 likeHeart:any;
 selectedItem:any;
-
+productId:any;
+productDetails:any;
 clickedImage:any;
-  constructor() { }
+  constructor(private activatedRoute : ActivatedRoute ,private _productService : ProductService) { }
 
   ngOnInit(): void {
     this.mainImg= document.getElementById("mainImg") as HTMLImageElement;
@@ -26,6 +29,10 @@ clickedImage:any;
     this.img3= document.getElementById("img3") as HTMLImageElement;
     this.autoSelected=`${this.blue}`
     this.likeHeart="bi bi-suit-heart"
+
+    this.productId = this.activatedRoute.snapshot.paramMap.get('id');
+    this._productService.getProductById(this.productId).subscribe(data =>{this.productDetails=data ,console.log(data)});
+
   }
 
   setImg(img: string): void {

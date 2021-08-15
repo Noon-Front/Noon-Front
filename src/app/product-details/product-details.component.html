@@ -44,11 +44,11 @@
     <!-- </div> -->
     <!-- product name -->
     <div class="col-9 col-md-4">
-      <h5 class="text-muted">Kingston</h5>
-      <h3>CanvasSelected Plus UHS-i Memory card 32GB Black/White/Green</h3>
+      <h5 class="text-muted">{{productDetails.name}}</h5>
+      <h3>{{productDetails.description}}</h3>
       <h6 class="text-muted">Model Number</h6>
       <span>Now:</span>
-      <span class="fs-5 fw-bold"> EPG 133.00</span>
+      <span class="fs-5 fw-bold">{{productDetails.price| currency:"EGP":"symbol"}}</span>
       <span class="text-muted"> (Inclusive of VAT)</span><br>
       <span class="fw-bold medium-font">Earn 1%</span>
       <span class="medium-font"> cashback.</span>

@@ -22,4 +22,7 @@ export class ProductService {
     return this.http.get<Product[]>(`${this.baseUrl}/Category/${catId}`)
     }
 
+  getProductById(productId:string):Observable<Product[]>{
+    return this.http.get<Product[]>(`${this.baseUrl}/${productId}`)
+  }
 }
