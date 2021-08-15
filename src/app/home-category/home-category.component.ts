@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../shared classes and interfaces/product.service';
 
 @Component({
   selector: 'app-home-category',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeCategoryComponent implements OnInit {
   selectedItem:any;
-  constructor() { }
+  productList:any;
+  constructor(private _product:ProductService) { }
 
   ngOnInit(): void {
+    this._product.getByCategory("4").subscribe(data => {this.productList=data, console.log(data)});
   }
 
 addToWish(item:any){

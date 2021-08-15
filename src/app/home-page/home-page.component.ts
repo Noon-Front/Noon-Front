@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../shared classes and interfaces/product.service';
 
 @Component({
   selector: 'app-home-page',
@@ -10,11 +11,12 @@ export class HomePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 
-addToWish(item:any){
-  this.selectedItem=item.classList
+  addToWish(item:any){
+    this.selectedItem=item.classList
     if(this.selectedItem=="bi bi-suit-heart"){
     this.selectedItem.remove("bi-suit-heart")
       this.selectedItem.add("text-danger")
@@ -26,5 +28,4 @@ addToWish(item:any){
 
     }
   }
-
 }
