@@ -18,4 +18,8 @@ export class ProductService {
     return this.http.post(this.baseUrl,body,{'headers':headers})
   }
 
+  getByCategory(catId:string):Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.baseUrl}/Category/${catId}`)
+    }
+
 }
