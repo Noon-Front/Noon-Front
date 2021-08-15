@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../shared classes and interfaces/product.service';
 
 @Component({
   selector: 'app-fashion-page',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FashionPageComponent implements OnInit {
   selectedItem:any;
-  constructor() { }
+  allFashion:any;
+  constructor(private _productService : ProductService) { }
 
   ngOnInit(): void {
-    
+    this._productService.getByCategory("3").subscribe(data =>{this.allFashion=data ,console.log(data)});
+
   }
   addToWish(item:any){
     this.selectedItem=item.classList
