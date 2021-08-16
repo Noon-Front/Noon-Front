@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
 
 
 
-  constructor(public _formService:FormServiceService , private _orderService : OrderService) {
+  constructor(public _formService:FormServiceService , public _orderService : OrderService) {
 
   }
 
