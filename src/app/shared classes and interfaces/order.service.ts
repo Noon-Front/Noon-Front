@@ -20,7 +20,15 @@ export class OrderService {
   }
   removeFromCart(product: Product) {
     this.cart.forEach((value, index) => {
-      if (value.id == product.id) this.cart.splice(index, 1);
+      if (value.id == product.id) {
+        this.cart.splice(index, 1)
+        this.counter=this.counter-1;
+      };
+     
     });
+    
+    this.productPrice=product.price;
+    this.totalPrice = this.totalPrice - this.productPrice;
+    console.log(this.totalPrice)
   }
 }
