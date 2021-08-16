@@ -9,10 +9,12 @@ import { ProductService } from '../shared classes and interfaces/product.service
 export class HomeCategoryComponent implements OnInit {
   selectedItem:any;
   productList:any;
-  constructor(private _product:ProductService) { }
+  pro:any;
+  constructor(public _productService:ProductService) { }
 
   ngOnInit(): void {
-    this._product.getByCategory("4").subscribe(data => {this.productList=data, console.log(data)});
+    this._productService.getByCategory("4").subscribe(data => {this.productList=data, console.log(data)});
+    this._productService.onClick(this.pro);
   }
 
 addToWish(item:any){

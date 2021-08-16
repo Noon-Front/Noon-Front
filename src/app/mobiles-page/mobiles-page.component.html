@@ -6,18 +6,18 @@
         <h5>New arrivals</h5>
         <swiper>
             <ng-template swiperSlide *ngFor="let mobile of allMobiles" class="bg-white py-3 my-2  mx-1 item" >
-                <div  class=" px-3" (click)="onClick(mobile)">
+                <div  class=" px-3" (click)="_productService.onClick(mobile)">
                     <!-- like button -->
                     <div class="d-flex justify-content-end align-items">
                         <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
                     </div>
                     <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
                     <div class="lg-font fw-bold ">{{mobile.name}}</div>
-                    <span class="mid-font ">{{mobile.price| currency:"EGP":"symbol"}}</span>
+                    <span class="mid-font ">{{mobile.price| currency:"EGP ":"symbol"}}</span>
                     <!-- express and rating  -->
                     <div class="d-flex justify-content-between align-items-center">
                         <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-                        <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i> (14)</span>
+                        <span class="sml-font"> <i class="bi bi-star-fill stars"> {{mobile.rating}}</i> (14)</span>
                     </div>
                 </div>
             </ng-template>
@@ -32,18 +32,18 @@
         <h5>New arrivals</h5>
         <swiper>
             <ng-template swiperSlide *ngFor="let mobile of allMobiles" class="bg-white py-3 my-2  mx-1 item" >
-                <div  class=" px-3">
+                <div  class=" px-3" (click)="_productService.onClick(mobile)">
                     <!-- like button -->
                     <div class="d-flex justify-content-end align-items">
                         <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
                     </div>
                     <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
                     <div class="lg-font fw-bold ">{{mobile.name}}</div>
-                    <span class="mid-font ">{{mobile.price| currency:"EGP":"symbol"}}</span>
+                    <span class="mid-font ">{{mobile.price| currency:"EGP ":"symbol"}}</span>
                     <!-- express and rating  -->
                     <div class="d-flex justify-content-between align-items-center">
                         <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-                        <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i> (14)</span>
+                        <span class="sml-font"> <i class="bi bi-star-fill stars"> {{mobile.rating}}</i> (14)</span>
                     </div>
                 </div>
             </ng-template>
@@ -57,18 +57,18 @@
         <h5>Tablets</h5>
         <swiper>
             <ng-template swiperSlide *ngFor="let mobile of allMobiles" class="bg-white py-3 my-2  mx-1 item" >
-                <div  class=" px-3">
+                <div  class=" px-3" (click)="_productService.onClick(mobile)">
                     <!-- like button -->
                     <div class="d-flex justify-content-end align-items">
                         <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
                     </div>
                     <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
                     <div class="lg-font fw-bold ">{{mobile.name}}</div>
-                    <span class="mid-font ">{{mobile.price| currency:"EGP":"symbol"}}</span>
+                    <span class="mid-font ">{{mobile.price| currency:"EGP ":"symbol"}}</span>
                     <!-- express and rating  -->
                     <div class="d-flex justify-content-between align-items-center">
                         <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-                        <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i> (14)</span>
+                        <span class="sml-font"> <i class="bi bi-star-fill stars"> {{mobile.rating}}</i> (14)</span>
                     </div>
                 </div>
             </ng-template>

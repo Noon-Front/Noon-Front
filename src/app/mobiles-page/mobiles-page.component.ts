@@ -9,17 +9,13 @@ import { ProductService } from '../shared classes and interfaces/product.service
 })
 export class MobilesPageComponent implements OnInit {
 
-  constructor(private _productService : ProductService , private router:Router) { }
-
+  constructor(public _productService : ProductService , private router:Router) { }
+  mobile:any;
   allMobiles:any;
   ngOnInit(): void {
     this._productService.getByCategory("2").subscribe(data =>{this.allMobiles=data ,console.log(data)});
+    this._productService.onClick(this.mobile); 
   }
-  onClick(mobile:any)
-  {
-    console.log("clicked")
-    this.router.navigate(["/product-details",mobile.id])
-    
-  }
+
 
 }

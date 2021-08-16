@@ -8,10 +8,13 @@ import { ProductService } from '../shared classes and interfaces/product.service
 })
 export class ElectronicsPageComponent implements OnInit {
 
-  constructor(private _productService : ProductService) { }
+  constructor(public _productService : ProductService) { }
   allElectronics:any;
+  device:any;
   ngOnInit(): void {
     this._productService.getByCategory("1").subscribe(data => {this.allElectronics = data,console.log(data)});
+    this._productService.onClick(this.device); 
+
   }
 
 }

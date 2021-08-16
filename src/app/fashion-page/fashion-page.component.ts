@@ -9,10 +9,12 @@ import { ProductService } from '../shared classes and interfaces/product.service
 export class FashionPageComponent implements OnInit {
   selectedItem:any;
   allFashion:any;
-  constructor(private _productService : ProductService) { }
+  piece:any;
+  constructor(public _productService : ProductService) { }
 
   ngOnInit(): void {
     this._productService.getByCategory("3").subscribe(data =>{this.allFashion=data ,console.log(data)});
+    this._productService.onClick(this.piece);
 
   }
   addToWish(item:any){
