@@ -6,12 +6,14 @@ import { Product } from './product';
 })
 export class OrderService {
   cart: Product[] = [];
-  totalPrice: number = 0;
+  productPrice:any;
+  totalPrice:number=0;
   constructor() {}
 
   addToCart(product: Product) {
     this.cart.push(product);
-    console.log(this.cart);
+    this.productPrice=product.price;
+    this.totalPrice=this.totalPrice+this.productPrice;
   }
   removeFromCart(product: Product) {
     this.cart.forEach((value, index) => {
