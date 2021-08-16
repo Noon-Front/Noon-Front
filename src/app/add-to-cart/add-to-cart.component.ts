@@ -8,10 +8,12 @@ import { OrderService } from '../shared classes and interfaces/order.service';
 })
 export class AddToCartComponent implements OnInit {
 orders:any;
-  constructor(private _orderService:OrderService) { }
+product:any;
+  constructor(public _orderService:OrderService) { }
 
   ngOnInit(): void {
     this.orders= this._orderService.cart;
+    this._orderService.removeFromCart(this.product);
   }
 
 }

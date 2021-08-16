@@ -1,6 +1,6 @@
 <div class="row mainDiv">
     <div class="col-7">
-        <h5 class="fw-bold">Cart <span>{{orders.length}}</span></h5>
+        <h5 class="fw-bold">Cart <span>({{orders.length}} items)</span></h5>
         <div class="row product" *ngFor="let product of orders">
             <div class="col-2">
                 <img class="productImg" src="../assets/Images/Product img(1).png" />
@@ -9,12 +9,18 @@
                 <h5>{{product.name}}</h5>
                 <h6>{{product.description}}}</h6>
                 <span> sold by <span style="color: black">noon</span></span>
-                <div class="warranty">
-                    <img class="icon" src="../assets/warranty.svg" /> 1 year warranty
+                <div class="row">
+                    <div class="warranty col-9">
+                        <img class="icon" src="../assets/warranty.svg" /> 1 year warranty
+                    </div>
+                    <div class="col">
+                        <span class="text-success fw-bolder">{{product.price | currency:"EGP ":"symbol"}}</span>
+                    </div>
                 </div>
+                
                 <div class="row  ">
                     <div class="col mt-2">
-                        <button class="btn btn-outline-danger"> <img class="remove" src="../assets/remove.svg">
+                        <button class="btn btn-outline-danger" (click)="_orderService.removeFromCart(product)"> <img class="remove" src="../assets/remove.svg">
                             Remove</button>
                     </div>
                     <div class="col pt-1 " style="text-align: right;">
