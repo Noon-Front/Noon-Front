@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from '../shared classes and interfaces/order.service';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-to-cart.component.scss']
 })
 export class AddToCartComponent implements OnInit {
-
-  constructor() { }
+orders:any;
+  constructor(private _orderService:OrderService) { }
 
   ngOnInit(): void {
+    this.orders= this._orderService.cart;
   }
 
 }

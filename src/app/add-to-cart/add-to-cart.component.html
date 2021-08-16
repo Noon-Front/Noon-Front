@@ -1,13 +1,13 @@
 <div class="row mainDiv">
     <div class="col-7">
-        <h5 class="fw-bold">Cart <span>(1 item)</span></h5>
-        <div class="row product">
+        <h5 class="fw-bold">Cart <span>{{orders.length}}</span></h5>
+        <div class="row product" *ngFor="let product of orders">
             <div class="col-2">
                 <img class="productImg" src="../assets/Images/Product img(1).png" />
             </div>
             <div class="col">
-                <h5>Kingston</h5>
-                <h6>CanvasSelected Plus UHS-i Memory card 32GB Black/White/Green</h6>
+                <h5>{{product.name}}</h5>
+                <h6>{{product.description}}}</h6>
                 <span> sold by <span style="color: black">noon</span></span>
                 <div class="warranty">
                     <img class="icon" src="../assets/warranty.svg" /> 1 year warranty
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-outline-primary">
+        <button type="button" class="btn btn-outline-primary" [routerLink]="['/home']">
             Contiue shoping
         </button>
     </div>

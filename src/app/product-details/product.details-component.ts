@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OrderService } from '../shared classes and interfaces/order.service';
 import { ProductService } from '../shared classes and interfaces/product.service';
 
 @Component({
@@ -20,7 +21,7 @@ selectedItem:any;
 productId:any;
 productDetails:any;
 clickedImage:any;
-  constructor(private activatedRoute : ActivatedRoute ,private _productService : ProductService) { }
+  constructor(private activatedRoute : ActivatedRoute ,private _productService : ProductService , private _orderService : OrderService) { }
 
   ngOnInit(): void {
     this.mainImg= document.getElementById("mainImg") as HTMLImageElement;
@@ -32,7 +33,11 @@ clickedImage:any;
 
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
     this._productService.getProductById(this.productId).subscribe(data =>{this.productDetails=data ,console.log(data)});
-
+ 
+  }
+  onclick()
+  {
+    this._orderService.addToCart(this.productDetails);
   }
 
   setImg(img: string): void {
