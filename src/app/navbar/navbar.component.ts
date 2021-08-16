@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormServiceService } from '../shared classes and interfaces/form-service.service';
 import { MustMatch } from '../shared classes and interfaces/mustMatch';
+import { OrderService } from '../shared classes and interfaces/order.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,10 +19,12 @@ export class NavbarComponent implements OnInit {
   accountStatus = false;
   userStatus = true;
   cartShow = true;
+  counter:number=0;
 
 
 
-  constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder) {
+
+  constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder , private _orderService : OrderService) {
     this.signupForm = this._formBuilder.group({
       userName:['', Validators.required],
       email:['', [Validators.required, Validators.pattern(/(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b/)]],
@@ -32,6 +35,7 @@ export class NavbarComponent implements OnInit {
   //userModel = new User();
 
   ngOnInit(): void {
+    this.counter=this._orderService.counter
     if(performance.navigation.type == 1){
       localStorage.removeItem('access_token');
       localStorage.removeItem('access_admin_token');
