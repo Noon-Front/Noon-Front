@@ -12,6 +12,10 @@ import { SupermarketPageComponent } from './supermarket-page/supermarket-page.co
 import { AuthGuard } from './shared classes and interfaces/auth.guard'; //new
 import { AuthAdminGuard } from './shared classes and interfaces/auth-admin.guard';
 import { AddProductComponent } from './add-product/add-product.component';
+import { LoginFormComponent } from './forms/login-form/login-form.component';
+import { RegisterFormComponent } from './forms/register-form/register-form.component';
+import { LoginAdminComponent } from './forms/login-admin/login-admin.component';
+import { RegisterAdminComponent } from './forms/register-admin/register-admin.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
@@ -24,7 +28,11 @@ const routes: Routes = [
   {path:'mobiles', component:MobilesPageComponent},
   {path:'supermarket',component:SupermarketPageComponent},
   {path:'dashboard' , component:DashboardComponent, canActivate:[AuthAdminGuard]},
-  {path: "addProduct", component:AddProductComponent, canActivate:[AuthAdminGuard]}
+  {path: "addProduct", component:AddProductComponent, canActivate:[AuthAdminGuard]},
+  {path:"login", component:LoginFormComponent},
+  {path:"adminLogin", component:LoginAdminComponent},
+  {path:"register", component:RegisterFormComponent},
+  {path:"adminRegister", component:RegisterAdminComponent, canActivate:[AuthAdminGuard]}
 ];
 
 @NgModule({

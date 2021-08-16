@@ -25,7 +25,6 @@ addToWish(item:any){
       this.selectedItem.add("bi-suit-heart")
       this.selectedItem.remove("bi-suit-heart-fill")
       this.selectedItem.remove("text-danger")
-
     }
   }
 

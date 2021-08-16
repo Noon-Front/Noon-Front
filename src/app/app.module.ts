@@ -41,6 +41,10 @@ import { FCategoryDivComponent } from './fashion-page/f-category-div/f-category-
 import { HerDivComponent } from './fashion-page/her-div/her-div.component';
 import { HimDivComponent } from './fashion-page/him-div/him-div.component';
 import { TopBrandsDivComponent } from './fashion-page/top-brands-div/top-brands-div.component';
+import { LoginFormComponent } from './forms/login-form/login-form.component';
+import { RegisterFormComponent } from './forms/register-form/register-form.component';
+import { LoginAdminComponent } from './forms/login-admin/login-admin.component';
+import { RegisterAdminComponent } from './forms/register-admin/register-admin.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +85,10 @@ import { TopBrandsDivComponent } from './fashion-page/top-brands-div/top-brands-
     HerDivComponent,
     HimDivComponent,
     TopBrandsDivComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+    LoginAdminComponent,
+    RegisterAdminComponent,
 
   ],
   imports: [
@@ -96,7 +104,7 @@ import { TopBrandsDivComponent } from './fashion-page/top-brands-div/top-brands-
       provide: HTTP_INTERCEPTORS,//new
       useClass: AuthInterceptor,//new
       multi: true//new
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

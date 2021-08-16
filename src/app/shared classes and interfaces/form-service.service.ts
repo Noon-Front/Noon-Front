@@ -14,6 +14,10 @@ export class FormServiceService {
   headers = new HttpHeaders().set('content-type','application/json');
   msg?: string = "now";
 
+  accountStatus = true;
+  userStatus = false;
+  cartShow = true;
+
 
   constructor(private _http:HttpClient, public router:Router) { }
 
@@ -40,8 +44,11 @@ export class FormServiceService {
     //console.log(body);
     return this._http.post(api, body, {"headers":this.headers}).subscribe((res:any) => {
       localStorage.setItem("access_token", res.token);
-      //this.router.navigate(['/home']);
+      this.router.navigate(['/cart']);
       console.log(res);
+      this.accountStatus = false;
+      this.userStatus = true;
+      this.cartShow = true;
     })
   }
   //Admin Sign In
@@ -51,8 +58,11 @@ export class FormServiceService {
     //console.log(body);
     return this._http.post(api, body, {"headers":this.headers}).subscribe((res:any) => {
       localStorage.setItem("access_admin_token", res.token);
-      //this.router.navigate(['/home']);
+      this.router.navigate(['/home']);
       console.log(res);
+      this.accountStatus = false;
+      this.userStatus = false;
+      this.cartShow = false;
     })
   }
   //Get User Token

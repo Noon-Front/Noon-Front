@@ -18,8 +18,8 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this.formService.isLoggedIn !== true) {
-      window.alert("You must be logged in");
-      this.router.navigate(['home'])
+      console.log("You must be logged in to show your cart content");
+      this.router.navigate(['/login'])
     }
     return true;
   }

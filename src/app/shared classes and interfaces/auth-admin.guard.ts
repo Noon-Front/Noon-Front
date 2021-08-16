@@ -19,7 +19,7 @@ export class AuthAdminGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (this.formService.isAdminLoggedIn !== true) {
       window.alert("You must be logged in as Admin");
-      this.router.navigate(['home'])
+      this.router.navigate(['/adminLogin'])
     }
     return true;
   }

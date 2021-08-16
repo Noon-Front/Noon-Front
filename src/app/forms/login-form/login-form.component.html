@@ -1,0 +1,57 @@
+<section style="margin: 100px 0 340px;">
+  <div class="container">
+    <div>
+      <div>
+        <div class="position-absolute">
+          <img src="assets/Images/Forms/user-login.png" alt="">
+        </div>
+        <div class="quiz">
+          <h2>Welcome back!</h2>
+          <h2>Sign in to your account</h2>
+        </div>
+        <div class="choose-signup">
+          <span>Don't have an account? </span>
+          <a [routerLink]="['/register']">Sign Up</a>
+        </div>
+        <form #userForm="ngForm" novalidate (ngSubmit)="loginUser()" [formGroup]="signupForm">
+          <!-- email -->
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" formControlName="email" name="email" class="form-control" aria-describedby="emailHelp"
+              required [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback" style="margin: 60px 0 0 30px;">
+              <div *ngIf="f.email.errors.required" style="font-size: 11px;">Email can't be empty</div>
+              <div *ngIf="f.email.errors.pattern" style="font-size: 11px;">Invalid email</div>
+            </div>
+          </div>
+          <!-- password -->
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" formControlName="password" name="password" class="form-control" required
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback" style="margin: 60px 0 0 30px;">
+              <div *ngIf="f.password.errors.required" style="font-size: 11px;">password can't be empty</div>
+              <!-- <div *ngIf="f.password.errors.pattern" style="font-size: 11px;">Invalid password</div> -->
+            </div>
+          </div>
+          <input type="submit" value="Login" class="btn solid" />
+          <p class="social-text">Or Sign in with social platforms</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

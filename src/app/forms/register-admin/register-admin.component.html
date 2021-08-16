@@ -1,0 +1,71 @@
+<section class="email-msg" *ngIf="showMsg">
+  <div>
+    <p>The user name already exists!</p>
+  </div>
+</section>
+
+<section class="email-msg" *ngIf="showAdminMessage">
+  <div>
+    <p>Admin created successfully!</p>
+  </div>
+</section>
+
+
+
+
+<section style="margin: 100px 0 200px;">
+  <div class="container">
+    <div>
+      <div>
+        <div class="quiz">
+          <h2 class="fw-bold">Create new admin</h2>
+        </div>
+        <form #userForm="ngForm" novalidate (ngSubmit)="registerAdmin()" [formGroup]="signupForm">
+          <!-- user name -->
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" formControlName="userName" name="user-name" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" placeholder="Username">
+            <div *ngIf="submitted && f.userName.errors" class="invalid-feedback" style="margin: 60px 0 0 30px;">
+              <div *ngIf="f.userName.errors.required" style="font-size: 11px;">User name can't be empty</div>
+            </div>
+          </div>
+          <!-- email -->
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" formControlName="email" name="email" class="form-control" aria-describedby="emailHelp"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback" style="margin: 60px 0 0 30px;">
+              <div *ngIf="f.email.errors.required" style="font-size: 11px;">Email can't be empty</div>
+              <div *ngIf="f.email.errors.pattern" style="font-size: 11px;">Invalid email</div>
+            </div>
+          </div>
+          <!-- password -->
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" formControlName="password" name="password" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback" style="margin: 60px 0 0 30px;">
+              <div *ngIf="f.password.errors.required" style="font-size: 11px;">password can't be empty</div>
+              <div *ngIf="f.password.errors.pattern" style="font-size: 11px;">Invalid password</div>
+            </div>
+          </div>
+          <!-- confirm password -->
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" formControlName="confirmPassword" name="confirmPassword" class="form-control"
+              required [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
+              placeholder="Confirm Password">
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback" style="margin: 60px 0 0 30px;">
+              <div *ngIf="f.confirmPassword.errors.required" style="font-size: 11px;">Confirm Password can't be
+                empty
+              </div>
+              <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+            </div>
+          </div>
+          <input type="submit" class="btn" value="Add" />
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
