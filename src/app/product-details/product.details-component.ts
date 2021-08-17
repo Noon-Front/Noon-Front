@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../shared classes and interfaces/order.service';
+import { ProductImagesService } from '../shared classes and interfaces/product-images.service';
 import { ProductService } from '../shared classes and interfaces/product.service';
 
 @Component({
@@ -21,7 +22,9 @@ selectedItem:any;
 productId:any;
 productDetails:any;
 clickedImage:any;
-  constructor(private activatedRoute : ActivatedRoute ,private _productService : ProductService , private _orderService : OrderService) { }
+rootUrlForImages:string="https://localhost:44326/"
+ProductImages:any;
+  constructor(private activatedRoute : ActivatedRoute ,private _productService : ProductService , private _orderService : OrderService, private _productImagesService:ProductImagesService) { }
 
   ngOnInit(): void {
     this.mainImg= document.getElementById("mainImg") as HTMLImageElement;
@@ -32,8 +35,15 @@ clickedImage:any;
     this.likeHeart="bi bi-suit-heart"
 
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
-    this._productService.getProductById(this.productId).subscribe(data =>{this.productDetails=data ,console.log(data)});
+    this._productService.getProductById(this.productId).subscribe(data =>{this.productDetails=data });
+
+    
  
+  }
+  ngAfterViewInit(){
+    this._productImagesService.getAllProductImages(this.productId).subscribe(data =>{this.ProductImages= data, console.log(data) })
+    
+
   }
   onclick()
   {

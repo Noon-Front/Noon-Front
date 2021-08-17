@@ -14,16 +14,17 @@
   <main class="row d-flex justify-content-center align-self-center mt-3 ">
     <!-- all pictures -->
     <div class="col-1 d-none d-md-block">
-      <a (click)="setImg('img1')" class=" d-flex my-1">
-        <img id="img1" [style]="autoSelected" src="../assets/Images/Product img(1).png"
+
+      <a (click)="setImg('img1')" class=" d-flex my-1 imgItem" *ngFor="let img of ProductImages">
+        <img id="img1" [style]="autoSelected" src='{{rootUrlForImages}}{{img.imagePath}}'
           class="img-responsive w-100  img">
       </a>
-      <a (click)="setImg('img2')" class=" d-flex my-1">
+      <!-- <a (click)="setImg('img2')" class=" d-flex my-1">
         <img id="img2" src="../assets/Images/Product img(2).png" class="img-responsive w-100  img">
       </a>
       <a (click)="setImg('img3')" class=" d-flex my-1">
         <img id="img3" src="../assets/Images/Product img(3).png" class="img-responsive w-100  img">
-      </a>
+      </a> -->
     </div>
     <!-- picture in view  -->
     <div class="col-3 d-none d-md-block ">
