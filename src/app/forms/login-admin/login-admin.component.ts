@@ -29,7 +29,6 @@ export class LoginAdminComponent implements OnInit {
    loginAdmin(){
     this._formService.signInAdmin(this.signupForm.value);
     this.submitted = true;
-    // this.checkUser();
   }
 
   // convenience getter for easy access to form fields

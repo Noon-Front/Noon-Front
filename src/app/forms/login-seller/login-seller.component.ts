@@ -28,7 +28,7 @@ export class LoginSellerComponent implements OnInit {
 
    //Seller Loged In
    loginSeller(){
-    this._formService.signIn(this.signupForm.value);
+    this._formService.signInSeller(this.signupForm.value);
     this.submitted = true;
   }
 

@@ -16,6 +16,7 @@ export class FormServiceService {
 
   accountStatus = true;
   userStatus = false;
+  adminOrSeller = true;
   cartShow = true;
 
 
@@ -69,6 +70,7 @@ export class FormServiceService {
       console.log(res);
       this.accountStatus = false;
       this.userStatus = false;
+      this.adminOrSeller = true;
       this.cartShow = false;
     })
   }
@@ -83,7 +85,8 @@ export class FormServiceService {
       console.log(res);
       this.accountStatus = false;
       this.userStatus = false;
-      this.cartShow = false;
+      this.adminOrSeller = false;
+      this.cartShow = true;
     })
   }
   //Get User Token

@@ -33,16 +33,16 @@
               <img src="https://z.nooncdn.com/s/app/com/noon/icons/profile_menu_icon_v3.svg" alt="Profile">
               <a class="dropdown-item">User</a>
             </li>
-            <li class="d-flex" [routerLink]="['/adminLogin']">
+            <li class="d-flex" [routerLink]="['/sellerLogin']">
               <img src="https://z.nooncdn.com/s/app/com/noon/icons/profile_menu_icon_v3.svg" alt="Profile">
-              <a class="dropdown-item">Admin</a>
+              <a class="dropdown-item">Seller</a>
             </li>
           </ul>
         </li>
       </ng-template>
 
       <ng-template #disEnabled>
-        <li *ngIf="this._formService.userStatus; then user; else admin">
+        <li *ngIf="this._formService.userStatus; then user; else other">
 
         </li>
         <ng-template #user>
@@ -71,27 +71,88 @@
             </ul>
           </li>
         </ng-template>
-        <ng-template #admin>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle d-flex align-items-center fw-bold" style="color: #404553;"
-              id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Options
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li class="d-flex align-items-center" [routerLink]="['/dashboard']">
-                <img width="25px" height="25px" src="assets/Images/dashboard.png" alt="">
-                <a class="dropdown-item">Dashboard</a>
-              </li>
-              <li class="d-flex align-items-center" [routerLink]="['/addProduct']">
-                <img width="25px" height="25px" src="assets/Images/product.png" alt="">
-                <a class="dropdown-item">Add Product</a>
-              </li>
-              <li class="d-flex align-items-center" [routerLink]="['/adminRegister']">
-                <img width="25px" height="25px" src="assets/Images/admin.png" alt="">
-                <a class="dropdown-item">Add new admin</a>
-              </li>
-            </ul>
+        <ng-template #other>
+          <li *ngIf="this._formService.adminOrSeller; then admin; else seller">
+
           </li>
+          <ng-template #admin>
+            <li class="nav-item me-3 me-lg-0">
+              <a class="nav-link d-flex align-items-center" [routerLink]="['/dashboard']">
+                <span class="me-2 fw-bold" style="color: #404553;">Dashboard</span>
+                <span><img width="25px" height="25px" src="assets/Images/dashboard.png" alt=""></span>
+              </a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center fw-bold" style="color: #404553;"
+                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Options
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li class="d-flex align-items-center" [routerLink]="['/dashboard']">
+                  <img width="25px" height="25px" src="assets/Images/dashboard.png" alt="">
+                  <a class="dropdown-item">Dashboard</a>
+                </li>
+                <li class="d-flex align-items-center" [routerLink]="['/addProduct']">
+                  <img width="25px" height="25px" src="assets/Images/product.png" alt="">
+                  <a class="dropdown-item">Add Product</a>
+                </li>
+                <li class="d-flex align-items-center" [routerLink]="['/adminRegister']">
+                  <img width="25px" height="25px" src="assets/Images/admin.png" alt="">
+                  <a class="dropdown-item">Add new admin</a>
+                </li>
+              </ul>
+            </li> -->
+          </ng-template>
+          <ng-template #seller>
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center fw-bold" style="color: #404553;"
+                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Options
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li class="d-flex align-items-center" [routerLink]="['/dashboard']">
+                  <img width="25px" height="25px" src="assets/Images/dashboard.png" alt="">
+                  <a class="dropdown-item">Dashboard</a>
+                </li>
+                <li class="d-flex align-items-center" [routerLink]="['/addProduct']">
+                  <img width="25px" height="25px" src="assets/Images/product.png" alt="">
+                  <a class="dropdown-item">Add Product</a>
+                </li>
+                <li class="d-flex align-items-center" [routerLink]="['/adminRegister']">
+                  <img width="25px" height="25px" src="assets/Images/admin.png" alt="">
+                  <a class="dropdown-item">Add new admin</a>
+                </li>
+              </ul>
+            </li> -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle d-flex align-items-center fw-bold" style="color: #404553;"
+                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                My Account
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li class="d-flex" data-bs-toggle="modal" data-bs-target="#staticBackdropOne">
+                  <img src="https://z.nooncdn.com/s/app/com/noon/icons/orders_menu_icon_v3.svg" alt="Profile">
+                  <a class="dropdown-item">Orders</a>
+                </li>
+                <li class="d-flex" data-bs-toggle="modal" data-bs-target="#staticBackdropTwo">
+                  <img src="https://z.nooncdn.com/s/app/com/noon/icons/addresses_menu_icon_v3.svg" alt="Profile">
+                  <a class="dropdown-item">Addresses</a>
+                </li>
+                <li class="d-flex" data-bs-toggle="modal" data-bs-target="#staticBackdropTwo">
+                  <img src="https://z.nooncdn.com/s/app/com/noon/icons/profile_menu_icon_v3.svg" alt="Profile">
+                  <a class="dropdown-item">Profile</a>
+                </li>
+                <li class="d-flex align-items-center" [routerLink]="['/addProduct']">
+                  <img width="25px" height="25px" src="assets/Images/product.png" alt="">
+                  <a class="dropdown-item">Add Product</a>
+                </li>
+                <li>
+                  <hr style="margin: 0.4rem; opacity: .1;">
+                </li>
+                <li (click)="logout()"><a class="dropdown-item" href="#">Sign Out</a></li>
+              </ul>
+            </li>
+          </ng-template>
         </ng-template>
       </ng-template>
 
@@ -102,7 +163,8 @@
       <ng-template #cart>
         <li class="nav-item me-3 me-lg-0">
           <a class="nav-link" [routerLink]="['/cart']">
-            <span class="me-2 fw-bold" style="color: #404553;">Cart <span class="badge badge-dark">{{_orderService.counter}}</span>
+            <span class="me-2 fw-bold" style="color: #404553;">Cart <span
+                class="badge badge-dark">{{_orderService.counter}}</span>
             </span>
             <span><img src="assets/iconmonstr-shopping-cart-5.svg" alt=""></span>
             <span class="badge rounded-pill badge-notification bg-danger d-none">1</span>
