@@ -16,6 +16,8 @@ import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { RegisterFormComponent } from './forms/register-form/register-form.component';
 import { LoginAdminComponent } from './forms/login-admin/login-admin.component';
 import { RegisterAdminComponent } from './forms/register-admin/register-admin.component';
+import { LoginSellerComponent } from './forms/login-seller/login-seller.component';
+import { RegisterSellerComponent } from './forms/register-seller/register-seller.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
@@ -31,8 +33,10 @@ const routes: Routes = [
   {path: "addProduct", component:AddProductComponent, canActivate:[AuthAdminGuard]},
   {path:"login", component:LoginFormComponent},
   {path:"adminLogin", component:LoginAdminComponent},
+  {path:"sellerLogin", component:LoginSellerComponent},
   {path:"register", component:RegisterFormComponent},
-  {path:"adminRegister", component:RegisterAdminComponent, canActivate:[AuthAdminGuard]}
+  {path:"adminRegister", component:RegisterAdminComponent, canActivate:[AuthAdminGuard]},
+  {path:"sellerRegister", component:RegisterSellerComponent}
 ];
 
 @NgModule({

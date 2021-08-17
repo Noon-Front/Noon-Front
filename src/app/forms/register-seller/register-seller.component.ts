@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormServiceService } from 'src/app/shared classes and interfaces/form-service.service';
+import { MustMatch } from 'src/app/shared classes and interfaces/mustMatch';
 
 @Component({
   selector: 'app-register-seller',
@@ -6,10 +10,56 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register-seller.component.scss']
 })
 export class RegisterSellerComponent implements OnInit {
+  signupForm:FormGroup;
+  submitted:boolean = false;
 
-  constructor() { }
+  showMsg:boolean = false;
 
-  ngOnInit(): void {
+
+  constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder, public router:Router) {
+    this.signupForm = this._formBuilder.group({
+      userName:['', Validators.required],
+      email:['', [Validators.required, Validators.pattern(/(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b/)]],
+      password:['', [Validators.required, Validators.pattern("(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$")]],
+      confirmPassword:['', Validators.required]
+    }, {validator: MustMatch('password', 'confirmPassword')})
   }
 
+  ngOnInit(): void {
+
+  }
+
+  //Seller Register
+  registerSeller(){
+    this._formService.signUpSeller(this.signupForm.value)
+    .subscribe(
+      (response) => {
+        if (response){
+          this.submitted = false;
+          this.router.navigate(['/sellerLogin']);
+        }
+      },
+      (error) => {
+        if (error){
+          this.showMsgError();
+        }
+      },
+    )
+
+    if (this.signupForm.invalid){
+      this.submitted = true;
+      return console.log("invalid");
+    }
+    return console.log("Register Success")
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.signupForm.controls; }
+
+  showMsgError(){
+    this.showMsg = true;
+    setTimeout(() => {
+      this.showMsg = false;
+    }, 3000)
+  }
 }

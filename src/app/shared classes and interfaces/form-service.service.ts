@@ -36,6 +36,13 @@ export class FormServiceService {
     //console.log(body);
     return this._http.post(api, body, {"headers":this.headers}).pipe(catchError(this.handleError));
   }
+  //Seller Sign Up
+  signUpSeller(user:User):Observable<User>{
+    let api = `${this._url}/register-seller`;
+    const body = JSON.stringify(user);
+    //console.log(body);
+    return this._http.post(api, body, {"headers":this.headers}).pipe(catchError(this.handleError));
+  }
 
   //User Sign In
   signIn(user:User){
@@ -65,6 +72,20 @@ export class FormServiceService {
       this.cartShow = false;
     })
   }
+  //Seller Sign In
+  signInSeller(user:User){
+    let api = `${this._url}/login`;
+    const body = JSON.stringify(user);
+    //console.log(body);
+    return this._http.post(api, body, {"headers":this.headers}).subscribe((res:any) => {
+      localStorage.setItem("access_seller_token", res.token);
+      this.router.navigate(['/home']);
+      console.log(res);
+      this.accountStatus = false;
+      this.userStatus = false;
+      this.cartShow = false;
+    })
+  }
   //Get User Token
   getToken() {
     return localStorage.getItem('access_token');
@@ -72,6 +93,10 @@ export class FormServiceService {
   //Get Admin Token
   getAdminToken() {
     return localStorage.getItem('access_admin_token');
+  }
+  //Get Seller Token
+  getSellerToken() {
+    return localStorage.getItem('access_seller_token');
   }
   //User Is Loged In
   get isLoggedIn(): boolean {
@@ -82,6 +107,11 @@ export class FormServiceService {
   get isAdminLoggedIn(): boolean {
     let authAdminToken = localStorage.getItem('access_admin_token');
     return (authAdminToken !== null) ? true : false;
+  }
+  //Seller Is Loged In
+  get isSellerLoggedIn(): boolean {
+    let authSellerToken = localStorage.getItem('access_seller_token');
+    return (authSellerToken !== null) ? true : false;
   }
   //User and Admin LogOut
   doLogout() {

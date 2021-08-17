@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
     if(performance.navigation.type == 1){
       localStorage.removeItem('access_token');
       localStorage.removeItem('access_admin_token');
+      localStorage.removeItem('access_seller_token');
     }
   }
 
