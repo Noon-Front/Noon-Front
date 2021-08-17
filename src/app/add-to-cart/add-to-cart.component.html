@@ -48,7 +48,7 @@
             <span class="fs-6">Subtotal (1 item)</span>
             <span class="my-3 fs-6">Shipping</span>
             <hr />
-            <span class="fw-bold fs-3 ">Total <span class="fw-bold text-success fs-3">{{total | currency:"EGP ":"symbol"}}</span> <span class=" fw-light"> (Inclusive of VAT)</span></span>
+            <span class="fw-bold fs-3 ">Total <span class="fw-bold text-success fs-3">{{_orderService.totalPrice | currency:"EGP ":"symbol"}}</span> <span class=" fw-light"> (Inclusive of VAT)</span></span>
             <div class="row w-100 my-3 warranty">
                 <div class="col-1">
                     <img class="icon" src="../assets/pay_later.svg" />

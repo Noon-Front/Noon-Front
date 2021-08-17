@@ -11,9 +11,9 @@
         </div>
         <div class="choose-signup">
           <span>Don't have an account? </span>
-          <a [routerLink]="['/register']">Sign Up</a>
+          <a [routerLink]="['/sellerRegister']">Sign Up</a>
         </div>
-        <form #userForm="ngForm" novalidate (ngSubmit)="loginUser()" [formGroup]="signupForm">
+        <form #userForm="ngForm" novalidate (ngSubmit)="loginSeller()" [formGroup]="signupForm">
           <!-- email -->
           <div class="input-field">
             <i class="fas fa-envelope"></i>

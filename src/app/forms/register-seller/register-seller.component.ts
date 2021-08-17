@@ -5,11 +5,11 @@ import { FormServiceService } from 'src/app/shared classes and interfaces/form-s
 import { MustMatch } from 'src/app/shared classes and interfaces/mustMatch';
 
 @Component({
-  selector: 'app-register-form',
-  templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.scss']
+  selector: 'app-register-seller',
+  templateUrl: './register-seller.component.html',
+  styleUrls: ['./register-seller.component.scss']
 })
-export class RegisterFormComponent implements OnInit {
+export class RegisterSellerComponent implements OnInit {
   signupForm:FormGroup;
   submitted:boolean = false;
 
@@ -20,7 +20,7 @@ export class RegisterFormComponent implements OnInit {
     this.signupForm = this._formBuilder.group({
       userName:['', Validators.required],
       email:['', [Validators.required, Validators.pattern(/(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b/)]],
-      password:['', [Validators.required, Validators.pattern(/(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$/)]],
+      password:['', [Validators.required, Validators.pattern("(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$")]],
       confirmPassword:['', Validators.required]
     }, {validator: MustMatch('password', 'confirmPassword')})
   }
@@ -29,15 +29,14 @@ export class RegisterFormComponent implements OnInit {
 
   }
 
-  //User Register
-  registerUser(){
-    this.submitted = true;
-    this._formService.signUp(this.signupForm.value)
+  //Seller Register
+  registerSeller(){
+    this._formService.signUpSeller(this.signupForm.value)
     .subscribe(
       (response) => {
         if (response){
           this.submitted = false;
-          this.router.navigate(['/login']);
+          this.router.navigate(['/sellerLogin']);
         }
       },
       (error) => {
@@ -47,14 +46,11 @@ export class RegisterFormComponent implements OnInit {
       },
     )
 
-    // if (this.signupForm.invalid){
-    //   this.submitted = true;
-    //   return console.log("invalid");
-    // } else {
-    //   this.submitted = false;
-    //   return console.log("Register Success")
-    // }
-
+    if (this.signupForm.invalid){
+      this.submitted = true;
+      return console.log("invalid");
+    }
+    return console.log("Register Success")
   }
 
   // convenience getter for easy access to form fields
@@ -67,4 +63,3 @@ export class RegisterFormComponent implements OnInit {
     }, 3000)
   }
 }
-

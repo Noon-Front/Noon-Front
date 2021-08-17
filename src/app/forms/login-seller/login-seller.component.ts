@@ -4,11 +4,11 @@ import { FormServiceService } from 'src/app/shared classes and interfaces/form-s
 import { MustMatch } from 'src/app/shared classes and interfaces/mustMatch';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+  selector: 'app-login-seller',
+  templateUrl: './login-seller.component.html',
+  styleUrls: ['./login-seller.component.scss']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginSellerComponent implements OnInit {
   signupForm: FormGroup;
   submitted:boolean = false;
 
@@ -26,13 +26,12 @@ export class LoginFormComponent implements OnInit {
 
   }
 
-   //User Loged In
-   loginUser(){
-    this._formService.signIn(this.signupForm.value);
+   //Seller Loged In
+   loginSeller(){
+    this._formService.signInSeller(this.signupForm.value);
     this.submitted = true;
   }
 
   // convenience getter for easy access to form fields
   get f() { return this.signupForm.controls; }
-
 }

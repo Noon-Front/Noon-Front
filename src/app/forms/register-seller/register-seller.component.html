@@ -16,9 +16,9 @@
         </div>
         <div class="choose-signup">
           <span>Already have an account? </span>
-          <a [routerLink]="['/login']">Sign In</a>
+          <a [routerLink]="['/sellerLogin']">Sign In</a>
         </div>
-        <form #userForm="ngForm" novalidate (ngSubmit)="registerUser()" [formGroup]="signupForm">
+        <form #userForm="ngForm" novalidate (ngSubmit)="registerSeller()" [formGroup]="signupForm">
           <!-- user name -->
           <div class="input-field">
             <i class="fas fa-user"></i>
@@ -32,7 +32,7 @@
           <div class="input-field">
             <i class="fas fa-envelope"></i>
             <input type="email" formControlName="email" name="email" class="form-control" aria-describedby="emailHelp"
-              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email" required>
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Email">
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback" style="margin: 60px 0 0 30px;">
               <div *ngIf="f.email.errors.required" style="font-size: 11px;">Email can't be empty</div>
               <div *ngIf="f.email.errors.pattern" style="font-size: 11px;">Invalid email</div>

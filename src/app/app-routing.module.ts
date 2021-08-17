@@ -11,28 +11,33 @@ import { ProductDetailsComponent } from './product-details/product.details-compo
 import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
 import { AuthGuard } from './shared classes and interfaces/auth.guard'; //new
 import { AuthAdminGuard } from './shared classes and interfaces/auth-admin.guard';
+import { AuthSellerGuard } from './shared classes and interfaces/auth-seller.guard';
 import { AddProductComponent } from './add-product/add-product.component';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { RegisterFormComponent } from './forms/register-form/register-form.component';
 import { LoginAdminComponent } from './forms/login-admin/login-admin.component';
 import { RegisterAdminComponent } from './forms/register-admin/register-admin.component';
+import { LoginSellerComponent } from './forms/login-seller/login-seller.component';
+import { RegisterSellerComponent } from './forms/register-seller/register-seller.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
   {path:"home", component:HomePageComponent},
-  { path: 'product-details/:id', component: ProductDetailsComponent },
-  { path: 'fashion', component: FashionPageComponent },
-  { path: 'electronics', component: ElectronicsPageComponent },
-  { path: 'homeCategory', component: HomeCategoryComponent },
-  {path: 'cart',component: AddToCartComponent},//AuthGuard new
+  {path: 'product-details/:id', component: ProductDetailsComponent },
+  {path: 'fashion', component: FashionPageComponent },
+  {path: 'electronics', component: ElectronicsPageComponent },
+  {path: 'homeCategory', component: HomeCategoryComponent },
+  {path: 'cart',component: AddToCartComponent, canActivate:[AuthGuard]},//AuthGuard new
   {path:'mobiles', component:MobilesPageComponent},
   {path:'supermarket',component:SupermarketPageComponent},
   {path:'dashboard' , component:DashboardComponent, canActivate:[AuthAdminGuard]},
-  {path: "addProduct", component:AddProductComponent, canActivate:[AuthAdminGuard]},
+  {path: "addProduct", component:AddProductComponent, canActivate:[AuthSellerGuard]},
   {path:"login", component:LoginFormComponent},
   {path:"adminLogin", component:LoginAdminComponent},
+  {path:"sellerLogin", component:LoginSellerComponent},
   {path:"register", component:RegisterFormComponent},
-  {path:"adminRegister", component:RegisterAdminComponent, canActivate:[AuthAdminGuard]}
+  {path:"adminRegister", component:RegisterAdminComponent, canActivate:[AuthAdminGuard]},
+  {path:"sellerRegister", component:RegisterSellerComponent}
 ];
 
 @NgModule({
