@@ -9,7 +9,6 @@ import { OrderService } from '../shared classes and interfaces/order.service';
 export class AddToCartComponent implements OnInit {
 orders:any;
 product:any;
-total:number=this._orderService.totalPrice;
   constructor(public _orderService:OrderService) { }
 
   ngOnInit(): void {
