@@ -92,13 +92,6 @@ export class FormServiceService {
     }
   }
 
-
-  // Error
-  // handleError() {
-  //   return throwError("Email or UserName is exist");
-  // }
-
-  // Error
   handleError(error: HttpErrorResponse) {
     let msg = '';
     if (error.status == 500) {

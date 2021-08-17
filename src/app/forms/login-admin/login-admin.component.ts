@@ -16,7 +16,7 @@ export class LoginAdminComponent implements OnInit {
     this.signupForm = this._formBuilder.group({
       userName:['', Validators.required],
       email:['', [Validators.required, Validators.pattern(/(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b/)]],
-      password:['', Validators.required],
+      password:['', [Validators.required, Validators.pattern("(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$")]],
       confirmPassword:['', Validators.required]
     })
   }
@@ -34,22 +34,4 @@ export class LoginAdminComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get f() { return this.signupForm.controls; }
-
-
-//    //Check User Token Existing
-//    checkUser(){
-//     setTimeout(() => {
-//      if(localStorage.getItem("access_token")){
-//        console.log("localStorage full");
-//       //  this._navbarItem.accountStatus = false;
-//       //  this._navbarItem.userStatus = true;
-//       //  this._navbarItem.cartShow = true;
-//      } else {
-//        console.log("localStorage empty");
-//        this.submitted = false;
-//        alert("invalid email or password");
-//      }
-//     }, 500)
-//  }
-
 }

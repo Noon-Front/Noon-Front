@@ -20,11 +20,11 @@ import { RegisterAdminComponent } from './forms/register-admin/register-admin.co
 const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
   {path:"home", component:HomePageComponent},
-  { path: 'product-details/:id', component: ProductDetailsComponent },
-  { path: 'fashion', component: FashionPageComponent },
-  { path: 'electronics', component: ElectronicsPageComponent },
-  { path: 'homeCategory', component: HomeCategoryComponent },
-  {path: 'cart',component: AddToCartComponent},//AuthGuard new
+  {path: 'product-details/:id', component: ProductDetailsComponent },
+  {path: 'fashion', component: FashionPageComponent },
+  {path: 'electronics', component: ElectronicsPageComponent },
+  {path: 'homeCategory', component: HomeCategoryComponent },
+  {path: 'cart',component: AddToCartComponent, canActivate:[AuthGuard]},//AuthGuard new
   {path:'mobiles', component:MobilesPageComponent},
   {path:'supermarket',component:SupermarketPageComponent},
   {path:'dashboard' , component:DashboardComponent, canActivate:[AuthAdminGuard]},

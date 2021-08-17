@@ -31,7 +31,7 @@
               [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password" />
             <div *ngIf="submitted && f.password.errors" class="invalid-feedback" style="margin: 60px 0 0 30px;">
               <div *ngIf="f.password.errors.required" style="font-size: 11px;">password can't be empty</div>
-              <!-- <div *ngIf="f.password.errors.pattern" style="font-size: 11px;">Invalid password</div> -->
+              <div *ngIf="f.password.errors.pattern" style="font-size: 11px;">Invalid password</div>
             </div>
           </div>
           <input type="submit" value="Login" class="btn solid" />

@@ -45,6 +45,8 @@ import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { RegisterFormComponent } from './forms/register-form/register-form.component';
 import { LoginAdminComponent } from './forms/login-admin/login-admin.component';
 import { RegisterAdminComponent } from './forms/register-admin/register-admin.component';
+import { LoginSellerComponent } from './forms/login-seller/login-seller.component';
+import { RegisterSellerComponent } from './forms/register-seller/register-seller.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +91,8 @@ import { RegisterAdminComponent } from './forms/register-admin/register-admin.co
     RegisterFormComponent,
     LoginAdminComponent,
     RegisterAdminComponent,
+    LoginSellerComponent,
+    RegisterSellerComponent,
 
   ],
   imports: [
