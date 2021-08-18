@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { SocialAuthService, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
 import { FormServiceService } from 'src/app/shared classes and interfaces/form-service.service';
 import { User } from 'src/app/shared classes and interfaces/user';
 
@@ -10,8 +11,9 @@ import { User } from 'src/app/shared classes and interfaces/user';
 })
 export class LoginFormComponent implements OnInit {
   appUser = new User();
+  // socialUser: SocialUser;
 
-  constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder){}
+  constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder, private socialAuthService: SocialAuthService){}
 
   ngOnInit(): void {
 
@@ -21,4 +23,10 @@ export class LoginFormComponent implements OnInit {
    loginUser(){
     this._formService.signIn(this.appUser);
   }
+
+  //FaceBook---------------------------
+  loginWithFacebook(): void {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
+
 }
