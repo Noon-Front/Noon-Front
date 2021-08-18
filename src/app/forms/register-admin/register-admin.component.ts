@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormServiceService } from 'src/app/shared classes and interfaces/form-service.service';
-import { MustMatch } from 'src/app/shared classes and interfaces/mustMatch';
 import { User } from 'src/app/shared classes and interfaces/user';
 
 @Component({
@@ -11,19 +10,9 @@ import { User } from 'src/app/shared classes and interfaces/user';
   styleUrls: ['./register-admin.component.scss']
 })
 export class RegisterAdminComponent implements OnInit {
-  signupForm:FormGroup;
-  submitted:boolean = false;
-
   appUser = new User();
 
-  constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder, public router:Router) {
-    this.signupForm = this._formBuilder.group({
-      userName:['', Validators.required],
-      email:['', [Validators.required, Validators.pattern(/(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b/)]],
-      password:['', [Validators.required, Validators.pattern("(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$")]],
-      confirmPassword:['', Validators.required]
-    }, {validator: MustMatch('password', 'confirmPassword')})
-  }
+  constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder, public router:Router) {}
 
   ngOnInit(): void {
 
@@ -44,21 +33,11 @@ export class RegisterAdminComponent implements OnInit {
         }
       },
     )
-
-    if (!this.signupForm.invalid){
-      this.submitted = true;
-      return console.log("invalid");
-    }
-    return console.log("Register Success")
   }
-
-  // convenience getter for easy access to form fields
-  get f() { return this.signupForm.controls; }
 
   showMessage(msg:string){
     this._formService.authShow = true;
     this._formService.authMsg = msg;
-    this.signupForm.reset();
     setTimeout(() => {
       this._formService.authShow = false;
     }, 3000)

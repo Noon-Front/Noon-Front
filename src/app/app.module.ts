@@ -48,8 +48,9 @@ import { LoginAdminComponent } from './forms/login-admin/login-admin.component';
 import { RegisterAdminComponent } from './forms/register-admin/register-admin.component';
 import { LoginSellerComponent } from './forms/login-seller/login-seller.component';
 import { RegisterSellerComponent } from './forms/register-seller/register-seller.component';
-
 import { UploadComponent } from './add-product/upload/upload.component';
+import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';//new
+
 
 @NgModule({
   declarations: [
@@ -109,6 +110,7 @@ import { UploadComponent } from './add-product/upload/upload.component';
     ReactiveFormsModule,//new
     SwiperModule,
     HttpClientModule,
+    SocialLoginModule
   ],
   providers: [
     {
@@ -116,6 +118,20 @@ import { UploadComponent } from './add-product/upload/upload.component';
       useClass: AuthInterceptor,//new
       multi: true//new
     },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider(
+              '231663375629746'
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })
