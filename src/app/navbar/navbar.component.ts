@@ -10,9 +10,6 @@ import { OrderService } from '../shared classes and interfaces/order.service';
 export class NavbarComponent implements OnInit {
   counter:number=0;
 
-
-
-
   constructor(public _formService:FormServiceService , public _orderService : OrderService) {
 
   }

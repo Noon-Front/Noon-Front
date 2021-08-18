@@ -14,10 +14,8 @@ export class LoginAdminComponent implements OnInit {
   constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder)
   {
     this.signupForm = this._formBuilder.group({
-      userName:['', Validators.required],
       email:['', [Validators.required, Validators.pattern(/(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b/)]],
       password:['', [Validators.required, Validators.pattern("(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$")]],
-      confirmPassword:['', Validators.required]
     })
   }
 

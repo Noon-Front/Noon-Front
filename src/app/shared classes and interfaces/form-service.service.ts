@@ -4,6 +4,7 @@ import { User } from './user';
 import { Observable, throwError } from 'rxjs';  //throwError => new
 import { catchError, map } from 'rxjs/operators';   //new
 import { Router } from '@angular/router';
+import { UserModel } from './user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,21 +13,26 @@ export class FormServiceService {
 
   _url:string = "https://localhost:44326/api/Authentication";
   headers = new HttpHeaders().set('content-type','application/json');
-  msg?: string = "now";
+  msg?: string = "";
+
+  authShow = false;
+  authMsg = "ahmed";
 
   accountStatus = true;
   userStatus = false;
   adminOrSeller = true;
   cartShow = true;
 
+  user!: UserModel; //new
 
-  constructor(private _http:HttpClient, public router:Router) { }
+
+  constructor(private _http:HttpClient, public router:Router) {
+  }
 
   //User Sign Up
   signUp(user:User):Observable<User>{
     let api = `${this._url}/register`;
     const body = JSON.stringify(user);
-    //console.log(body);
     return this._http.post(api, body, {"headers":this.headers}).pipe(catchError(this.handleError));
   }
 
@@ -34,14 +40,12 @@ export class FormServiceService {
   signUpAdmin(user:User):Observable<User>{
     let api = `${this._url}/register-admin`;
     const body = JSON.stringify(user);
-    //console.log(body);
     return this._http.post(api, body, {"headers":this.headers}).pipe(catchError(this.handleError));
   }
   //Seller Sign Up
   signUpSeller(user:User):Observable<User>{
     let api = `${this._url}/register-seller`;
     const body = JSON.stringify(user);
-    //console.log(body);
     return this._http.post(api, body, {"headers":this.headers}).pipe(catchError(this.handleError));
   }
 
@@ -49,50 +53,58 @@ export class FormServiceService {
   signIn(user:User){
     let api = `${this._url}/login`;
     const body = JSON.stringify(user);
-    //console.log(body);
+
     return this._http.post(api, body, {"headers":this.headers}).subscribe((res:any) => {
       localStorage.setItem("access_token", res.token);
+      this.user = this.getUser(res.token);
       this.router.navigate(['/cart']);
       console.log(res);
-      this.accountStatus = false;
-      this.userStatus = true;
-      this.cartShow = true;
     })
   }
+
+
+  private getUser(token:string):UserModel {//new--------------------
+    return JSON.parse(atob(token.split('.')[1])) as UserModel;
+  }
+
+
+
+
   //Admin Sign In
   signInAdmin(user:User){
     let api = `${this._url}/login`;
     const body = JSON.stringify(user);
-    //console.log(body);
+
     return this._http.post(api, body, {"headers":this.headers}).subscribe((res:any) => {
       localStorage.setItem("access_admin_token", res.token);
-      this.router.navigate(['/home']);
+      this.user = this.getUser(res.token);
+      this.router.navigate(['/dashboard']);
       console.log(res);
-      this.accountStatus = false;
-      this.userStatus = false;
-      this.adminOrSeller = true;
-      this.cartShow = false;
     })
   }
+
+
+
+
   //Seller Sign In
   signInSeller(user:User){
     let api = `${this._url}/login`;
     const body = JSON.stringify(user);
-    //console.log(body);
+
     return this._http.post(api, body, {"headers":this.headers}).subscribe((res:any) => {
       localStorage.setItem("access_seller_token", res.token);
-      this.router.navigate(['/home']);
+      this.user = this.getUser(res.token);
+      this.router.navigate(['/addProduct']);
       console.log(res);
-      this.accountStatus = false;
-      this.userStatus = false;
-      this.adminOrSeller = false;
-      this.cartShow = true;
     })
   }
+
   //Get User Token
-  getToken() {
+  get getToken():any {
     return localStorage.getItem('access_token');
   }
+
+
   //Get Admin Token
   getAdminToken() {
     return localStorage.getItem('access_admin_token');
@@ -101,26 +113,32 @@ export class FormServiceService {
   getSellerToken() {
     return localStorage.getItem('access_seller_token');
   }
+
   //User Is Loged In
   get isLoggedIn(): boolean {
     let authToken = localStorage.getItem('access_token');
     return (authToken !== null) ? true : false;
   }
+
   //Admin Is Loged In
   get isAdminLoggedIn(): boolean {
     let authAdminToken = localStorage.getItem('access_admin_token');
     return (authAdminToken !== null) ? true : false;
   }
+
   //Seller Is Loged In
   get isSellerLoggedIn(): boolean {
     let authSellerToken = localStorage.getItem('access_seller_token');
     return (authSellerToken !== null) ? true : false;
   }
+
+
   //User and Admin LogOut
   doLogout() {
     let removeToken = localStorage.removeItem('access_token');
     let removeAdminToken = localStorage.removeItem('access_admin_token');
-    if (removeToken == null || removeAdminToken == null) {
+    let removeSellerToken = localStorage.removeItem('access_seller_token');
+    if (removeToken == null || removeAdminToken == null || removeSellerToken == null) {
       this.router.navigate(['/home']);
     }
   }
@@ -133,4 +151,13 @@ export class FormServiceService {
     }
     return throwError(msg);
   }
+
+  showUnauthorizeMsg(){
+    this.authShow = true;
+    this.authMsg = "Your email is not registered Sign Up first!";
+    setTimeout(() => {
+      this.authShow = false;
+    }, 3000);
+  }
+
 }

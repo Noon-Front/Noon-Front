@@ -9,9 +9,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { MobilesPageComponent } from './mobiles-page/mobiles-page.component';
 import { ProductDetailsComponent } from './product-details/product.details-component';
 import { SupermarketPageComponent } from './supermarket-page/supermarket-page.component';
-import { AuthGuard } from './shared classes and interfaces/auth.guard'; //new
-import { AuthAdminGuard } from './shared classes and interfaces/auth-admin.guard';
-import { AuthSellerGuard } from './shared classes and interfaces/auth-seller.guard';
+import { UserGuardGuard } from './shared classes and interfaces/user-guard.guard';
+import { AdminGuardGuard } from './shared classes and interfaces/admin-guard.guard';
+import { SellerGuardGuard } from './shared classes and interfaces/seller-guard.guard';
 import { AddProductComponent } from './add-product/add-product.component';
 import { LoginFormComponent } from './forms/login-form/login-form.component';
 import { RegisterFormComponent } from './forms/register-form/register-form.component';
@@ -27,16 +27,16 @@ const routes: Routes = [
   {path: 'fashion', component: FashionPageComponent },
   {path: 'electronics', component: ElectronicsPageComponent },
   {path: 'homeCategory', component: HomeCategoryComponent },
-  {path: 'cart',component: AddToCartComponent, canActivate:[AuthGuard]},//AuthGuard new
+  {path: 'cart',component: AddToCartComponent, canActivate:[UserGuardGuard], data:{role:'User'}},//AuthGuard new
   {path:'mobiles', component:MobilesPageComponent},
   {path:'supermarket',component:SupermarketPageComponent},
-  {path:'dashboard' , component:DashboardComponent, canActivate:[AuthAdminGuard]},
-  {path: "addProduct", component:AddProductComponent, canActivate:[AuthSellerGuard]},
+  {path:'dashboard' , component:DashboardComponent, canActivate:[AdminGuardGuard], data:{role:'Admin'}},
+  {path: "addProduct", component:AddProductComponent, canActivate:[SellerGuardGuard], data:{role:'Seller'}},
   {path:"login", component:LoginFormComponent},
   {path:"adminLogin", component:LoginAdminComponent},
   {path:"sellerLogin", component:LoginSellerComponent},
   {path:"register", component:RegisterFormComponent},
-  {path:"adminRegister", component:RegisterAdminComponent, canActivate:[AuthAdminGuard]},
+  {path:"adminRegister", component:RegisterAdminComponent, canActivate:[AdminGuardGuard], data:{role:'Admin'}},
   {path:"sellerRegister", component:RegisterSellerComponent}
 ];
 

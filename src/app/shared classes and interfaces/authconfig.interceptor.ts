@@ -8,12 +8,10 @@ export class AuthInterceptor implements HttpInterceptor {
     constructor(private formService: FormServiceService) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-        const authToken = this.formService.getToken();
-        //const authAdminToken = this.formService.getToken();
+        const authToken = this.formService.getToken;
         req = req.clone({
             setHeaders: {
               Authorization: "Bearer " + authToken,
-              //AuthorizationAdmin: "Bearer " + authAdminToken
             }
         });
         return next.handle(req);

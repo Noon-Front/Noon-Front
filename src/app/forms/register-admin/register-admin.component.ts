@@ -13,10 +13,6 @@ export class RegisterAdminComponent implements OnInit {
   signupForm:FormGroup;
   submitted:boolean = false;
 
-  showMsg:boolean = false;
-  showAdminMessage:boolean = false;
-
-
   constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder, public router:Router) {
     this.signupForm = this._formBuilder.group({
       userName:['', Validators.required],
@@ -36,13 +32,12 @@ export class RegisterAdminComponent implements OnInit {
     .subscribe(
       (response) => {
         if (response){
-          this.showSuccessAdmin();
-          //this.router.navigate(['/home'])
+          this.showMessage("Admin created successfully!");
         }
       },
       (error) => {
         if (error){
-          this.showMsgError();
+          this.showMessage("The user name already exists!");
         }
       },
     )
@@ -57,18 +52,13 @@ export class RegisterAdminComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.signupForm.controls; }
 
-  showMsgError(){
-    this.showMsg = true;
+  showMessage(msg:string){
+    this._formService.authShow = true;
+    this._formService.authMsg = msg;
+    this.signupForm.reset();
     setTimeout(() => {
-      this.showMsg = false;
+      this._formService.authShow = false;
     }, 3000)
   }
 
-  showSuccessAdmin(){
-    this.showAdminMessage = true;
-    this.signupForm.reset();
-    setTimeout(() => {
-      this.showAdminMessage = false;
-    }, 3000)
-  }
 }

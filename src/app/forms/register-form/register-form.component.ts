@@ -13,9 +13,6 @@ export class RegisterFormComponent implements OnInit {
   signupForm:FormGroup;
   submitted:boolean = false;
 
-  showMsg:boolean = false;
-
-
   constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder, public router:Router) {
     this.signupForm = this._formBuilder.group({
       userName:['', Validators.required],
@@ -61,9 +58,10 @@ export class RegisterFormComponent implements OnInit {
   get f() { return this.signupForm.controls; }
 
   showMsgError(){
-    this.showMsg = true;
+    this._formService.authShow = true;
+    this._formService.authMsg = "The user name already exists!";
     setTimeout(() => {
-      this.showMsg = false;
+      this._formService.authShow = false;
     }, 3000)
   }
 }

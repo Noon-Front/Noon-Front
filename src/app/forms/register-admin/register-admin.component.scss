@@ -1,56 +1,5 @@
 @import url("../register-form/register-form.component.scss");
 
-.email-msg {
-  div {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 60px;
-    background-color: #404553;
-    color: white;
-    top: 0;
-    -webkit-animation: scale-up-ver-top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
-      both;
-    animation: scale-up-ver-top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  }
-  p {
-    margin: 0;
-    font-size: 14px;
-    font-weight: bold;
-  }
-}
-
-@-webkit-keyframes scale-up-ver-top {
-  0% {
-    -webkit-transform: scaleY(0.4);
-    transform: scaleY(0.4);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-  100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-}
-@keyframes scale-up-ver-top {
-  0% {
-    -webkit-transform: scaleY(0.4);
-    transform: scaleY(0.4);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-  100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-}
-
 .quiz {
   text-align: center;
   h2 {
