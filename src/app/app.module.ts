@@ -28,7 +28,6 @@ import { AddNewSubCategoryComponent } from './dashboard/add-new-sub-category/add
 import { CustomersComponent } from './dashboard/customers/customers.component';
 import { OrdersComponent } from './dashboard/orders/orders.component';
 import { ProductsComponent } from './dashboard/products/products.component';
-import { SellersComponent } from './dashboard/sellers/sellers.component';
 import { CaruselDivComponent } from './mobiles-page/carusel-div/carusel-div.component';
 import { PriceDivComponent } from './mobiles-page/price-div/price-div.component';
 import { BrandDivComponent } from './mobiles-page/brand-div/brand-div.component';
@@ -78,7 +77,6 @@ import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig } fro
     CustomersComponent,
     OrdersComponent,
     ProductsComponent,
-    SellersComponent,
     CaruselDivComponent,
     PriceDivComponent,
     BrandDivComponent,
