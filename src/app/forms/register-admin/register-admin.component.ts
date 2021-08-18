@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormServiceService } from 'src/app/shared classes and interfaces/form-service.service';
 import { MustMatch } from 'src/app/shared classes and interfaces/mustMatch';
+import { User } from 'src/app/shared classes and interfaces/user';
 
 @Component({
   selector: 'app-register-admin',
@@ -12,6 +13,8 @@ import { MustMatch } from 'src/app/shared classes and interfaces/mustMatch';
 export class RegisterAdminComponent implements OnInit {
   signupForm:FormGroup;
   submitted:boolean = false;
+
+  appUser = new User();
 
   constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder, public router:Router) {
     this.signupForm = this._formBuilder.group({
@@ -28,7 +31,7 @@ export class RegisterAdminComponent implements OnInit {
 
   //User Register
   registerAdmin(){
-    this._formService.signUpAdmin(this.signupForm.value)
+    this._formService.signUpAdmin(this.appUser)
     .subscribe(
       (response) => {
         if (response){

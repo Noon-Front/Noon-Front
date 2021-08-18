@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { FormServiceService } from 'src/app/shared classes and interfaces/form-service.service';
+import { User } from 'src/app/shared classes and interfaces/user';
 
 @Component({
   selector: 'app-login-admin',
@@ -8,16 +9,9 @@ import { FormServiceService } from 'src/app/shared classes and interfaces/form-s
   styleUrls: ['./login-admin.component.scss']
 })
 export class LoginAdminComponent implements OnInit {
-  signupForm: FormGroup;
-  submitted:boolean = false;
+  appUser = new User();
 
-  constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder)
-  {
-    this.signupForm = this._formBuilder.group({
-      email:['', [Validators.required, Validators.pattern(/(?:^|\s)[\w!#$%&'*+/=?^`{|}~-](\.?[\w!#$%&'*+/=?^`{|}~-]+)*@\w+[.-]?\w*\.[a-zA-Z]{2,3}\b/)]],
-      password:['', [Validators.required, Validators.pattern("(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$")]],
-    })
-  }
+  constructor(public _formService:FormServiceService, public _formBuilder:FormBuilder){}
 
   ngOnInit(): void {
 
@@ -25,10 +19,6 @@ export class LoginAdminComponent implements OnInit {
 
    //Admin Loged In
    loginAdmin(){
-    this._formService.signInAdmin(this.signupForm.value);
-    this.submitted = true;
+    this._formService.signInAdmin(this.appUser);
   }
-
-  // convenience getter for easy access to form fields
-  get f() { return this.signupForm.controls; }
 }
