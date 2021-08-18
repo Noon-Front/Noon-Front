@@ -6,9 +6,8 @@ export class Product {
     discount?:number;
     rating?:string;
     stock?:number;
-    imgPath?:string;
-    categoryId?:string;
-    
-
-
+    imgPath?:any;
+    categoryId?:number;
+    brandId?:number;
+    subCategoryId?:number;
 }

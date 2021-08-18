@@ -1,5 +1,5 @@
 export class ProductImages {
-    imagePath?:string;
+    imgPath?:string;
     productid?:string;
 
 }
