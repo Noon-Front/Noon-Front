@@ -1,33 +1,47 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <google-map   height="500px"
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <google-map
+          height="500px"
           width="100%"
           [zoom]="zoom"
           [center]="center"
-          [options]="options">
+          [options]="options"
+        >
           <map-marker
-    *ngFor="let marker of markers"
-    [position]="marker.position"
-    [label]="marker.label"
-    [title]="marker.title"
-    [options]="marker.options"
-  >
-  </map-marker>
+            *ngFor="let marker of markers"
+            [position]="marker.position"
+            [label]="marker.label"
+            [title]="marker.title"
+            [options]="marker.options"
+          >
+          </map-marker>
         </google-map>
-          <button class="btn btn-warning me-2" (click)="zoomIn()">Zoom in</button>
-          <button class="btn btn-warning" (click)="zoomOut()">Zoom out</button>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
+</div>

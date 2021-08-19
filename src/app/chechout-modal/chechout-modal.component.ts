@@ -9,14 +9,14 @@ export class ChechoutModalComponent implements OnInit {
 
   constructor() { }
   markers : any= []
-  zoom = 25
+  zoom = 17
   center!: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
-    mapTypeId: 'hybrid',
+    mapTypeId: 'roadmap',
     zoomControl: false,
-    scrollwheel: false,
+    scrollwheel: true,
     disableDoubleClickZoom: true,
-    maxZoom: 15,
+    maxZoom: 18,
     minZoom: 8,
   }
 
@@ -35,41 +35,17 @@ export class ChechoutModalComponent implements OnInit {
         },
         label: {
           color: 'red',
-          text: 'Marker label ' + (this.markers.length + 1),
+          text: 'Your location ',
         },
-        title: 'Marker title ' + (this.markers.length + 1),
+        title: 'Location ',
         info: 'Marker info ' + (this.markers.length + 1),
         options: {
           animation: google.maps.Animation.BOUNCE,
         },
       })
     })
-  
+    
   }
-  zoomIn() {
-     this.zoom++
-  }
-
-  zoomOut() {
-   this.zoom--
-  }
-
-  addMarker() {
-    this.markers.push({
-      position: {
-        lat: this.center.lat + ((Math.random() - 0.5) * 2) / 10,
-        lng: this.center.lng + ((Math.random() - 0.5) * 2) / 10,
-      },
-      label: {
-        color: 'red',
-        text: 'Marker label ' + (this.markers.length + 1),
-      },
-      title: 'Marker title ' + (this.markers.length + 1),
-      info: 'Marker info ' + (this.markers.length + 1),
-      options: {
-        animation: google.maps.Animation.BOUNCE,
-      },
-    })
-  }
+ 
 
 }
