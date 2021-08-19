@@ -15,7 +15,7 @@ export class UserService {
     
     return this.http.get<User[]>(this.baseUrl)
   }
-  deleteUser(id:string):Observable<User>{
-    return this.http.delete<User>(this.baseUrl)
+  deleteUser(id:any):Observable<User>{
+    return this.http.delete<User>(this.baseUrl+`/deleteUser/${id}`)
   }
 }

@@ -16,8 +16,10 @@ export class CustomersComponent implements OnInit {
   ngOnInit(): void {
     this.userServics.getAllUsers().subscribe(data => {this.Users=data})
   }
-  delete(id : any ){
-    this.userServics.deleteUser(id).subscribe(data =>{console.log(data)})
+ async delete(id : any ){
+    console.log(id)
+  await this.userServics.deleteUser(id).subscribe(data => { console.log(data); })
+    this.ngOnInit();
 
   }
 
