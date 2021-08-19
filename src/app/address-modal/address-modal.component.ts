@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
 @Component({
-  selector: 'app-chechout-modal',
-  templateUrl: './chechout-modal.component.html',
-  styleUrls: ['./chechout-modal.component.scss']
+  selector: 'app-address-modal',
+  templateUrl: './address-modal.component.html',
+  styleUrls: ['./address-modal.component.scss']
 })
-export class ChechoutModalComponent implements OnInit {
+export class AddressModalComponent implements OnInit {
 
   constructor() { }
   markers : any= []
@@ -18,8 +19,6 @@ export class ChechoutModalComponent implements OnInit {
     maxZoom: 18,
     minZoom: 8,
   }
-
-
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition((position) => {
       this.center = {
@@ -45,6 +44,5 @@ export class ChechoutModalComponent implements OnInit {
     })
     
   }
- 
 
 }

@@ -49,7 +49,9 @@ import { RegisterSellerComponent } from './forms/register-seller/register-seller
 import { UploadComponent } from './add-product/upload/upload.component';
 import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { ChechoutModalComponent } from './chechout-modal/chechout-modal.component';//new
-import { GoogleMapsModule } from '@angular/google-maps' 
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AddressModalComponent } from './address-modal/address-modal.component';
+import { SummaryModalComponent } from './address-modal/summary-modal/summary-modal.component' 
 
 @NgModule({
   declarations: [
@@ -99,6 +101,8 @@ import { GoogleMapsModule } from '@angular/google-maps'
 
     UploadComponent,
       ChechoutModalComponent,
+      AddressModalComponent,
+      SummaryModalComponent,
       
 
 
