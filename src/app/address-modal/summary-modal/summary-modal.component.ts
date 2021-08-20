@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from './../../shared classes and interfaces/order.service';
 
 @Component({
   selector: 'app-summary-modal',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryModalComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _orderService : OrderService) { }
+  totalPrice = this._orderService.totalPrice;
   ngOnInit(): void {
   }
 

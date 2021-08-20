@@ -13,7 +13,7 @@ export class HomePageComponent implements OnInit {
   constructor(private router:Router,private _productService:ProductService) { }
 
   ngOnInit(): void {
-    this._productService.getByCategory("4").subscribe(data =>{this.allProduct=data});
+    this._productService.getByCategory("2").subscribe(data =>{this.allProduct=data});
   }
 
   addToWish(item:any){

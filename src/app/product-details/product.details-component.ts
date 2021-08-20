@@ -49,7 +49,7 @@ ProductImages:any;
   {
     this._orderService.addToCart(this.productDetails);
   }
-
+ 
   setImg(img: string): void {
    this. clickedImage= document.getElementById(img) as HTMLImageElement;
     this.mainImg.src=`${this.clickedImage.src}`;
