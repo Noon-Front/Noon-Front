@@ -19,6 +19,7 @@ import { LoginAdminComponent } from './forms/login-admin/login-admin.component';
 import { RegisterAdminComponent } from './forms/register-admin/register-admin.component';
 import { LoginSellerComponent } from './forms/login-seller/login-seller.component';
 import { RegisterSellerComponent } from './forms/register-seller/register-seller.component';
+import { ProductsDisplayComponent } from './products-display/products-display.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"home", pathMatch:"full"},
@@ -37,7 +38,8 @@ const routes: Routes = [
   {path:"sellerLogin", component:LoginSellerComponent},
   {path:"register", component:RegisterFormComponent},
   {path:"adminRegister", component:RegisterAdminComponent, canActivate:[AdminGuardGuard], data:{role:'Admin'}},
-  {path:"sellerRegister", component:RegisterSellerComponent}
+  {path:"sellerRegister", component:RegisterSellerComponent},
+  {path:"productList", component:ProductsDisplayComponent}
 ];
 
 @NgModule({

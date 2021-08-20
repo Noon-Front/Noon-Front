@@ -14,8 +14,6 @@ export class MobilesPageComponent implements OnInit {
   allMobiles:any;
   ngOnInit(): void {
     this._productService.getByCategory("2").subscribe(data =>{this.allMobiles=data ,console.log(data)});
-    this._productService.onClick(this.mobile); 
+    this._productService.onClick(this.mobile);
   }
-
-
 }

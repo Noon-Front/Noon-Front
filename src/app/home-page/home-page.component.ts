@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from '../shared classes and interfaces/product.service';
 
 @Component({
@@ -8,12 +9,10 @@ import { ProductService } from '../shared classes and interfaces/product.service
 })
 export class HomePageComponent implements OnInit {
   selectedItem:any;
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
-
   }
-
 
   addToWish(item:any){
     this.selectedItem=item.classList

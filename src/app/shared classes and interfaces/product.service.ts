@@ -30,6 +30,6 @@ export class ProductService {
   {
     console.log("clicked")
     this.router.navigate(["/product-details",product.id])
-    
+
   }
 }
