@@ -17,6 +17,7 @@ import { Component } from '@angular/core';
     <ng-template swiperSlide>Slide 2</ng-template>
     <ng-template swiperSlide>Slide 3</ng-template>
   </swiper>
+
 `,
   styleUrls: ['./app.component.scss']
 })

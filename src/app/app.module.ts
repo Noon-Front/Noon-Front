@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -48,8 +47,11 @@ import { RegisterAdminComponent } from './forms/register-admin/register-admin.co
 import { LoginSellerComponent } from './forms/login-seller/login-seller.component';
 import { RegisterSellerComponent } from './forms/register-seller/register-seller.component';
 import { UploadComponent } from './add-product/upload/upload.component';
-import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';//new
-
+import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { ChechoutModalComponent } from './chechout-modal/chechout-modal.component';//new
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AddressModalComponent } from './address-modal/address-modal.component';
+import { SummaryModalComponent } from './address-modal/summary-modal/summary-modal.component' 
 
 @NgModule({
   declarations: [
@@ -98,6 +100,10 @@ import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig } fro
     RegisterSellerComponent,
 
     UploadComponent,
+      ChechoutModalComponent,
+      AddressModalComponent,
+      SummaryModalComponent,
+      
 
 
   ],
@@ -108,13 +114,16 @@ import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig } fro
     ReactiveFormsModule,//new
     SwiperModule,
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    GoogleMapsModule
+
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,//new
       useClass: AuthInterceptor,//new
       multi: true//new
+      
     },
     {
       provide: 'SocialAuthServiceConfig',
