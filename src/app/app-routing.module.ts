@@ -39,7 +39,7 @@ const routes: Routes = [
   {path:"register", component:RegisterFormComponent},
   {path:"adminRegister", component:RegisterAdminComponent, canActivate:[AdminGuardGuard], data:{role:'Admin'}},
   {path:"sellerRegister", component:RegisterSellerComponent},
-  {path:"productList", component:ProductsDisplayComponent}
+  {path:"productList/:id", component:ProductsDisplayComponent}
 ];
 
 @NgModule({

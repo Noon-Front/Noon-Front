@@ -9,9 +9,11 @@ import { ProductService } from '../shared classes and interfaces/product.service
 })
 export class HomePageComponent implements OnInit {
   selectedItem:any;
-  constructor(private router:Router) { }
+  allProduct:any;
+  constructor(private router:Router,private _productService:ProductService) { }
 
   ngOnInit(): void {
+    this._productService.getByCategory("4").subscribe(data =>{this.allProduct=data});
   }
 
   addToWish(item:any){
@@ -24,7 +26,10 @@ export class HomePageComponent implements OnInit {
       this.selectedItem.add("bi-suit-heart")
       this.selectedItem.remove("bi-suit-heart-fill")
       this.selectedItem.remove("text-danger")
-
     }
+  }
+
+  getProducts(cateId:string){
+    this.router.navigate(['/productList',cateId]);
   }
 }
