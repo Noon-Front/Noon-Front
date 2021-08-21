@@ -31,6 +31,7 @@ export class ProductsDisplayComponent implements OnInit {
     this.router.navigate(["/product-details",productId])
   }
   filter(type:any){
+    console.log(type)
     this._productService.getProductByBrandName(type).subscribe(data => {this.productList=data})
   }
 

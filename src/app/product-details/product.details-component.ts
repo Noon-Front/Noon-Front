@@ -31,14 +31,14 @@ ProductImages:any;
     this.autoSelected=`${this.blue}`
     this.likeHeart="bi bi-suit-heart"
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
-    this._productService.getProductById(this.productId).subscribe(data =>{this.productDetails=this.rootUrlForImages+data });
+    this._productService.getProductById(this.productId).subscribe(data =>{this.productDetails=data });
   }
 
-  select(id:number){
-    this._productImagesService.getImageById(id).subscribe(data=>{this.mainImg.src=data})
+  // select(id:number){
+  //   this._productImagesService.getImageById(id).subscribe(data=>{this.mainImg.src=data})
    
-    console.log(this.mainImg.src)
-  }
+  //   console.log(this.mainImg.src)
+  // }
   ngAfterViewInit(){
     this._productImagesService.getAllProductImages(this.productId).subscribe(data =>{this.ProductImages= data, console.log(data) })
     

@@ -18,7 +18,7 @@
               <div class="accordion-body">
                 <div class="form-check pl-0 mb-3">
                   <input type="checkbox" class="form-check-input filled-in" id="Samsung">
-                  <label class="form-check-label text-uppercase card-link-secondary" for="Samsung">Samsung</label>
+                  <label class="form-check-label text-uppercase card-link-secondary" for="Samsung" (change)="filter('samsung')">Samsung</label>
                 </div>
                 <div class="form-check pl-0 mb-3">
                   <input type="checkbox" class="form-check-input filled-in" id="Apple"  (change)="filter('Apple')">
@@ -31,19 +31,19 @@
                 </div>
                 <div class="form-check pl-0 mb-3 pb-1">
                   <input type="checkbox" class="form-check-input filled-in" id="Xiaomi">
-                  <label class="form-check-label text-uppercase card-link-secondary" for="Xiaomi">Xiaomi</label>
+                  <label class="form-check-label text-uppercase card-link-secondary" for="Xiaomi" (change)="filter('Xiaomi')">Xiaomi</label>
                 </div>
                 <div class="form-check pl-0 mb-3 pb-1">
                   <input type="checkbox" class="form-check-input filled-in" id="HUAWEI">
-                  <label class="form-check-label text-uppercase card-link-secondary" for="HUAWEI">HUAWEI</label>
+                  <label class="form-check-label text-uppercase card-link-secondary" for="HUAWEI" (change)="filter('HUAWEI')">HUAWEI</label>
                 </div>
                 <div class="form-check pl-0 mb-3 pb-1">
                   <input type="checkbox" class="form-check-input filled-in" id="Lenovo">
-                  <label class="form-check-label text-uppercase card-link-secondary" for="Lenovo">Lenovo</label>
+                  <label class="form-check-label text-uppercase card-link-secondary" for="Lenovo" (change)="filter('Lenovo')">Lenovo</label>
                 </div>
                 <div class="form-check pl-0 mb-3 pb-1">
                   <input type="checkbox" class="form-check-input filled-in" id="Nokia">
-                  <label class="form-check-label text-uppercase card-link-secondary" for="Nokia">Nokia</label>
+                  <label class="form-check-label text-uppercase card-link-secondary" for="Nokia" (change)="filter('Nokia')">Nokia</label>
                 </div>
               </div>
             </div>
