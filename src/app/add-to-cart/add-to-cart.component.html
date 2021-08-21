@@ -5,7 +5,7 @@
         <h5 class="fw-bold">Cart <span>({{orders.length}} items)</span></h5>
         <div class="row product" *ngFor="let product of orders" style="margin-bottom: 30px;">
           <div class="col-2">
-            <img class="productImg" src="{{imageRoot}}{{product.imagePath}}" />
+            <img width="100%" class="productImg" src="{{imageRoot}}{{product.imagePath}}" />
           </div>
           <div class="col">
             <h5>{{product.name}}</h5>
