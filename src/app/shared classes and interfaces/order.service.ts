@@ -9,6 +9,8 @@ export class OrderService {
   productPrice: any;
   totalPrice: number = 0;
   counter: number = 0;
+  location:any;
+  mobileNumber:any
   constructor() {}
 
   addToCart(product: Product) {

@@ -10,7 +10,7 @@
                 <form>
                     <div class="mb-3">
                         <label for="adressInput" class="form-label">Address</label>
-                        <input type="text" aria-label="First name" class="form-control" placeholder="Example st. ">
+                        <input type="text" aria-label="First name" class="form-control" placeholder="Example st. " #location >
                         <div id="adressLable" class="form-text text-warning">Please enter address in details</div>
                     </div>
                     <div class="mb-3">
@@ -18,7 +18,7 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text bg-light" id="basic-addon1">+20</span>
                             <input type="text" class="form-control" aria-label="phoneNumber"
-                                aria-describedby="basic-addon1">
+                                aria-describedby="basic-addon1" #mobile>
                         </div>
                     </div>
 
@@ -30,7 +30,7 @@
                     Back to location
                 </button>
                 <button class="btn btn-success" data-bs-target="#summaryModal" data-bs-toggle="modal"
-                    data-bs-dismiss="modal">
+                    data-bs-dismiss="modal" (click)="getLocation(location.value , mobile.value)">
                     Submit
                 </button>
             </div>
