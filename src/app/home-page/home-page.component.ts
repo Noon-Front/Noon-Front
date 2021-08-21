@@ -10,7 +10,7 @@ import { ProductService } from '../shared classes and interfaces/product.service
 export class HomePageComponent implements OnInit {
   selectedItem:any;
   allProduct:any;
-  constructor(private router:Router,private _productService:ProductService) { }
+  constructor(private router:Router,public _productService:ProductService) { }
 
   ngOnInit(): void {
     this._productService.getByCategory("2").subscribe(data =>{this.allProduct=data});
