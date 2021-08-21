@@ -1,88 +1,95 @@
 <section class="container d-flex  justify-content-center">
-    <form #addProductForm= ngForm  class=" w-25 m-3 ">
-      <h2 >Publish a new product</h2>
-        <!-- name -->
-        <div class="my-3">
-        <label for="name" >Product Name</label>
-         <span *ngIf="name.errors?.required && name.touched" class="text-danger"> This feild is required</span>
-        <input id="name" type="text" class="form-control " placeholder="Product Name" name="name" #name="ngModel" [(ngModel)]="product.name" required>
-         </div>
-        <!-- description -->
-        <div class="  my-3">
-        <label for="description" >Description</label>
-        <span *ngIf="description.errors?.required && description.touched" class="text-danger"> This feild is required</span>
-       <textarea id="description" rows="4" type="text" class="form-control" placeholder="description" name="description" #description="ngModel" [(ngModel)]="product.description" required></textarea>
-        </div>
-        <!-- Price -->
-        <div class="my-3">
-            <label for="price" >Product Price</label>
-             <span *ngIf="price.errors?.required && price.touched" class="text-danger">This feild is required</span>
-            <input id="price" type="number" class="form-control " placeholder="Price" name="price" #price="ngModel" [(ngModel)]="product.price" required>
-             </div>
-    
-             <!-- Discount -->
-           <div class="my-3">
-            <label for="discount" >Discount</label>
-             <span *ngIf="discount.errors?.required && discount.touched" class="text-danger"> This feild is required</span>
-            <input id="discount" type="number" class="form-control " placeholder="Discount" name="discount" #discount="ngModel" [(ngModel)]="product.discount" required>
-             </div>
-                <!-- stocks -->
-           <div class="my-3">
-            <label for="stock" >stocks Number</label>
-             <span *ngIf="stock.errors?.required && stock.touched" class="text-danger"> This feild is required</span>
-            <input id="stock" type="number" class="form-control " placeholder="Stocks number" name="stock" #stock="ngModel" [(ngModel)]="product.stock" required>
-             </div>
-              <!-- select category -->
-              <label>Category</label>
-              <select class="form-control my-2" name="category"  #category="ngModel" [(ngModel)]="product.categoryId"  >
-                <option *ngFor="let category of categories" [ngValue]="category.id" >{{category.name}}</option>
-              </select>
-               <!-- select brand -->
-               <label>Brand</label>
-               <select class="form-control my-2" name="brand"  #brand="ngModel" [(ngModel)]="product.brandId"  >
-                 <option *ngFor="let brand of brands" [ngValue]="brand.id" >{{brand.name}}</option>
-               </select>
-                <!-- select subCategory -->
-              <label>SubCategory</label>
-              <select class="form-control my-2" name="subCategory"  #subCategory="ngModel" [(ngModel)]="product.subCategoryId" (change)="addProduct()"  >
-                <option *ngFor="let subCategory of subCategories" [ngValue]="subCategory.id" >{{subCategory.subcatName}}</option>
-              </select>
-             <!-- image -->
-             <h6>Images</h6>
-             <div class="my-3 d-flex">
-              <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
-              <button type="button" class="btn btn-success" (click)="file.click()">Upload Image 1</button>
-              <button type="button" class="btn btn-success" (click)="file.click()">Upload Image 2</button>
-              <button type="button" class="btn btn-success" (click)="file.click()">Upload Image 3</button>
-                
-                <span class="upload" *ngIf="message">
-                  {{message}}
-                </span>
-               
-                
-                 <!-- <span *ngIf="imagePath.errors?.required && imagePath.touched" class="text-danger"> This feild is required</span>
+  <form #addProductForm=ngForm class=" w-25 m-3 ">
+    <h2>Publish a new product</h2>
+    <!-- name -->
+    <div class="my-3">
+      <label for="name">Product Name</label>
+      <span *ngIf="name.errors?.required && name.touched" class="text-danger"> This feild is required</span>
+      <input id="name" type="text" class="form-control " placeholder="Product Name" name="name" #name="ngModel"
+        [(ngModel)]="product.name" required>
+    </div>
+    <!-- description -->
+    <div class="  my-3">
+      <label for="description">Description</label>
+      <span *ngIf="description.errors?.required && description.touched" class="text-danger"> This feild is
+        required</span>
+      <textarea id="description" rows="4" type="text" class="form-control" placeholder="description" name="description"
+        #description="ngModel" [(ngModel)]="product.description" required></textarea>
+    </div>
+    <!-- Price -->
+    <div class="my-3">
+      <label for="price">Product Price</label>
+      <span *ngIf="price.errors?.required && price.touched" class="text-danger">This feild is required</span>
+      <input id="price" type="number" class="form-control " placeholder="Price" name="price" #price="ngModel"
+        [(ngModel)]="product.price" required>
+    </div>
+
+    <!-- Discount -->
+    <div class="my-3">
+      <label for="discount">Discount</label>
+      <span *ngIf="discount.errors?.required && discount.touched" class="text-danger"> This feild is required</span>
+      <input id="discount" type="number" class="form-control " placeholder="Discount" name="discount"
+        #discount="ngModel" [(ngModel)]="product.discount" required>
+    </div>
+    <!-- stocks -->
+    <div class="my-3">
+      <label for="stock">stocks Number</label>
+      <span *ngIf="stock.errors?.required && stock.touched" class="text-danger"> This feild is required</span>
+      <input id="stock" type="number" class="form-control " placeholder="Stocks number" name="stock" #stock="ngModel"
+        [(ngModel)]="product.stock" required>
+    </div>
+    <!-- select category -->
+    <label>Category</label>
+    <select class="form-control my-2" name="category" #category="ngModel" [(ngModel)]="product.categoryId">
+      <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+    </select>
+    <!-- select brand -->
+    <label>Brand</label>
+    <select class="form-control my-2" name="brand" #brand="ngModel" [(ngModel)]="product.brandId">
+      <option *ngFor="let brand of brands" [ngValue]="brand.id">{{brand.name}}</option>
+    </select>
+    <!-- select subCategory -->
+    <label>SubCategory</label>
+    <select class="form-control my-2" name="subCategory" #subCategory="ngModel" [(ngModel)]="product.subCategoryId"
+      (change)="addProduct()">
+      <option *ngFor="let subCategory of subCategories" [ngValue]="subCategory.id">{{subCategory.subcatName}}</option>
+    </select>
+    <!-- image -->
+    <h6>Images</h6>
+    <div class="my-3 d-flex">
+      <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;">
+      <button type="button" class="btn btn-success" (click)="file.click()">Upload Image 1</button>
+      <button type="button" class="btn btn-success" (click)="file.click()">Upload Image 2</button>
+      <button type="button" class="btn btn-success" (click)="file.click()">Upload Image 3</button>
+
+      <span class="upload" *ngIf="message">
+        {{message}}
+      </span>
+
+
+      <!-- <span *ngIf="imagePath.errors?.required && imagePath.touched" class="text-danger"> This feild is required</span>
                 <input  multiple #image1 id="image1" type="file" class=" image form-control d-none" placeholder="Images" name="imagePath" #imagePath="ngModel" [(ngModel)]="productImage.imagePath" required (change)="handelUpload1($event)">
                 <img (click)="image1.click()" class="w-50 m-1 border image shadow" [src]="imageUrl1" >
                 <input  multiple #image2 id="image2" type="file" class="  form-control d-none" placeholder="Images" name="imagePath" #imagePath="ngModel" [(ngModel)]="productImage.imagePath" required (change)="handelUpload2($event)">
                 <img (click)="image2.click()" class="w-50 m-1 border image shadow" [src]="imageUrl2" >
                 <input  multiple #image3 id="image3" type="file" class="  form-control d-none" placeholder="Images" name="imagePath" #imagePath="ngModel" [(ngModel)]="productImage.imagePath" required (change)="handelUpload3($event)">
                 <img (click)="image3.click()" class="w-50 m-1 image border shadow" [src]="imageUrl3" > -->
-                 </div>
-    
-                
-                 <!-- select sub-subcategory -->
-                 <!-- <label>Sub-category</label>
+    </div>
+
+
+    <!-- select sub-subcategory -->
+    <!-- <label>Sub-category</label>
                  <select class="form-control my-2" name="subCategory" #subCategory="ngModel" [(ngModel)]="product.subCategory" >
                    <option *ngFor="let subCategory of subCategories" [ngValue]='subCategory.id'>{{subCategory.subcatName}}</option>
                  </select> -->
-                 <!-- select brand -->
-                 <!-- <label>Brand</label>
+    <!-- select brand -->
+    <!-- <label>Brand</label>
                  <select class="form-control my-2" name="brand" #brand="ngModel" [(ngModel)]="product.brand">
                    <option *ngFor="let brand of brands"[ngValue]="brand.id">{{brand.name}}</option>
                  </select> -->
-                 <!-- submit button -->
-                 <button type="submit"  class="btn btn-success"  >+add new Product</button>
-    
-    
-    </form>
-    </section>
+    <!-- submit button -->
+    <button type="submit" class="btn btn-success">+add new Product</button>
+
+
+  </form>
+</section>
