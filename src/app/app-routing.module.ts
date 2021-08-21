@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'fashion', component: FashionPageComponent },
   {path: 'electronics', component: ElectronicsPageComponent },
   {path: 'homeCategory', component: HomeCategoryComponent },
-  {path: 'cart',component: AddToCartComponent},//AuthGuard new
+  {path: 'cart',component: AddToCartComponent, canActivate:[UserGuardGuard], data:{role:'User'}},//AuthGuard new
   {path:'mobiles', component:MobilesPageComponent},
   {path:'supermarket',component:SupermarketPageComponent},
   {path:'dashboard' , component:DashboardComponent, canActivate:[AdminGuardGuard], data:{role:'Admin'}},
