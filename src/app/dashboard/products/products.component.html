@@ -3,24 +3,20 @@
   <table class="table table-striped table-sm">
     <thead>
       <tr>
-        <th scope="col" class="fw-bold">Number</th>
         <th scope="col" class="fw-bold">Product Name</th>
-        <th scope="col" class="fw-bold">Seller</th>
         <th scope="col" class="fw-bold">Price</th>
         <th scope="col" class="fw-bold">Stock</th>
         <th scope="col-2" class="fw-bold">Modification</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1,001</td>
-        <td>random</td>
-        <td>data</td>
-        <td>placeholder</td>
-        <td>text</td>
+      <tr *ngFor="let product of products">
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.stock}}</td>
         <td>
             <button class="btn btn-primary mx-1">Edit</button>
-            <button class="btn btn-danger mx-1">Delete</button>
+            <button class="btn btn-danger mx-1"(click)="delete(product.id)">Delete</button>
         </td>
       </tr>
     </tbody>

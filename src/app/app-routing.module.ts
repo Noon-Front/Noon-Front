@@ -36,6 +36,7 @@ const routes: Routes = [
   {path:"login", component:LoginFormComponent},
   {path:"adminLogin", component:LoginAdminComponent},
   {path:"sellerLogin", component:LoginSellerComponent},
+  {path:"productsDisplay", component:ProductsDisplayComponent},
   {path:"register", component:RegisterFormComponent},
   {path:"adminRegister", component:RegisterAdminComponent, canActivate:[AdminGuardGuard], data:{role:'Admin'}},
   {path:"sellerRegister", component:RegisterSellerComponent},

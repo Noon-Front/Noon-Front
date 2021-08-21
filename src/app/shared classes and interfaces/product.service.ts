@@ -30,6 +30,12 @@ export class ProductService {
   {
     console.log("clicked")
     this.router.navigate(["/product-details",product.id])
+  }
+  getAllProducts():Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl)
 
+  }
+  deleteProduct(id:number):Observable<Product>{
+    return this.http.delete<Product>(this.baseUrl)
   }
 }

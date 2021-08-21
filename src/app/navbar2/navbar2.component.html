@@ -1,4 +1,4 @@
-<div class="Categories" (mouseleave)="hideList()">
+<div class="Categories">
   <section class="navbar2">
     <nav>
       <div class="container-fluid d-flex">
@@ -10,13 +10,13 @@
         </div>
         <div class="cate">
           <ul>
-            <li (mouseover)="showList()" (click)="hideList()"><a [routerLink]="['/electronics']">Electronics</a></li>
-            <li (mouseover)="showList()" (click)="hideList()"><a [routerLink]="['/mobiles']">Mobiles</a></li>
-            <li (mouseover)="showList()" (click)="hideList()"><a [routerLink]="['/fashion']">Fashion</a></li>
-            <li (mouseover)="showList()" (click)="hideList()"><a [routerLink]="['/homeCategory']">Home</a></li>
-            <li (mouseover)="showList()" (click)="hideList()"><a href="#">Beauty & Healthy</a></li>
-            <li (mouseover)="showList()" (click)="hideList()"><a href="#">Baby & Toys</a></li>
-            <li (mouseover)="showList()" (click)="hideList()"><a [routerLink]="['/supermarket']">Subermarket</a></li>
+            <li  (click)="hideList()"><a [routerLink]="['/electronics']">Electronics</a></li>
+            <li  (click)="hideList()"><a [routerLink]="['/mobiles']">Mobiles</a></li>
+            <li  (click)="hideList()"><a [routerLink]="['/fashion']">Fashion</a></li>
+            <li  (click)="hideList()"><a [routerLink]="['/homeCategory']">Home</a></li>
+            <li  (click)="hideList()"><a href="#">Beauty & Healthy</a></li>
+            <li  (click)="hideList()"><a href="#">Baby & Toys</a></li>
+            <li  (click)="hideList()"><a [routerLink]="['/supermarket']">Subermarket</a></li>
           </ul>
         </div>
       </div>
@@ -25,7 +25,7 @@
 
   <!-- [class.d-none]="show" -->
 
-  <section *ngIf="show" class="category-list" (mouseleave)="hideList()">
+  <section *ngIf="show" class="category-list">
     <div class="container-fluid d-flex">
       <ul class="brand-list">
         <li><a href="#">Electronics</a></li>

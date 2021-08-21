@@ -30,5 +30,6 @@ export class OrderService {
 
     
     console.log(this.totalPrice);
+
   }
 }
