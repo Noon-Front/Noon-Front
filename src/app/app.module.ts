@@ -51,7 +51,8 @@ import { FacebookLoginProvider, SocialLoginModule, SocialAuthServiceConfig } fro
 import { ChechoutModalComponent } from './chechout-modal/chechout-modal.component';//new
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AddressModalComponent } from './address-modal/address-modal.component';
-import { SummaryModalComponent } from './address-modal/summary-modal/summary-modal.component' 
+import { SummaryModalComponent } from './address-modal/summary-modal/summary-modal.component';
+import { InputModalComponent } from './address-modal/input-modal/input-modal.component' 
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { SummaryModalComponent } from './address-modal/summary-modal/summary-mod
       ChechoutModalComponent,
       AddressModalComponent,
       SummaryModalComponent,
+      InputModalComponent,
       
 
 

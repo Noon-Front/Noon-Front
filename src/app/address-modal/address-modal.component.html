@@ -2,7 +2,7 @@
 <!-- Modal -->
 <div
   class="modal fade"
-  id="exampleModal"
+  id="addressModal"
   tabindex="-1"
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
@@ -38,11 +38,12 @@
         </google-map>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger">No</button>
-        <button type="button" class="btn btn-success" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Yes</button>
+        <button type="button" class="btn btn-danger" data-bs-target="#inputAddressModal" data-bs-toggle="modal" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-success" data-bs-target="#summaryModal" data-bs-toggle="modal" data-bs-dismiss="modal">Yes</button>
 
       </div>
     </div>
   </div>
 </div>
 <app-summary-modal></app-summary-modal>
+<app-input-modal></app-input-modal>

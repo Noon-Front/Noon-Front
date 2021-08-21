@@ -1,0 +1,39 @@
+<div class="modal fade" id="inputAddressModal" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel2">Shiping details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="adressInput" class="form-label">Address</label>
+                        <input type="text" aria-label="First name" class="form-control" placeholder="Example st. ">
+                        <div id="adressLable" class="form-text text-warning">Please enter address in details</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="adressInput" class="form-label">Phone</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-light" id="basic-addon1">+20</span>
+                            <input type="text" class="form-control" aria-label="phoneNumber"
+                                aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#addressModal" data-bs-toggle="modal"
+                    data-bs-dismiss="modal">
+                    Back to location
+                </button>
+                <button class="btn btn-success" data-bs-target="#summaryModal" data-bs-toggle="modal"
+                    data-bs-dismiss="modal">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

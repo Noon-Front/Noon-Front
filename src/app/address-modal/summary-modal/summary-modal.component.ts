@@ -8,8 +8,11 @@ import { OrderService } from './../../shared classes and interfaces/order.servic
 })
 export class SummaryModalComponent implements OnInit {
 
-  constructor(private _orderService : OrderService) { }
-  totalPrice = this._orderService.totalPrice;
+  constructor(public _orderService : OrderService) { }
+  order : any = this._orderService.cart;
+  todayDate =  new Date();
+  today= String(this.todayDate).slice(0,25);
+  deliveryDay = new Date()
   ngOnInit(): void {
   }
 
