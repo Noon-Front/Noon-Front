@@ -16,5 +16,10 @@ export class SummaryModalComponent implements OnInit {
   deliveryDate = String(this.delivery).slice(0,25);
   ngOnInit(): void {
   }
-
+  clearCart()
+  {
+    this._orderService.counter = 0;
+    this._orderService.cart = [];
+    this._orderService.totalPrice = 0;
+  }
 }
