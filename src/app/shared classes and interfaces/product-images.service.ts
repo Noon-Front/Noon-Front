@@ -16,4 +16,8 @@ export class ProductImagesService {
   getAllProductImages(id :number):Observable<ProductImages> {
    return this.http.get(this.baseUrl+`/${id}`)
   }
+  
+  getImageById(id:any):Observable<ProductImages> {
+    return this.http.get<ProductImages>(this.baseUrl+`/${id}`)
+  }
 }

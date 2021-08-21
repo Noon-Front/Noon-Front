@@ -11,13 +11,13 @@
                     <div class="d-flex justify-content-end align-items">
                         <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
                     </div>
-                    <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
+                    <img class="img-responsive w-100" src="{{baseRootForImages}}{{mobile.imagePath}}">
                     <div class="lg-font fw-bold ">{{mobile.name}}</div>
                     <span class="mid-font ">{{mobile.price| currency:"EGP ":"symbol"}}</span>
                     <!-- express and rating  -->
                     <div class="d-flex justify-content-between align-items-center">
                         <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-                        <span class="sml-font"> <i class="bi bi-star-fill stars"> {{mobile.rating}}</i> (14)</span>
+                        <span class="sml-font"> <i class="bi bi-star-fill stars"> {{mobile.rating}}</i>{{mobile.stock}} </span>
                     </div>
                 </div>
             </ng-template>
@@ -37,13 +37,13 @@
                     <div class="d-flex justify-content-end align-items">
                         <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
                     </div>
-                    <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
+                    <img class="img-responsive w-100" src="{{baseRootForImages}}{{mobile.imagePath}}">
                     <div class="lg-font fw-bold ">{{mobile.name}}</div>
                     <span class="mid-font ">{{mobile.price| currency:"EGP ":"symbol"}}</span>
                     <!-- express and rating  -->
                     <div class="d-flex justify-content-between align-items-center">
                         <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-                        <span class="sml-font"> <i class="bi bi-star-fill stars"> {{mobile.rating}}</i> (14)</span>
+                        <span class="sml-font"> <i class="bi bi-star-fill stars"> {{mobile.rating}}</i>{{mobile.stock}} </span>
                     </div>
                 </div>
             </ng-template>
@@ -62,13 +62,13 @@
                     <div class="d-flex justify-content-end align-items">
                         <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
                     </div>
-                    <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
+                    <img class="img-responsive w-100" src="{{baseRootForImages}}{{mobile.imagePath}}">
                     <div class="lg-font fw-bold ">{{mobile.name}}</div>
                     <span class="mid-font ">{{mobile.price| currency:"EGP ":"symbol"}}</span>
                     <!-- express and rating  -->
                     <div class="d-flex justify-content-between align-items-center">
                         <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-                        <span class="sml-font"> <i class="bi bi-star-fill stars"> {{mobile.rating}}</i> (14)</span>
+                        <span class="sml-font"> <i class="bi bi-star-fill stars"> {{mobile.rating}}</i>{{mobile.stock}} </span>
                     </div>
                 </div>
             </ng-template>
@@ -85,13 +85,13 @@
             <div class="d-flex justify-content-end align-items">
                 <button class="bg-light sml-like mt-2 px-1 "><i class="bi bi-suit-heart"></i></button>
             </div>
-            <img class="img-responsive w-100" src="./assets/Images/Product img(1).png">
+            <img class="img-responsive w-100" src="{{baseRootForImages}}{{mobile.imagePath}}">
             <div class="sml-font">CanvasSelect Plus UHS-I SDHC Memory Card 32GB </div>
             <div>EGP <span class="fw-bold">125.00</span></div>
             <!-- express and rating  -->
             <div class="d-flex justify-content-between align-items-center">
                 <span class=" d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-                <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i> (14)</span>
+                <span class="sml-font"> <i class="bi bi-star-fill stars"> 5</i>{{mobile.stock}} </span>
             </div>
         </div>
 

@@ -28,17 +28,16 @@ ProductImages:any;
 
   ngOnInit(): void {
     this.mainImg= document.getElementById("mainImg") as HTMLImageElement;
-    this.img1= document.getElementById("img1") as HTMLImageElement;
-    this.img2= document.getElementById("img2") as HTMLImageElement;
-    this.img3= document.getElementById("img3") as HTMLImageElement;
     this.autoSelected=`${this.blue}`
     this.likeHeart="bi bi-suit-heart"
-
     this.productId = this.activatedRoute.snapshot.paramMap.get('id');
-    this._productService.getProductById(this.productId).subscribe(data =>{this.productDetails=data });
+    this._productService.getProductById(this.productId).subscribe(data =>{this.productDetails=this.rootUrlForImages+data });
+  }
 
-    
- 
+  select(id:number){
+    this._productImagesService.getImageById(id).subscribe(data=>{this.mainImg.src=data})
+   
+    console.log(this.mainImg.src)
   }
   ngAfterViewInit(){
     this._productImagesService.getAllProductImages(this.productId).subscribe(data =>{this.ProductImages= data, console.log(data) })

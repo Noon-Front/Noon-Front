@@ -38,4 +38,7 @@ export class ProductService {
   deleteProduct(id:number):Observable<Product>{
     return this.http.delete<Product>(this.baseUrl)
   }
+  getProductByBrandName(brandName:any):Observable<Product[]>{
+    return this.http.get<Product[]>(this.baseUrl+`/BrandName/${brandName}`)
+  }
 }

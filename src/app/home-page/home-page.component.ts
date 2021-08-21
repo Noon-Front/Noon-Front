@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProductImages } from '../shared classes and interfaces/product-images';
+import { ProductImagesService } from '../shared classes and interfaces/product-images.service';
 import { ProductService } from '../shared classes and interfaces/product.service';
 
 @Component({
@@ -9,8 +11,11 @@ import { ProductService } from '../shared classes and interfaces/product.service
 })
 export class HomePageComponent implements OnInit {
   selectedItem:any;
+  baseImagesRoot="https://localhost:44326/"
   allProduct:any;
-  constructor(private router:Router,public _productService:ProductService) { }
+  productImage:any;
+  productId:any;
+  constructor(private router:Router,public _productService:ProductService, private _productImagesService:ProductImagesService) { }
 
   ngOnInit(): void {
     this._productService.getByCategory("2").subscribe(data =>{this.allProduct=data});
