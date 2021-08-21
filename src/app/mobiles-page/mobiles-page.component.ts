@@ -12,6 +12,7 @@ export class MobilesPageComponent implements OnInit {
   constructor(public _productService : ProductService , private router:Router) { }
   mobile:any;
   allMobiles:any;
+  baseRootForImages="https://localhost:44326/"
   ngOnInit(): void {
     this._productService.getByCategory("2").subscribe(data =>{this.allMobiles=data ,console.log(data)});
     this._productService.onClick(this.mobile);

@@ -9,6 +9,7 @@ import { OrderService } from '../shared classes and interfaces/order.service';
 export class AddToCartComponent implements OnInit {
 orders:any;
 product:any;
+imageRoot="https://localhost:44326/"
   constructor(public _orderService:OrderService) { }
 
   ngOnInit(): void {

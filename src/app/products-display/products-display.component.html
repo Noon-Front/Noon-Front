@@ -21,7 +21,7 @@
                   <label class="form-check-label text-uppercase card-link-secondary" for="Samsung">Samsung</label>
                 </div>
                 <div class="form-check pl-0 mb-3">
-                  <input type="checkbox" class="form-check-input filled-in" id="Apple">
+                  <input type="checkbox" class="form-check-input filled-in" id="Apple"  (change)="filter('Apple')">
                   <label class="form-check-label text-uppercase card-link-secondary" for="Apple">Apple</label>
                 </div>
                 <div class="form-check pl-0 mb-3">
@@ -217,14 +217,14 @@
         <ul class="list-unstyled d-flex justify-content-center justify-content-lg-between flex-wrap">
           <li *ngFor="let product of productList" style="background-color: #FFFFFF;width: 270px">
             <a class="text-decoration-none">
-              <div class="item bg-white py-0 my-2" style="width: 230px; padding: 0 8px; height: auto;">
-                <img class="img-responsive w-100" src="assets/Images/All-Products-Display/3.jpg">
+              <div class="item bg-white py-0 m-2" style="width: 230px; padding: 0 8px; height: auto;">
+                <img class="img-responsive w-100" src="{{imageRoot}}{{product.imagePath}}">
                 <div class="sml-font" style="color: #404553;margin-bottom: 10px;">{{product.name}}</div>
                 <div>EGP <span class="fw-bold">{{product.price}}</span></div>
                 <!-- express and rating list-unstyled d-flex  -->
                 <div class="d-flex justify-content-between align-items-center" style="margin-top: 10px;">
                   <span class="d-flex px-2 fst-italic fw-bold sml-font express">express</span>
-                  <span class="sml-font"> <i class="bi bi-star-fill stars"> {{product.rating}}</i> (14)</span>
+                  <span class="sml-font"> <i class="bi bi-star-fill stars"> {{product.rating}}</i> {{product.stock}}</span>
                 </div>
               </div>
             </a>

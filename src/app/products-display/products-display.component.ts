@@ -13,6 +13,7 @@ export class ProductsDisplayComponent implements OnInit {
   cateId: any;
   productList:any;
   productDetails:any;
+  imageRoot="https://localhost:44326/"
 
   constructor(
     private _productService:ProductService,
@@ -28,6 +29,9 @@ export class ProductsDisplayComponent implements OnInit {
 
   showDetails(productId:string){
     this.router.navigate(["/product-details",productId])
+  }
+  filter(type:any){
+    this._productService.getProductByBrandName(type).subscribe(data => {this.productList=data})
   }
 
   addProductToCart(product : any){
