@@ -12,7 +12,8 @@ export class SummaryModalComponent implements OnInit {
   order : any = this._orderService.cart;
   todayDate =  new Date();
   today= String(this.todayDate).slice(0,25);
-  deliveryDay = new Date()
+  delivery =new Date(this.todayDate.getFullYear(),this.todayDate.getMonth(),this.todayDate.getDate()+3)
+  deliveryDate = String(this.delivery).slice(0,25);
   ngOnInit(): void {
   }
 

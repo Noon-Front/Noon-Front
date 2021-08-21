@@ -52,7 +52,8 @@ import { ChechoutModalComponent } from './chechout-modal/chechout-modal.componen
 import { GoogleMapsModule } from '@angular/google-maps';
 import { AddressModalComponent } from './address-modal/address-modal.component';
 import { SummaryModalComponent } from './address-modal/summary-modal/summary-modal.component';
-import { InputModalComponent } from './address-modal/input-modal/input-modal.component' 
+import { InputModalComponent } from './address-modal/input-modal/input-modal.component';
+import { ThanksModalComponent } from './address-modal/thanks-modal/thanks-modal.component' 
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import { InputModalComponent } from './address-modal/input-modal/input-modal.com
       AddressModalComponent,
       SummaryModalComponent,
       InputModalComponent,
+      ThanksModalComponent,
       
 
 

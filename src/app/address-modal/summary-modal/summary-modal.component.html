@@ -17,7 +17,7 @@
                         <tr>
                             <th scope="col-1">#</th>
                             <th scope="col-4">Deliviy Date</th>
-                            <th scope="col">{{deliveryDay}}</th>
+                            <th scope="col">{{deliveryDate}}</th>
                         </tr>
                         <tr>
                             <th scope="col-1">#</th>
@@ -38,7 +38,12 @@
                     data-bs-dismiss="modal">
                     Back to location
                 </button>
+                <button class="btn btn-success" data-bs-target="#thanksModal" data-bs-toggle="modal"
+                data-bs-dismiss="modal">
+                Submit
+            </button>
             </div>
         </div>
     </div>
 </div>
+<app-thanks-modal></app-thanks-modal>
